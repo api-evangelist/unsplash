@@ -1,0 +1,89 @@
+{
+  "title": "Unsplash Photo Structure",
+  "description": "Structural documentation for Unsplash photo objects",
+  "entity": "Photo",
+  "fields": [
+    {"name": "id", "type": "string", "required": true, "description": "Unique photo identifier (alphanumeric)"},
+    {"name": "created_at", "type": "datetime", "required": false, "description": "Upload timestamp (ISO 8601)"},
+    {"name": "updated_at", "type": "datetime", "required": false, "description": "Last update timestamp"},
+    {"name": "promoted_at", "type": "datetime|null", "required": false, "description": "Editorial promotion timestamp"},
+    {"name": "width", "type": "integer", "required": false, "description": "Original width in pixels"},
+    {"name": "height", "type": "integer", "required": false, "description": "Original height in pixels"},
+    {"name": "color", "type": "string", "required": false, "description": "Dominant color hex (#RRGGBB)"},
+    {"name": "blur_hash", "type": "string", "required": false, "description": "BlurHash for placeholder generation"},
+    {"name": "description", "type": "string|null", "required": false, "description": "Photographer description"},
+    {"name": "alt_description", "type": "string|null", "required": false, "description": "Auto-generated accessibility alt text"},
+    {"name": "likes", "type": "integer", "required": false, "description": "Like count"},
+    {"name": "downloads", "type": "integer", "required": false, "description": "Total downloads"},
+    {"name": "views", "type": "integer", "required": false, "description": "Total views"},
+    {"name": "liked_by_user", "type": "boolean", "required": false, "description": "Authenticated user liked this"},
+    {
+      "name": "urls",
+      "type": "object",
+      "required": true,
+      "description": "Image URLs at different sizes",
+      "fields": [
+        {"name": "raw", "type": "uri", "description": "Original with imgix transformation support"},
+        {"name": "full", "type": "uri", "description": "Full quality (no compression)"},
+        {"name": "regular", "type": "uri", "description": "1080px wide"},
+        {"name": "small", "type": "uri", "description": "400px wide"},
+        {"name": "thumb", "type": "uri", "description": "200px thumbnail"},
+        {"name": "small_s3", "type": "uri", "description": "S3-hosted small"}
+      ]
+    },
+    {
+      "name": "links",
+      "type": "object",
+      "required": false,
+      "description": "Navigation links",
+      "fields": [
+        {"name": "self", "type": "uri", "description": "API URL"},
+        {"name": "html", "type": "uri", "description": "Attribution page (REQUIRED for compliance)"},
+        {"name": "download", "type": "uri", "description": "Download page"},
+        {"name": "download_location", "type": "uri", "description": "Download tracking endpoint (REQUIRED when user downloads)"}
+      ]
+    },
+    {
+      "name": "user",
+      "type": "UserSummary",
+      "required": true,
+      "description": "Photographer profile"
+    },
+    {
+      "name": "location",
+      "type": "object",
+      "required": false,
+      "fields": [
+        {"name": "name", "type": "string|null"},
+        {"name": "city", "type": "string|null"},
+        {"name": "country", "type": "string|null"},
+        {"name": "position.latitude", "type": "float|null"},
+        {"name": "position.longitude", "type": "float|null"}
+      ]
+    },
+    {
+      "name": "exif",
+      "type": "object",
+      "required": false,
+      "description": "Camera metadata",
+      "fields": [
+        {"name": "make", "type": "string|null", "description": "Camera manufacturer"},
+        {"name": "model", "type": "string|null", "description": "Camera model"},
+        {"name": "exposure_time", "type": "string|null"},
+        {"name": "aperture", "type": "string|null"},
+        {"name": "focal_length", "type": "string|null"},
+        {"name": "iso", "type": "integer|null"}
+      ]
+    },
+    {
+      "name": "tags",
+      "type": "array<object>",
+      "required": false,
+      "description": "Classification tags",
+      "fields": [
+        {"name": "type", "type": "string"},
+        {"name": "title", "type": "string"}
+      ]
+    }
+  ]
+}

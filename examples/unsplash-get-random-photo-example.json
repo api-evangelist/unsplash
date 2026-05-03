@@ -1,0 +1,47 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.unsplash.com/photos/random?orientation=landscape&content_filter=high",
+    "headers": {
+      "Authorization": "Client-ID YOUR_ACCESS_KEY",
+      "Accept-Version": "v1"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": "gKXKBY-C-Dk",
+      "created_at": "2018-05-07T18:42:02Z",
+      "updated_at": "2023-04-30T00:01:04Z",
+      "width": 5184,
+      "height": 3456,
+      "color": "#262626",
+      "blur_hash": "LhI}H]M{RjWX~Wt6IUWC%Mt7ofj=",
+      "description": "Aerial view of mountains",
+      "alt_description": "aerial photography of mountains",
+      "likes": 931,
+      "downloads": 73450,
+      "urls": {
+        "raw": "https://images.unsplash.com/photo-1525715843408-5c6ec44a00b5",
+        "full": "https://images.unsplash.com/photo-1525715843408-5c6ec44a00b5?q=85&fm=jpg&crop=entropy&cs=srgb",
+        "regular": "https://images.unsplash.com/photo-1525715843408-5c6ec44a00b5?w=1080&q=80",
+        "small": "https://images.unsplash.com/photo-1525715843408-5c6ec44a00b5?w=400&q=80",
+        "thumb": "https://images.unsplash.com/photo-1525715843408-5c6ec44a00b5?w=200&q=80"
+      },
+      "links": {
+        "self": "https://api.unsplash.com/photos/gKXKBY-C-Dk",
+        "html": "https://unsplash.com/photos/gKXKBY-C-Dk",
+        "download": "https://unsplash.com/photos/gKXKBY-C-Dk/download",
+        "download_location": "https://api.unsplash.com/photos/gKXKBY-C-Dk/download"
+      },
+      "user": {
+        "id": "IFcEhJqem0Q",
+        "username": "marekpiwnicki",
+        "name": "Marek Piwnicki",
+        "total_photos": 567,
+        "total_likes": 12045,
+        "total_collections": 3
+      }
+    }
+  }
+}

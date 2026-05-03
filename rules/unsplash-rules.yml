@@ -1,0 +1,83 @@
+extends: [[spectral:oas, all]]
+
+rules:
+
+  # Summaries must be Title Case
+  unsplash-title-case-summary:
+    description: Operation summaries must use Title Case
+    message: "Summary '{{value}}' should use Title Case"
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z]"
+
+  # All operations must have operationIds
+  unsplash-operation-id:
+    description: All operations must have an operationId
+    message: "Operation missing operationId"
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: operationId
+      function: truthy
+
+  # Download tracking compliance — download_location must be defined
+  unsplash-download-tracking:
+    description: Photo objects must include download_location link for tracking compliance
+    message: "Photo links should include download_location for Unsplash API guidelines compliance"
+    severity: warn
+    given: "$.components.schemas.Photo.properties.links.properties"
+    then:
+      field: download_location
+      function: truthy
+
+  # Accept-Version header best practice
+  unsplash-accept-version:
+    description: Operations should document Accept-Version header usage
+    message: "Consider documenting the Accept-Version: v1 header"
+    severity: info
+    given: "$.paths[*][get]"
+    then:
+      field: parameters
+      function: defined
+
+  # Pagination parameters for list endpoints
+  unsplash-pagination-params:
+    description: List endpoints should include pagination parameters
+    message: "List endpoint should define page and per_page parameters"
+    severity: warn
+    given: "$.paths[/photos,/collections,/topics,/search/photos,/search/collections,/search/users][get].parameters[*].name"
+    then:
+      function: defined
+
+  # OAuth scopes for write operations
+  unsplash-write-auth:
+    description: Write operations (PUT, POST, DELETE) must require OAuth authentication
+    message: "Write operation should require OAuth2 security"
+    severity: error
+    given: "$.paths[*][put,post,delete]"
+    then:
+      field: security
+      function: truthy
+
+  # 404 for resource endpoints
+  unsplash-not-found:
+    description: Resource endpoints should define 404 responses
+    message: "Resource endpoint missing 404 response"
+    severity: warn
+    given: "$.paths[*/{id}*][get]"
+    then:
+      field: "responses.404"
+      function: truthy
+
+  # Content filter parameter best practice
+  unsplash-content-filter:
+    description: Photo-returning endpoints should support content_filter parameter
+    message: "Consider adding content_filter parameter for safe content filtering"
+    severity: info
+    given: "$.paths[/photos/random,/search/photos,/topics/{id_or_slug}/photos][get]"
+    then:
+      field: parameters
+      function: truthy

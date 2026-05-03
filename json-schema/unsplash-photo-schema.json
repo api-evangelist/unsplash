@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.unsplash.com/schemas/photo",
+  "title": "Unsplash Photo",
+  "description": "A photo object from the Unsplash API, containing image URLs at multiple sizes, photographer info, metadata, and statistics.",
+  "type": "object",
+  "required": ["id", "urls", "user"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique photo identifier",
+      "example": "Dwu85P9SOIk"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the photo was uploaded"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the photo was last updated"
+    },
+    "promoted_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "When the photo was promoted to the editorial feed"
+    },
+    "width": {
+      "type": "integer",
+      "description": "Original photo width in pixels",
+      "example": 5616
+    },
+    "height": {
+      "type": "integer",
+      "description": "Original photo height in pixels",
+      "example": 3744
+    },
+    "color": {
+      "type": "string",
+      "description": "Dominant color hex code for placeholder display",
+      "pattern": "^#[0-9A-Fa-f]{6}$",
+      "example": "#6E633A"
+    },
+    "blur_hash": {
+      "type": "string",
+      "description": "BlurHash string for generating compact placeholder previews",
+      "example": "L~I64nofRjof%MQZWBS$Mxnhx]t6"
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "Photographer-provided description"
+    },
+    "alt_description": {
+      "type": ["string", "null"],
+      "description": "Auto-generated alt text for accessibility"
+    },
+    "likes": {
+      "type": "integer",
+      "description": "Number of likes"
+    },
+    "downloads": {
+      "type": "integer",
+      "description": "Total download count"
+    },
+    "views": {
+      "type": "integer",
+      "description": "Total view count"
+    },
+    "liked_by_user": {
+      "type": "boolean",
+      "description": "Whether the authenticated user liked this photo"
+    },
+    "urls": {
+      "type": "object",
+      "required": ["raw", "full", "regular", "small", "thumb"],
+      "description": "Image URLs at different sizes for responsive delivery",
+      "properties": {
+        "raw": {
+          "type": "string",
+          "format": "uri",
+          "description": "Original image URL — add custom transformations via imgix parameters"
+        },
+        "full": {
+          "type": "string",
+          "format": "uri",
+          "description": "Full quality image (largest practical size)"
+        },
+        "regular": {
+          "type": "string",
+          "format": "uri",
+          "description": "1080px wide image for most use cases"
+        },
+        "small": {
+          "type": "string",
+          "format": "uri",
+          "description": "400px wide image for thumbnails and previews"
+        },
+        "thumb": {
+          "type": "string",
+          "format": "uri",
+          "description": "200px wide thumbnail"
+        },
+        "small_s3": {
+          "type": "string",
+          "format": "uri",
+          "description": "Small image hosted on S3 (backup)"
+        }
+      }
+    },
+    "links": {
+      "type": "object",
+      "description": "Navigation and attribution links",
+      "properties": {
+        "self": {
+          "type": "string",
+          "format": "uri",
+          "description": "API URL for this photo"
+        },
+        "html": {
+          "type": "string",
+          "format": "uri",
+          "description": "Unsplash.com page for this photo (required for attribution)"
+        },
+        "download": {
+          "type": "string",
+          "format": "uri",
+          "description": "Download page URL"
+        },
+        "download_location": {
+          "type": "string",
+          "format": "uri",
+          "description": "API endpoint to call when user downloads (required by Unsplash guidelines)"
+        }
+      }
+    },
+    "user": {
+      "$ref": "#/$defs/UserSummary",
+      "description": "Photographer profile summary"
+    },
+    "location": {
+      "type": "object",
+      "description": "Where the photo was taken",
+      "properties": {
+        "name": {"type": ["string", "null"]},
+        "city": {"type": ["string", "null"]},
+        "country": {"type": ["string", "null"]},
+        "position": {
+          "type": "object",
+          "properties": {
+            "latitude": {"type": ["number", "null"]},
+            "longitude": {"type": ["number", "null"]}
+          }
+        }
+      }
+    },
+    "exif": {
+      "type": "object",
+      "description": "Camera EXIF metadata",
+      "properties": {
+        "make": {"type": ["string", "null"]},
+        "model": {"type": ["string", "null"]},
+        "exposure_time": {"type": ["string", "null"]},
+        "aperture": {"type": ["string", "null"]},
+        "focal_length": {"type": ["string", "null"]},
+        "iso": {"type": ["integer", "null"]}
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Classification tags",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {"type": "string"},
+          "title": {"type": "string"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "UserSummary": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "string"},
+        "username": {"type": "string"},
+        "name": {"type": "string"},
+        "portfolio_url": {"type": ["string", "null"], "format": "uri"},
+        "bio": {"type": ["string", "null"]},
+        "location": {"type": ["string", "null"]},
+        "total_likes": {"type": "integer"},
+        "total_photos": {"type": "integer"},
+        "total_collections": {"type": "integer"},
+        "profile_image": {
+          "type": "object",
+          "properties": {
+            "small": {"type": "string", "format": "uri"},
+            "medium": {"type": "string", "format": "uri"},
+            "large": {"type": "string", "format": "uri"}
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {"type": "string", "format": "uri"},
+            "html": {"type": "string", "format": "uri"},
+            "photos": {"type": "string", "format": "uri"},
+            "likes": {"type": "string", "format": "uri"}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,209 @@
+vocabulary:
+  provider: Unsplash
+  description: >-
+    Domain vocabulary for the Unsplash photo API platform. Covers photo metadata,
+    image delivery, authentication, collections, topics, user profiles, statistics,
+    and API compliance requirements for the world's largest open photography library.
+  version: '2026-05-03'
+  tags:
+    - Photos
+    - Images
+    - Photography
+    - Stock Photos
+    - Creative
+
+  terms:
+
+    - term: Photo
+      definition: >-
+        A high-quality photograph available on Unsplash, uploaded by a photographer
+        and made freely available for use under the Unsplash License. Each photo has
+        a unique ID, multiple size URLs, metadata, and a required attribution link.
+      tags:
+        - Core Concept
+
+    - term: Unsplash License
+      definition: >-
+        The permissive license under which Unsplash photos are provided. Photos may
+        be used freely for commercial and non-commercial purposes without attribution,
+        though attribution is appreciated. Redistribution of Unsplash photos as a stock
+        photo competitor is prohibited.
+      tags:
+        - Licensing
+        - Legal
+
+    - term: Attribution
+      definition: >-
+        A credit linking to the photographer's Unsplash profile and the photo page.
+        While not legally required under the Unsplash License, Unsplash strongly
+        requests it. The html link in each photo's links object is the attribution URL.
+      tags:
+        - Compliance
+        - Legal
+
+    - term: Download Tracking
+      definition: >-
+        The required practice of calling the /photos/{id}/download endpoint whenever
+        a user downloads an Unsplash photo. This is mandatory under Unsplash API
+        guidelines to ensure accurate download counts for photographers.
+        The download_location URL in the links object must be triggered.
+      tags:
+        - Compliance
+        - API Guidelines
+
+    - term: BlurHash
+      definition: >-
+        A compact string representation of a photo's blur preview (typically 20-30
+        characters) that can be decoded client-side to generate a placeholder image
+        before the full photo loads. Provides better perceived performance than
+        solid color placeholders.
+      tags:
+        - Performance
+        - UX
+
+    - term: Client-ID Authentication
+      definition: >-
+        The simplest Unsplash API authentication method for public (read-only) access.
+        Include your Unsplash Access Key in the Authorization header as
+        "Authorization: Client-ID {YOUR_ACCESS_KEY}" or as a client_id query parameter.
+      tags:
+        - Authentication
+
+    - term: OAuth 2.0 Authentication
+      definition: >-
+        User-delegated authentication for operations that require user consent:
+        reading private collections, liking photos, updating photos, or managing
+        collections. Uses authorization_code flow with scopes like read_user,
+        write_photos, write_collections, write_likes.
+      tags:
+        - Authentication
+        - Authorization
+
+    - term: Rate Limit
+      definition: >-
+        The maximum number of API requests allowed per hour. Demo applications are
+        limited to 50 requests/hour. Production applications (approved via Unsplash)
+        are allowed 1,000 requests/hour. Image file requests (images.unsplash.com)
+        do not count against API rate limits.
+      tags:
+        - API Limits
+
+    - term: Demo Mode
+      definition: >-
+        The initial access tier for new Unsplash API applications, limited to 50
+        requests/hour and requiring the "Demo" watermark on response headers.
+        Applications must be reviewed and approved to access production rates.
+      tags:
+        - API Limits
+
+    - term: Photo URL Sizes
+      definition: >-
+        Unsplash provides photos at multiple pre-defined sizes: raw (original with
+        imgix parameters), full (large, full quality), regular (1080px wide), small
+        (400px wide), and thumb (200px thumbnail). Image delivery is via imgix CDN.
+      tags:
+        - Images
+        - CDN
+
+    - term: imgix
+      definition: >-
+        The image processing CDN used by Unsplash to serve photos with on-the-fly
+        transformations. By appending imgix parameters to raw URLs, developers can
+        specify exact dimensions, crop modes, formats (WebP), quality levels, and DPI.
+      tags:
+        - CDN
+        - Image Processing
+
+    - term: Content Filter
+      definition: >-
+        A parameter for controlling safe search filtering in photo search and random
+        photo endpoints. "low" (default) includes all content; "high" restricts to
+        family-safe photos only. Use high for applications where users may encounter
+        sensitive content.
+      tags:
+        - Content Safety
+
+    - term: Collection
+      definition: >-
+        A curated group of photos organized by a user around a theme or concept.
+        Collections can be public or private, and are used for editorial curation,
+        project boards, and mood boards. Cover photo, total count, and curator info
+        are included in collection objects.
+      tags:
+        - Organization
+
+    - term: Topic
+      definition: >-
+        An editorial category curated by the Unsplash editorial team, such as "Nature,"
+        "Architecture," "Travel," or "Technology." Topics have slugs for URL use and
+        contain featured photographs selected by editors.
+      tags:
+        - Editorial
+        - Curation
+
+    - term: Editorial Feed
+      definition: >-
+        The main /photos endpoint returning the Unsplash editorial selection —
+        high-quality photos curated from the platform. Sortable by latest, oldest,
+        or popular.
+      tags:
+        - Editorial
+
+    - term: Orientation
+      definition: >-
+        A photo orientation filter for search and random endpoints. Values: landscape
+        (wider than tall), portrait (taller than wide), squarish (roughly equal
+        dimensions). Used to ensure photos match the intended layout.
+      tags:
+        - Filtering
+
+    - term: Color Filter
+      definition: >-
+        A search filter that returns photos with a specific dominant color. Available
+        values: black_and_white, black, white, yellow, orange, red, purple, magenta,
+        green, teal, blue. Useful for design workflows matching specific brand colors.
+      tags:
+        - Filtering
+        - Design
+
+    - term: EXIF Data
+      definition: >-
+        Camera and lens metadata embedded in photos and exposed by the Unsplash API:
+        camera make, model, exposure time, aperture (f-number), focal length, and ISO.
+        Available on individual photo detail responses.
+      tags:
+        - Metadata
+        - Photography
+
+    - term: Statistics
+      definition: >-
+        Per-photo and per-user metrics including downloads, views, and likes over time.
+        Available via /photos/{id}/statistics and /users/{username}/statistics.
+        Returns historical time-series data with configurable resolution and quantity.
+      tags:
+        - Analytics
+
+    - term: Access Scope
+      definition: >-
+        OAuth permission scopes controlling what operations an authenticated user
+        grants to an application. Scopes include: public (default), read_user,
+        write_user, read_photos, write_photos, write_likes, read_collections,
+        write_collections.
+      tags:
+        - Authentication
+        - Authorization
+
+    - term: Pagination
+      definition: >-
+        Unsplash list endpoints support page (page number) and per_page (1-30 results
+        per request) query parameters. The Link response header contains prev/next/last
+        page URLs. Total count is returned in X-Total headers.
+      tags:
+        - API Design
+
+    - term: Accept-Version Header
+      definition: >-
+        The recommended header "Accept-Version: v1" to explicitly request the current
+        API version. Ensures consistent response formats as the API evolves.
+      tags:
+        - API Versioning

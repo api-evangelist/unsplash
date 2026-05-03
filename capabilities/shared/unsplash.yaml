@@ -1,0 +1,455 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: Unsplash API
+  description: >-
+    Unsplash API providing access to the world's largest open collection of
+    high-quality, freely usable photos. Search photos, get random photos,
+    manage collections, and access user profiles and statistics.
+    Authentication: Client-ID for public access or OAuth 2.0 for user actions.
+    Rate limit: 1,000 requests/hour in production.
+  tags:
+    - Unsplash
+    - Photos
+    - Images
+    - Stock Photography
+    - Creative
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      UNSPLASH_ACCESS_KEY: UNSPLASH_ACCESS_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: unsplash
+      baseUri: https://api.unsplash.com
+      description: Unsplash photo API
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "Client-ID {{UNSPLASH_ACCESS_KEY}}"
+        placement: header
+
+      resources:
+        - name: photos
+          path: /photos
+          description: Photo browsing and retrieval
+          operations:
+            - name: list-photos
+              method: GET
+              description: List Editorial Photos
+              inputParameters:
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page number
+                - name: per_page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Photos per page (max 30)
+                - name: order_by
+                  in: query
+                  type: string
+                  required: false
+                  description: Sort order (latest, oldest, popular)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: get-photo
+              method: GET
+              description: Get a Photo
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Photo ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: get-random-photo
+              method: GET
+              description: Get a Random Photo
+              inputParameters:
+                - name: query
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter random photos by search query
+                - name: orientation
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by orientation (landscape, portrait, squarish)
+                - name: content_filter
+                  in: query
+                  type: string
+                  required: false
+                  description: Content safety filter (low, high)
+                - name: count
+                  in: query
+                  type: integer
+                  required: false
+                  description: Number of photos to return (1-30)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: track-download
+              method: GET
+              description: Track a Photo Download
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Photo ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: get-photo-statistics
+              method: GET
+              description: Get Photo Statistics
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Photo ID
+                - name: quantity
+                  in: query
+                  type: integer
+                  required: false
+                  description: Number of data points (1-30)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: search
+          path: /search
+          description: Search photos, collections, and users
+          operations:
+            - name: search-photos
+              method: GET
+              description: Search Photos
+              inputParameters:
+                - name: query
+                  in: query
+                  type: string
+                  required: true
+                  description: Search query
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page number
+                - name: per_page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Results per page
+                - name: orientation
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by orientation
+                - name: color
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by dominant color
+                - name: content_filter
+                  in: query
+                  type: string
+                  required: false
+                  description: Content safety filter
+                - name: order_by
+                  in: query
+                  type: string
+                  required: false
+                  description: Sort order (relevant, latest)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: search-collections
+              method: GET
+              description: Search Collections
+              inputParameters:
+                - name: query
+                  in: query
+                  type: string
+                  required: true
+                  description: Search query
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page number
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: search-users
+              method: GET
+              description: Search Users
+              inputParameters:
+                - name: query
+                  in: query
+                  type: string
+                  required: true
+                  description: Search query
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page number
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: collections
+          path: /collections
+          description: Photo collection operations
+          operations:
+            - name: list-collections
+              method: GET
+              description: List Collections
+              inputParameters:
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page number
+                - name: per_page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Results per page
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: get-collection
+              method: GET
+              description: Get a Collection
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Collection ID
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: get-collection-photos
+              method: GET
+              description: Get Collection Photos
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Collection ID
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page number
+                - name: orientation
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by orientation
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: topics
+          path: /topics
+          description: Editorial topic browsing
+          operations:
+            - name: list-topics
+              method: GET
+              description: List Topics
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: get-topic-photos
+              method: GET
+              description: Get Topic Photos
+              inputParameters:
+                - name: id_or_slug
+                  in: path
+                  type: string
+                  required: true
+                  description: Topic ID or slug
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page number
+                - name: orientation
+                  in: query
+                  type: string
+                  required: false
+                  description: Filter by orientation
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: users
+          path: /users
+          description: User profile operations
+          operations:
+            - name: get-user
+              method: GET
+              description: Get a User's Public Profile
+              inputParameters:
+                - name: username
+                  in: path
+                  type: string
+                  required: true
+                  description: Unsplash username
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+            - name: list-user-photos
+              method: GET
+              description: List a User's Photos
+              inputParameters:
+                - name: username
+                  in: path
+                  type: string
+                  required: true
+                  description: Unsplash username
+                - name: page
+                  in: query
+                  type: integer
+                  required: false
+                  description: Page number
+                - name: order_by
+                  in: query
+                  type: string
+                  required: false
+                  description: Sort order
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: unsplash-rest
+      resources:
+        - path: /v1/photos
+          name: photos
+          operations:
+            - method: GET
+              name: list-photos
+              description: List editorial photos
+              call: "unsplash.list-photos"
+              with:
+                page: "rest.page"
+                per_page: "rest.per_page"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/photos/random
+          name: random-photo
+          operations:
+            - method: GET
+              name: get-random-photo
+              description: Get a random photo
+              call: "unsplash.get-random-photo"
+              with:
+                query: "rest.query"
+                orientation: "rest.orientation"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/search/photos
+          name: search-photos
+          operations:
+            - method: GET
+              name: search-photos
+              description: Search photos
+              call: "unsplash.search-photos"
+              with:
+                query: "rest.query"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: unsplash-mcp
+      transport: http
+      tools:
+        - name: search-photos
+          description: Search Unsplash for photos matching a query
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "unsplash.search-photos"
+          with:
+            query: "tools.query"
+            per_page: "tools.per_page"
+            orientation: "tools.orientation"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-random-photo
+          description: Get a random Unsplash photo with optional filters
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "unsplash.get-random-photo"
+          with:
+            query: "tools.query"
+            orientation: "tools.orientation"
+          outputParameters:
+            - type: object
+              mapping: "$."

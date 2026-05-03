@@ -1,0 +1,1593 @@
+openapi: 3.0.3
+info:
+  title: Unsplash API
+  description: >-
+    The Unsplash API provides access to the world's largest open collection of
+    high-quality, freely usable photos. Build photo-powered applications with
+    search, random photos, user profiles, collections, topics, and statistics.
+    Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens
+    for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr
+    (production). Downloads must be tracked via the /photos/:id/download endpoint
+    per Unsplash API guidelines.
+  version: 1.0.0
+  contact:
+    name: Unsplash Developers
+    url: https://unsplash.com/developers
+  termsOfService: https://unsplash.com/api-terms
+servers:
+  - url: https://api.unsplash.com
+    description: Unsplash API
+
+security:
+  - ClientID: []
+
+tags:
+  - name: Photos
+    description: Photo browsing and management operations
+  - name: Search
+    description: Search photos, collections, and users
+  - name: Collections
+    description: Photo collection management
+  - name: Users
+    description: User profile operations
+  - name: Topics
+    description: Editorial topic operations
+  - name: Stats
+    description: Platform statistics
+  - name: Current User
+    description: Authenticated user operations
+
+paths:
+  /photos:
+    get:
+      operationId: listPhotos
+      summary: List Editorial Photos
+      description: >-
+        Get a single page of the editorial photo feed.
+        Requires public authentication (Client-ID).
+      tags:
+        - Photos
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+          description: Page number to retrieve
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 10
+          description: Number of items per page
+        - name: order_by
+          in: query
+          schema:
+            type: string
+            enum: [latest, oldest, popular]
+            default: latest
+          description: Order results by latest, oldest, or popular
+      responses:
+        "200":
+          description: A list of photos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Photo'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+
+  /photos/{id}:
+    get:
+      operationId: getPhoto
+      summary: Get a Photo
+      description: Retrieve a single photo by ID.
+      tags:
+        - Photos
+      parameters:
+        - $ref: '#/components/parameters/PhotoId'
+      responses:
+        "200":
+          description: A photo object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Photo'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updatePhoto
+      summary: Update a Photo
+      description: Update a photo's metadata. Requires write_photos scope.
+      tags:
+        - Photos
+      security:
+        - OAuth2: [write_photos]
+      parameters:
+        - $ref: '#/components/parameters/PhotoId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: New description for the photo
+                show_on_profile:
+                  type: boolean
+                  description: Show or hide the photo on the user's profile
+                tags:
+                  type: array
+                  items:
+                    type: string
+                  description: Tags to apply to the photo
+                location:
+                  type: object
+                  properties:
+                    latitude:
+                      type: number
+                      format: float
+                    longitude:
+                      type: number
+                      format: float
+                    name:
+                      type: string
+                    city:
+                      type: string
+                    country:
+                      type: string
+      responses:
+        "200":
+          description: Updated photo object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Photo'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /photos/random:
+    get:
+      operationId: getRandomPhoto
+      summary: Get a Random Photo
+      description: >-
+        Retrieve one or more random photos. Optionally filter by orientation,
+        color, topic, collection, featured status, username, or search query.
+      tags:
+        - Photos
+      parameters:
+        - name: collections
+          in: query
+          schema:
+            type: string
+          description: Comma-separated collection IDs to filter by
+        - name: topics
+          in: query
+          schema:
+            type: string
+          description: Comma-separated topic IDs or slugs to filter by
+        - name: username
+          in: query
+          schema:
+            type: string
+          description: Limit to photos by a specific user
+        - name: query
+          in: query
+          schema:
+            type: string
+          description: Search query to filter random photos
+        - name: orientation
+          in: query
+          schema:
+            type: string
+            enum: [landscape, portrait, squarish]
+          description: Filter by photo orientation
+        - name: content_filter
+          in: query
+          schema:
+            type: string
+            enum: [low, high]
+            default: low
+          description: Content safety filter level
+        - name: count
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 1
+          description: Number of random photos (returns array if count > 1)
+      responses:
+        "200":
+          description: A random photo or array of photos
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/Photo'
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/Photo'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+
+  /photos/{id}/statistics:
+    get:
+      operationId: getPhotoStatistics
+      summary: Get Photo Statistics
+      description: Retrieve statistics for a photo (downloads, views, likes) over time.
+      tags:
+        - Photos
+      parameters:
+        - $ref: '#/components/parameters/PhotoId'
+        - name: resolution
+          in: query
+          schema:
+            type: string
+            enum: [days]
+            default: days
+          description: Time resolution for statistics
+        - name: quantity
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 30
+          description: Number of data points to return
+      responses:
+        "200":
+          description: Photo statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhotoStatistics'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /photos/{id}/download:
+    get:
+      operationId: trackPhotoDownload
+      summary: Track a Photo Download
+      description: >-
+        Track a photo download event. Must be called when a user downloads a photo
+        to comply with Unsplash API guidelines. Returns the photo's download URL.
+      tags:
+        - Photos
+      parameters:
+        - $ref: '#/components/parameters/PhotoId'
+      responses:
+        "200":
+          description: Download tracking response with download URL
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    format: uri
+                    description: The URL to download the photo
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /search/photos:
+    get:
+      operationId: searchPhotos
+      summary: Search Photos
+      description: >-
+        Search photos by keyword. Returns paginated results with photo objects
+        and total count. Supports filtering by orientation, color, and content safety.
+      tags:
+        - Search
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Search query string
+          example: "forest mountains"
+        - name: page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+          description: Page number
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 10
+          description: Results per page
+        - name: order_by
+          in: query
+          schema:
+            type: string
+            enum: [relevant, latest]
+            default: relevant
+          description: How to order results
+        - name: collections
+          in: query
+          schema:
+            type: string
+          description: Comma-separated collection IDs to search within
+        - name: content_filter
+          in: query
+          schema:
+            type: string
+            enum: [low, high]
+            default: low
+          description: Content safety filter level
+        - name: color
+          in: query
+          schema:
+            type: string
+            enum: [black_and_white, black, white, yellow, orange, red, purple, magenta, green, teal, blue]
+          description: Filter by dominant color
+        - name: orientation
+          in: query
+          schema:
+            type: string
+            enum: [landscape, portrait, squarish]
+          description: Filter by orientation
+        - name: lang
+          in: query
+          schema:
+            type: string
+          description: Language code for multi-language search (beta)
+      responses:
+        "200":
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchPhotosResult'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+
+  /search/collections:
+    get:
+      operationId: searchCollections
+      summary: Search Collections
+      description: Search collections by keyword.
+      tags:
+        - Search
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Search query
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: Page number
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 10
+          description: Results per page
+      responses:
+        "200":
+          description: Collection search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchCollectionsResult'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+
+  /search/users:
+    get:
+      operationId: searchUsers
+      summary: Search Users
+      description: Search users by keyword.
+      tags:
+        - Search
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Search query
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: Page number
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 10
+          description: Results per page
+      responses:
+        "200":
+          description: User search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchUsersResult'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+
+  /collections:
+    get:
+      operationId: listCollections
+      summary: List Collections
+      description: Get a single page of all featured collections.
+      tags:
+        - Collections
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: Page number
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 10
+          description: Results per page
+      responses:
+        "200":
+          description: A list of collections
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Collection'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createCollection
+      summary: Create a Collection
+      description: Create a new collection. Requires write_collections scope.
+      tags:
+        - Collections
+      security:
+        - OAuth2: [write_collections]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title]
+              properties:
+                title:
+                  type: string
+                  description: Collection title
+                description:
+                  type: string
+                  description: Collection description
+                private:
+                  type: boolean
+                  description: Whether the collection is private
+                  default: false
+      responses:
+        "201":
+          description: Created collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+
+  /collections/{id}:
+    get:
+      operationId: getCollection
+      summary: Get a Collection
+      description: Retrieve a single collection by ID.
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/CollectionId'
+      responses:
+        "200":
+          description: A collection object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+    put:
+      operationId: updateCollection
+      summary: Update a Collection
+      description: Update an existing collection. Requires write_collections scope.
+      tags:
+        - Collections
+      security:
+        - OAuth2: [write_collections]
+      parameters:
+        - $ref: '#/components/parameters/CollectionId'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                private:
+                  type: boolean
+      responses:
+        "200":
+          description: Updated collection
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteCollection
+      summary: Delete a Collection
+      description: Delete a collection. Requires write_collections scope.
+      tags:
+        - Collections
+      security:
+        - OAuth2: [write_collections]
+      parameters:
+        - $ref: '#/components/parameters/CollectionId'
+      responses:
+        "204":
+          description: Collection deleted successfully
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /collections/{id}/photos:
+    get:
+      operationId: getCollectionPhotos
+      summary: Get Collection Photos
+      description: Retrieve photos in a collection.
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/CollectionId'
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: Page number
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 10
+          description: Results per page
+        - name: orientation
+          in: query
+          schema:
+            type: string
+            enum: [landscape, portrait, squarish]
+          description: Filter by orientation
+      responses:
+        "200":
+          description: Photos in the collection
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Photo'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /collections/{id}/add:
+    post:
+      operationId: addPhotoToCollection
+      summary: Add a Photo to a Collection
+      description: Add a photo to a collection. Requires write_collections scope.
+      tags:
+        - Collections
+      security:
+        - OAuth2: [write_collections]
+      parameters:
+        - $ref: '#/components/parameters/CollectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [photo_id]
+              properties:
+                photo_id:
+                  type: string
+                  description: The ID of the photo to add
+      responses:
+        "201":
+          description: Photo added to collection
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  photo:
+                    $ref: '#/components/schemas/Photo'
+                  collection:
+                    $ref: '#/components/schemas/Collection'
+                  user:
+                    $ref: '#/components/schemas/User'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /collections/{id}/remove:
+    delete:
+      operationId: removePhotoFromCollection
+      summary: Remove a Photo from a Collection
+      description: Remove a photo from a collection. Requires write_collections scope.
+      tags:
+        - Collections
+      security:
+        - OAuth2: [write_collections]
+      parameters:
+        - $ref: '#/components/parameters/CollectionId'
+        - name: photo_id
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The ID of the photo to remove
+      responses:
+        "200":
+          description: Photo removed from collection
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /collections/{id}/related:
+    get:
+      operationId: getRelatedCollections
+      summary: Get Related Collections
+      description: Retrieve a list of collections related to the given one.
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/CollectionId'
+      responses:
+        "200":
+          description: Related collections
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Collection'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /users/{username}:
+    get:
+      operationId: getUser
+      summary: Get a User's Public Profile
+      description: Retrieve public details of a user by username.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/Username'
+      responses:
+        "200":
+          description: User public profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /users/{username}/photos:
+    get:
+      operationId: listUserPhotos
+      summary: List a User's Photos
+      description: Get a list of photos uploaded by a user.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/Username'
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 10
+        - name: order_by
+          in: query
+          schema:
+            type: string
+            enum: [latest, oldest, popular, views, downloads]
+            default: latest
+        - name: stats
+          in: query
+          schema:
+            type: boolean
+            default: false
+          description: Show the stats for each user's photo
+        - name: orientation
+          in: query
+          schema:
+            type: string
+            enum: [landscape, portrait, squarish]
+      responses:
+        "200":
+          description: User's photos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Photo'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /users/{username}/collections:
+    get:
+      operationId: listUserCollections
+      summary: List a User's Collections
+      description: Get a list of collections created by a user.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/Username'
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 10
+      responses:
+        "200":
+          description: User's collections
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Collection'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /users/{username}/statistics:
+    get:
+      operationId: getUserStatistics
+      summary: Get User Statistics
+      description: Retrieve statistics about a user's account (downloads, views, likes).
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/Username'
+        - name: resolution
+          in: query
+          schema:
+            type: string
+            enum: [days]
+            default: days
+        - name: quantity
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 30
+      responses:
+        "200":
+          description: User statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStatistics'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /me:
+    get:
+      operationId: getCurrentUser
+      summary: Get Current User Profile
+      description: Retrieve the authenticated user's profile. Requires read_user scope.
+      tags:
+        - Current User
+      security:
+        - OAuth2: [read_user]
+      responses:
+        "200":
+          description: Authenticated user profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+    put:
+      operationId: updateCurrentUser
+      summary: Update Current User Profile
+      description: Update the authenticated user's profile. Requires write_user scope.
+      tags:
+        - Current User
+      security:
+        - OAuth2: [write_user]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                url:
+                  type: string
+                  format: uri
+                location:
+                  type: string
+                bio:
+                  type: string
+                instagram_username:
+                  type: string
+      responses:
+        "200":
+          description: Updated user profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+
+  /topics:
+    get:
+      operationId: listTopics
+      summary: List Topics
+      description: Get a list of editorial topics.
+      tags:
+        - Topics
+      parameters:
+        - name: ids
+          in: query
+          schema:
+            type: string
+          description: Comma-separated list of topic IDs or slugs to filter
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 10
+        - name: order_by
+          in: query
+          schema:
+            type: string
+            enum: [featured, latest, oldest, position]
+            default: position
+      responses:
+        "200":
+          description: List of topics
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Topic'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+
+  /topics/{id_or_slug}:
+    get:
+      operationId: getTopic
+      summary: Get a Topic
+      description: Retrieve a single topic by ID or slug.
+      tags:
+        - Topics
+      parameters:
+        - name: id_or_slug
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Topic ID or slug
+      responses:
+        "200":
+          description: Topic details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Topic'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /topics/{id_or_slug}/photos:
+    get:
+      operationId: getTopicPhotos
+      summary: Get Topic Photos
+      description: Retrieve photos for a topic.
+      tags:
+        - Topics
+      parameters:
+        - name: id_or_slug
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Topic ID or slug
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+            default: 10
+        - name: orientation
+          in: query
+          schema:
+            type: string
+            enum: [landscape, portrait, squarish]
+        - name: order_by
+          in: query
+          schema:
+            type: string
+            enum: [latest, oldest, popular, views, downloads]
+            default: latest
+      responses:
+        "200":
+          description: Photos in topic
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Photo'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+
+  /stats/totals:
+    get:
+      operationId: getStatsTotals
+      summary: Get Platform Total Statistics
+      description: Retrieve overall Unsplash platform statistics.
+      tags:
+        - Stats
+      responses:
+        "200":
+          description: Platform statistics totals
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsTotals'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+
+  /stats/month:
+    get:
+      operationId: getStatsMonth
+      summary: Get Platform Monthly Statistics
+      description: Retrieve Unsplash platform statistics for the current month.
+      tags:
+        - Stats
+      responses:
+        "200":
+          description: Monthly platform statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsTotals'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+
+components:
+  securitySchemes:
+    ClientID:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Use `Authorization: Client-ID {YOUR_ACCESS_KEY}` for public API access.
+        Alternatively pass as query param: `?client_id={YOUR_ACCESS_KEY}`
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://unsplash.com/oauth/authorize
+          tokenUrl: https://unsplash.com/oauth/token
+          scopes:
+            public: Read public data (default)
+            read_user: Read user profile data
+            write_user: Write user profile data
+            read_photos: Read photo data
+            write_photos: Write photo data (update metadata)
+            write_likes: Like/unlike photos
+            write_collections: Create, update, delete collections
+            read_collections: Read collection data
+
+  parameters:
+    PhotoId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Photo ID
+    CollectionId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Collection ID
+    Username:
+      name: username
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Unsplash username
+
+  responses:
+    Unauthorized:
+      description: Missing or invalid authentication
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  schemas:
+    Photo:
+      type: object
+      description: An Unsplash photo object
+      properties:
+        id:
+          type: string
+          description: Unique photo identifier
+          example: "Dwu85P9SOIk"
+        created_at:
+          type: string
+          format: date-time
+          description: When the photo was uploaded
+        updated_at:
+          type: string
+          format: date-time
+          description: When the photo was last updated
+        promoted_at:
+          type: ["string", "null"]
+          format: date-time
+          description: When the photo was promoted to editorial feed
+        width:
+          type: integer
+          description: Photo width in pixels
+          example: 5616
+        height:
+          type: integer
+          description: Photo height in pixels
+          example: 3744
+        color:
+          type: string
+          description: Dominant color hex code
+          example: "#6E633A"
+        blur_hash:
+          type: string
+          description: BlurHash for placeholder preview
+          example: "L~I64nofRjof%MQZWBS$Mxnhx]t6"
+        description:
+          type: ["string", "null"]
+          description: Photographer-provided description
+        alt_description:
+          type: ["string", "null"]
+          description: Auto-generated alt text for accessibility
+        likes:
+          type: integer
+          description: Number of likes
+        downloads:
+          type: integer
+          description: Total download count
+        views:
+          type: integer
+          description: Total view count
+        liked_by_user:
+          type: boolean
+          description: Whether the current authenticated user liked this photo
+        urls:
+          type: object
+          description: Image URLs at different sizes
+          properties:
+            raw:
+              type: string
+              format: uri
+              description: Original image URL with no transformations
+            full:
+              type: string
+              format: uri
+              description: Full-quality image (large width, no compression)
+            regular:
+              type: string
+              format: uri
+              description: 1080px wide image
+            small:
+              type: string
+              format: uri
+              description: 400px wide image
+            thumb:
+              type: string
+              format: uri
+              description: 200px wide thumbnail
+            small_s3:
+              type: string
+              format: uri
+              description: Small S3-hosted image
+        links:
+          type: object
+          description: API and site links for the photo
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            download:
+              type: string
+              format: uri
+            download_location:
+              type: string
+              format: uri
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        location:
+          type: object
+          description: Location where the photo was taken
+          properties:
+            name:
+              type: ["string", "null"]
+            city:
+              type: ["string", "null"]
+            country:
+              type: ["string", "null"]
+            position:
+              type: object
+              properties:
+                latitude:
+                  type: ["number", "null"]
+                longitude:
+                  type: ["number", "null"]
+        tags:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+        exif:
+          type: object
+          description: Camera EXIF metadata
+          properties:
+            make:
+              type: ["string", "null"]
+            model:
+              type: ["string", "null"]
+            name:
+              type: ["string", "null"]
+            exposure_time:
+              type: ["string", "null"]
+            aperture:
+              type: ["string", "null"]
+            focal_length:
+              type: ["string", "null"]
+            iso:
+              type: ["integer", "null"]
+
+    UserSummary:
+      type: object
+      description: Abbreviated user object for embedding in photo/collection responses
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        portfolio_url:
+          type: ["string", "null"]
+          format: uri
+        bio:
+          type: ["string", "null"]
+        location:
+          type: ["string", "null"]
+        total_likes:
+          type: integer
+        total_photos:
+          type: integer
+        total_collections:
+          type: integer
+        profile_image:
+          type: object
+          properties:
+            small:
+              type: string
+              format: uri
+            medium:
+              type: string
+              format: uri
+            large:
+              type: string
+              format: uri
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            photos:
+              type: string
+              format: uri
+            likes:
+              type: string
+              format: uri
+
+    User:
+      allOf:
+        - $ref: '#/components/schemas/UserSummary'
+        - type: object
+          description: Full user profile
+          properties:
+            email:
+              type: string
+              format: email
+            instagram_username:
+              type: ["string", "null"]
+            twitter_username:
+              type: ["string", "null"]
+            downloads:
+              type: integer
+            followers_count:
+              type: integer
+            following_count:
+              type: integer
+            allow_messages:
+              type: boolean
+            numeric_id:
+              type: integer
+            followed_by_user:
+              type: boolean
+            photos:
+              type: array
+              items:
+                $ref: '#/components/schemas/Photo'
+
+    Collection:
+      type: object
+      description: An Unsplash photo collection
+      properties:
+        id:
+          type: string
+          description: Collection identifier
+        title:
+          type: string
+          description: Collection title
+        description:
+          type: ["string", "null"]
+          description: Collection description
+        published_at:
+          type: string
+          format: date-time
+        last_collected_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        featured:
+          type: boolean
+          description: Whether the collection is featured
+        total_photos:
+          type: integer
+          description: Total number of photos in the collection
+        private:
+          type: boolean
+          description: Whether the collection is private
+        share_key:
+          type: ["string", "null"]
+          description: Share key for private collections
+        cover_photo:
+          oneOf:
+            - $ref: '#/components/schemas/Photo'
+            - type: "null"
+          description: Cover photo for the collection
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            photos:
+              type: string
+              format: uri
+            related:
+              type: string
+              format: uri
+
+    Topic:
+      type: object
+      description: An Unsplash editorial topic
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+          description: URL-friendly identifier
+        title:
+          type: string
+        description:
+          type: string
+        published_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        starts_at:
+          type: string
+          format: date-time
+        ends_at:
+          type: ["string", "null"]
+          format: date-time
+        featured:
+          type: boolean
+        total_photos:
+          type: integer
+        status:
+          type: string
+          enum: [open, closed]
+        cover_photo:
+          $ref: '#/components/schemas/Photo'
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            photos:
+              type: string
+              format: uri
+
+    SearchPhotosResult:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of matching results
+        total_pages:
+          type: integer
+          description: Total number of pages
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Photo'
+
+    SearchCollectionsResult:
+      type: object
+      properties:
+        total:
+          type: integer
+        total_pages:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Collection'
+
+    SearchUsersResult:
+      type: object
+      properties:
+        total:
+          type: integer
+        total_pages:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+
+    PhotoStatistics:
+      type: object
+      properties:
+        id:
+          type: string
+        downloads:
+          type: object
+          properties:
+            total:
+              type: integer
+            historical:
+              $ref: '#/components/schemas/StatHistorical'
+        views:
+          type: object
+          properties:
+            total:
+              type: integer
+            historical:
+              $ref: '#/components/schemas/StatHistorical'
+        likes:
+          type: object
+          properties:
+            total:
+              type: integer
+            historical:
+              $ref: '#/components/schemas/StatHistorical'
+
+    UserStatistics:
+      type: object
+      properties:
+        username:
+          type: string
+        downloads:
+          type: object
+          properties:
+            total:
+              type: integer
+            historical:
+              $ref: '#/components/schemas/StatHistorical'
+        views:
+          type: object
+          properties:
+            total:
+              type: integer
+            historical:
+              $ref: '#/components/schemas/StatHistorical'
+
+    StatHistorical:
+      type: object
+      properties:
+        change:
+          type: integer
+          description: Change in the period
+        average:
+          type: integer
+          description: Average over the period
+        resolution:
+          type: string
+          description: Time resolution (days)
+        quantity:
+          type: integer
+          description: Number of data points
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+                format: date
+              value:
+                type: integer
+
+    StatsTotals:
+      type: object
+      properties:
+        total_photos:
+          type: integer
+        photo_downloads:
+          type: integer
+        total_users:
+          type: integer
+        total_collections:
+          type: integer
+
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          description: Array of human-readable error messages

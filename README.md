@@ -1,42 +1,91 @@
-# Unsplash (unsplash)
-Unsplash is a platform that provides high-quality, free-to-use images for creative projects and design work. With a vast library of stunning photographs taken by talented photographers from around the world, users can easily find the perfect visuals to enhance their websites, social media posts, presentations, and more. Unsplash's mission is to empower creativity by making visually appealing content accessible to all, without any copyright restrictions or licensing fees. By offering a wide range of diverse and captivating images, Unsplash has become a go-to resource for artists, designers, and content creators looking to elevate their work with professional-grade photography.
+# Unsplash
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-search/unsplash/refs/heads/main/apis.yml)
+Unsplash is the world's largest open collection of high-quality photographs. The Unsplash API gives developers programmatic access to search, browse, and retrieve photos, collections, topics, and user profiles. Photos are provided under the Unsplash License and are free for commercial and personal use.
 
-## Scope
+**Website:** [unsplash.com](https://unsplash.com)
+**Developers:** [unsplash.com/developers](https://unsplash.com/developers)
+**Documentation:** [unsplash.com/documentation](https://unsplash.com/documentation)
+**GitHub:** [github.com/unsplash](https://github.com/unsplash)
 
-- **Type:** Contract 
-- **Position:** Consuming 
-- **Access:** 3rd-Party 
+---
 
-## Tags:
+## API
 
- - Photos
+### Unsplash API (v1.0.0)
 
-## Timestamps
+REST API for photo discovery, search, collection management, and user profiles.
 
-- **Created:** 2024-11-13 
-- **Modified:** 2025-01-04 
+- Base URL: `https://api.unsplash.com`
+- Auth: `Authorization: Client-ID {YOUR_ACCESS_KEY}` (public) or OAuth 2.0 (user operations)
+- Rate limit: 50 req/hr (demo), 1,000 req/hr (production)
+- Important: Must call `/photos/{id}/download` when a user downloads a photo
 
-## APIs
+**Operations by resource:**
 
-### Unsplash
-The most powerful photo engine in the world. Welcome to the Official Unsplash API. Create with the largest open collection of high-quality photos.
+| Resource | Methods |
+|---|---|
+| **Photos** | list, get, random, update, statistics, track download |
+| **Search** | search photos, collections, users |
+| **Collections** | list, get, create, update, delete, add/remove photos |
+| **Topics** | list, get, get photos |
+| **Users** | get profile, list photos, list collections, statistics |
+| **Current User** | get profile, update profile |
+| **Stats** | totals, monthly |
 
-**Human URL:** [https://unsplash.com/developers](https://unsplash.com/developers)
+- [OpenAPI Specification](openapi/unsplash-openapi.yml)
 
+---
 
-#### Tags:
+## Artifacts
 
- - API
+### OpenAPI
+| File | Description |
+|---|---|
+| [unsplash-openapi.yml](openapi/unsplash-openapi.yml) | Full Unsplash API OpenAPI 3.0.3 specification (31 operations) |
 
-#### Properties
+### Spectral Rules
+| File | Description |
+|---|---|
+| [unsplash-rules.yml](rules/unsplash-rules.yml) | Spectral ruleset for Unsplash API conventions |
 
-- [Documentation](https://unsplash.com/developers)
+### Capabilities (Naftiko)
+| File | Description |
+|---|---|
+| [shared/unsplash.yaml](capabilities/shared/unsplash.yaml) | Shared Unsplash API consumed definition |
+| [photo-discovery.yaml](capabilities/photo-discovery.yaml) | Photo discovery workflow (8 tools) |
 
-## Maintainers
+### JSON Schema
+| File | Description |
+|---|---|
+| [unsplash-photo-schema.json](json-schema/unsplash-photo-schema.json) | Photo entity schema |
 
-**FN:** Kin Lane
+### JSON Structure
+| File | Description |
+|---|---|
+| [unsplash-photo-structure.json](json-structure/unsplash-photo-structure.json) | Photo field documentation |
 
-**Email:** info@apievangelist.com
+### JSON-LD Context
+| File | Description |
+|---|---|
+| [unsplash-context.jsonld](json-ld/unsplash-context.jsonld) | Linked data context mapping Unsplash concepts to schema.org, EXIF, IPTC |
 
+### Examples
+| File | Description |
+|---|---|
+| [unsplash-search-photos-example.json](examples/unsplash-search-photos-example.json) | Photo search request/response |
+| [unsplash-get-random-photo-example.json](examples/unsplash-get-random-photo-example.json) | Random photo request/response |
+
+### Vocabulary
+| File | Description |
+|---|---|
+| [unsplash-vocabulary.yml](vocabulary/unsplash-vocabulary.yml) | Domain vocabulary for Unsplash platform concepts |
+
+---
+
+## APIs Index
+
+- [apis.yml](apis.yml)
+
+---
+
+*Maintained by [API Evangelist](https://apievangelist.com)*
