@@ -1,269 +1,592 @@
-naftiko: "1.0.0-alpha1"
-
+naftiko: 1.0.0-alpha2
 info:
   label: Unsplash Photo Discovery
-  description: >-
-    Workflow capability for discovering and browsing high-quality photos using the
-    Unsplash API. Enables developers, designers, and content creators to search for
-    photos by keyword, browse editorial feeds, get random photos with filters, and
-    explore photos by topic or collection. Used for building photo-powered applications,
-    design tools, and content management systems.
+  description: Workflow capability for discovering and browsing high-quality photos using the Unsplash API. Enables developers,
+    designers, and content creators to search for photos by keyword, browse editorial feeds, get random photos with filters,
+    and explore photos by topic or collection. Used for building photo-powered applications, design tools, and content management
+    systems.
   tags:
-    - Unsplash
-    - Photos
-    - Search
-    - Images
-    - Creative
-    - Stock Photography
-  created: "2026-05-03"
-  modified: "2026-05-03"
-
+  - Unsplash
+  - Photos
+  - Search
+  - Images
+  - Creative
+  - Stock Photography
+  created: '2026-05-03'
+  modified: '2026-05-06'
 binds:
-  - namespace: env
-    keys:
-      UNSPLASH_ACCESS_KEY: UNSPLASH_ACCESS_KEY
-
+- namespace: env
+  keys:
+    UNSPLASH_ACCESS_KEY: UNSPLASH_ACCESS_KEY
 capability:
   consumes:
-    - import: unsplash
-      location: ./shared/unsplash.yaml
-
+  - type: http
+    namespace: unsplash
+    baseUri: https://api.unsplash.com
+    description: Unsplash photo API
+    authentication:
+      type: apikey
+      key: Authorization
+      value: Client-ID {{UNSPLASH_ACCESS_KEY}}
+      placement: header
+    resources:
+    - name: photos
+      path: /photos
+      description: Photo browsing and retrieval
+      operations:
+      - name: list-photos
+        method: GET
+        description: List Editorial Photos
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        - name: per_page
+          in: query
+          type: integer
+          required: false
+          description: Photos per page (max 30)
+        - name: order_by
+          in: query
+          type: string
+          required: false
+          description: Sort order (latest, oldest, popular)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: get-photo
+        method: GET
+        description: Get a Photo
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Photo ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: get-random-photo
+        method: GET
+        description: Get a Random Photo
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          required: false
+          description: Filter random photos by search query
+        - name: orientation
+          in: query
+          type: string
+          required: false
+          description: Filter by orientation (landscape, portrait, squarish)
+        - name: content_filter
+          in: query
+          type: string
+          required: false
+          description: Content safety filter (low, high)
+        - name: count
+          in: query
+          type: integer
+          required: false
+          description: Number of photos to return (1-30)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: track-download
+        method: GET
+        description: Track a Photo Download
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Photo ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: get-photo-statistics
+        method: GET
+        description: Get Photo Statistics
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Photo ID
+        - name: quantity
+          in: query
+          type: integer
+          required: false
+          description: Number of data points (1-30)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: search
+      path: /search
+      description: Search photos, collections, and users
+      operations:
+      - name: search-photos
+        method: GET
+        description: Search Photos
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          required: true
+          description: Search query
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        - name: per_page
+          in: query
+          type: integer
+          required: false
+          description: Results per page
+        - name: orientation
+          in: query
+          type: string
+          required: false
+          description: Filter by orientation
+        - name: color
+          in: query
+          type: string
+          required: false
+          description: Filter by dominant color
+        - name: content_filter
+          in: query
+          type: string
+          required: false
+          description: Content safety filter
+        - name: order_by
+          in: query
+          type: string
+          required: false
+          description: Sort order (relevant, latest)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: search-collections
+        method: GET
+        description: Search Collections
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          required: true
+          description: Search query
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: search-users
+        method: GET
+        description: Search Users
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          required: true
+          description: Search query
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: collections
+      path: /collections
+      description: Photo collection operations
+      operations:
+      - name: list-collections
+        method: GET
+        description: List Collections
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        - name: per_page
+          in: query
+          type: integer
+          required: false
+          description: Results per page
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: get-collection
+        method: GET
+        description: Get a Collection
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Collection ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: get-collection-photos
+        method: GET
+        description: Get Collection Photos
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: Collection ID
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        - name: orientation
+          in: query
+          type: string
+          required: false
+          description: Filter by orientation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: topics
+      path: /topics
+      description: Editorial topic browsing
+      operations:
+      - name: list-topics
+        method: GET
+        description: List Topics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: get-topic-photos
+        method: GET
+        description: Get Topic Photos
+        inputParameters:
+        - name: id_or_slug
+          in: path
+          type: string
+          required: true
+          description: Topic ID or slug
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        - name: orientation
+          in: query
+          type: string
+          required: false
+          description: Filter by orientation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: users
+      path: /users
+      description: User profile operations
+      operations:
+      - name: get-user
+        method: GET
+        description: Get a User's Public Profile
+        inputParameters:
+        - name: username
+          in: path
+          type: string
+          required: true
+          description: Unsplash username
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: list-user-photos
+        method: GET
+        description: List a User's Photos
+        inputParameters:
+        - name: username
+          in: path
+          type: string
+          required: true
+          description: Unsplash username
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: Page number
+        - name: order_by
+          in: query
+          type: string
+          required: false
+          description: Sort order
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
   exposes:
-    - type: rest
-      port: 8080
-      namespace: unsplash-discovery-api
-      description: Unified REST API for Unsplash photo discovery.
-      resources:
-        - path: /v1/photos
-          name: photos
-          description: Editorial photo feed
-          operations:
-            - method: GET
-              name: list-photos
-              description: Browse the Unsplash editorial photo feed
-              call: "unsplash.list-photos"
-              with:
-                page: "rest.page"
-                per_page: "rest.per_page"
-                order_by: "rest.order_by"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/photos/{id}
-          name: photo
-          description: Single photo operations
-          operations:
-            - method: GET
-              name: get-photo
-              description: Get a photo by ID
-              call: "unsplash.get-photo"
-              with:
-                id: "rest.id"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/photos/random
-          name: random-photo
-          description: Random photo
-          operations:
-            - method: GET
-              name: get-random-photo
-              description: Get a random photo with optional filters
-              call: "unsplash.get-random-photo"
-              with:
-                query: "rest.query"
-                orientation: "rest.orientation"
-                content_filter: "rest.content_filter"
-                count: "rest.count"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/search/photos
-          name: photo-search
-          description: Photo search
-          operations:
-            - method: GET
-              name: search-photos
-              description: Search photos by keyword
-              call: "unsplash.search-photos"
-              with:
-                query: "rest.query"
-                page: "rest.page"
-                per_page: "rest.per_page"
-                orientation: "rest.orientation"
-                color: "rest.color"
-                content_filter: "rest.content_filter"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/topics
-          name: topics
-          description: Editorial topics
-          operations:
-            - method: GET
-              name: list-topics
-              description: List editorial topics
-              call: "unsplash.list-topics"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/topics/{id}/photos
-          name: topic-photos
-          description: Photos by topic
-          operations:
-            - method: GET
-              name: get-topic-photos
-              description: Get photos for a topic
-              call: "unsplash.get-topic-photos"
-              with:
-                id_or_slug: "rest.id"
-                page: "rest.page"
-                per_page: "rest.per_page"
-                orientation: "rest.orientation"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/collections/{id}/photos
-          name: collection-photos
-          description: Photos by collection
-          operations:
-            - method: GET
-              name: get-collection-photos
-              description: Get photos in a collection
-              call: "unsplash.get-collection-photos"
-              with:
-                id: "rest.id"
-                page: "rest.page"
-                orientation: "rest.orientation"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-        - path: /v1/users/{username}/photos
-          name: user-photos
-          description: Photos by user
-          operations:
-            - method: GET
-              name: list-user-photos
-              description: List photos by a specific user
-              call: "unsplash.list-user-photos"
-              with:
-                username: "rest.username"
-                page: "rest.page"
-                order_by: "rest.order_by"
-              outputParameters:
-                - type: object
-                  mapping: "$."
-
-    - type: mcp
-      port: 9090
-      namespace: unsplash-discovery-mcp
-      transport: http
-      description: MCP server for AI-assisted photo discovery and selection using Unsplash.
-      tools:
-        - name: search-photos
-          description: Search Unsplash for high-quality photos matching a keyword or description
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "unsplash.search-photos"
-          with:
-            query: "tools.query"
-            per_page: "tools.per_page"
-            orientation: "tools.orientation"
-            color: "tools.color"
-            content_filter: "tools.content_filter"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-random-photo
-          description: Get a random Unsplash photo, optionally filtered by query, orientation, or topic
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "unsplash.get-random-photo"
-          with:
-            query: "tools.query"
-            orientation: "tools.orientation"
-            count: "tools.count"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-photo-by-id
-          description: Get full details of an Unsplash photo by its ID
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "unsplash.get-photo"
-          with:
-            id: "tools.id"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: browse-editorial-photos
-          description: Browse the Unsplash editorial feed for curated high-quality photos
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "unsplash.list-photos"
-          with:
-            page: "tools.page"
-            per_page: "tools.per_page"
-            order_by: "tools.order_by"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-photos-by-topic
-          description: Get photos from a specific Unsplash editorial topic (nature, architecture, travel, etc.)
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "unsplash.get-topic-photos"
-          with:
-            id_or_slug: "tools.topic"
-            per_page: "tools.per_page"
-            orientation: "tools.orientation"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: search-collections
-          description: Search Unsplash for curated photo collections
-          hints:
-            readOnly: true
-            openWorld: true
-          call: "unsplash.search-collections"
-          with:
-            query: "tools.query"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-collection-photos
-          description: Get all photos in a specific Unsplash collection
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "unsplash.get-collection-photos"
-          with:
-            id: "tools.id"
-            orientation: "tools.orientation"
-          outputParameters:
-            - type: object
-              mapping: "$."
-        - name: get-user-photos
-          description: Get photos uploaded by a specific Unsplash photographer
-          hints:
-            readOnly: true
-            openWorld: false
-          call: "unsplash.list-user-photos"
-          with:
-            username: "tools.username"
-            per_page: "tools.per_page"
-          outputParameters:
-            - type: object
-              mapping: "$."
+  - type: rest
+    port: 8080
+    namespace: unsplash-discovery-api
+    description: Unified REST API for Unsplash photo discovery.
+    resources:
+    - path: /v1/photos
+      name: photos
+      description: Editorial photo feed
+      operations:
+      - method: GET
+        name: list-photos
+        description: Browse the Unsplash editorial photo feed
+        call: unsplash.list-photos
+        with:
+          page: rest.page
+          per_page: rest.per_page
+          order_by: rest.order_by
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/photos/{id}
+      name: photo
+      description: Single photo operations
+      operations:
+      - method: GET
+        name: get-photo
+        description: Get a photo by ID
+        call: unsplash.get-photo
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/photos/random
+      name: random-photo
+      description: Random photo
+      operations:
+      - method: GET
+        name: get-random-photo
+        description: Get a random photo with optional filters
+        call: unsplash.get-random-photo
+        with:
+          query: rest.query
+          orientation: rest.orientation
+          content_filter: rest.content_filter
+          count: rest.count
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/photos
+      name: photo-search
+      description: Photo search
+      operations:
+      - method: GET
+        name: search-photos
+        description: Search photos by keyword
+        call: unsplash.search-photos
+        with:
+          query: rest.query
+          page: rest.page
+          per_page: rest.per_page
+          orientation: rest.orientation
+          color: rest.color
+          content_filter: rest.content_filter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/topics
+      name: topics
+      description: Editorial topics
+      operations:
+      - method: GET
+        name: list-topics
+        description: List editorial topics
+        call: unsplash.list-topics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/topics/{id}/photos
+      name: topic-photos
+      description: Photos by topic
+      operations:
+      - method: GET
+        name: get-topic-photos
+        description: Get photos for a topic
+        call: unsplash.get-topic-photos
+        with:
+          id_or_slug: rest.id
+          page: rest.page
+          per_page: rest.per_page
+          orientation: rest.orientation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/collections/{id}/photos
+      name: collection-photos
+      description: Photos by collection
+      operations:
+      - method: GET
+        name: get-collection-photos
+        description: Get photos in a collection
+        call: unsplash.get-collection-photos
+        with:
+          id: rest.id
+          page: rest.page
+          orientation: rest.orientation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/users/{username}/photos
+      name: user-photos
+      description: Photos by user
+      operations:
+      - method: GET
+        name: list-user-photos
+        description: List photos by a specific user
+        call: unsplash.list-user-photos
+        with:
+          username: rest.username
+          page: rest.page
+          order_by: rest.order_by
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: unsplash-discovery-mcp
+    transport: http
+    description: MCP server for AI-assisted photo discovery and selection using Unsplash.
+    tools:
+    - name: search-photos
+      description: Search Unsplash for high-quality photos matching a keyword or description
+      hints:
+        readOnly: true
+        openWorld: true
+      call: unsplash.search-photos
+      with:
+        query: tools.query
+        per_page: tools.per_page
+        orientation: tools.orientation
+        color: tools.color
+        content_filter: tools.content_filter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-random-photo
+      description: Get a random Unsplash photo, optionally filtered by query, orientation, or topic
+      hints:
+        readOnly: true
+        openWorld: true
+      call: unsplash.get-random-photo
+      with:
+        query: tools.query
+        orientation: tools.orientation
+        count: tools.count
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-photo-by-id
+      description: Get full details of an Unsplash photo by its ID
+      hints:
+        readOnly: true
+        openWorld: false
+      call: unsplash.get-photo
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: browse-editorial-photos
+      description: Browse the Unsplash editorial feed for curated high-quality photos
+      hints:
+        readOnly: true
+        openWorld: true
+      call: unsplash.list-photos
+      with:
+        page: tools.page
+        per_page: tools.per_page
+        order_by: tools.order_by
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-photos-by-topic
+      description: Get photos from a specific Unsplash editorial topic (nature, architecture, travel, etc.)
+      hints:
+        readOnly: true
+        openWorld: true
+      call: unsplash.get-topic-photos
+      with:
+        id_or_slug: tools.topic
+        per_page: tools.per_page
+        orientation: tools.orientation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-collections
+      description: Search Unsplash for curated photo collections
+      hints:
+        readOnly: true
+        openWorld: true
+      call: unsplash.search-collections
+      with:
+        query: tools.query
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-collection-photos
+      description: Get all photos in a specific Unsplash collection
+      hints:
+        readOnly: true
+        openWorld: false
+      call: unsplash.get-collection-photos
+      with:
+        id: tools.id
+        orientation: tools.orientation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-user-photos
+      description: Get photos uploaded by a specific Unsplash photographer
+      hints:
+        readOnly: true
+        openWorld: false
+      call: unsplash.list-user-photos
+      with:
+        username: tools.username
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
