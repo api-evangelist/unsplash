@@ -64,7 +64,7 @@ common:
     url: https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines
   - type: GitHub
     url: https://github.com/unsplash
-  - type: Changelog
+  - type: ChangeLog
     url: https://unsplash.com/documentation/changelog
   - type: Vocabulary
     url: >-
