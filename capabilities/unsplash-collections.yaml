@@ -1,0 +1,381 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Unsplash API — Collections
+  description: 'Unsplash API — Collections. 9 operations. Lead operation: List Collections. Self-contained Naftiko capability
+    covering one Unsplash business surface.'
+  tags:
+  - Unsplash
+  - Collections
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    UNSPLASH_API_KEY: UNSPLASH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: unsplash-collections
+    baseUri: https://api.unsplash.com
+    description: Unsplash API — Collections business capability. Self-contained, no shared references.
+    resources:
+    - name: collections
+      path: /collections
+      operations:
+      - name: listcollections
+        method: GET
+        description: List Collections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          description: Page number
+        - name: per_page
+          in: query
+          type: integer
+          description: Results per page
+      - name: createcollection
+        method: POST
+        description: Create a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: collections-id
+      path: /collections/{id}
+      operations:
+      - name: getcollection
+        method: GET
+        description: Get a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecollection
+        method: PUT
+        description: Update a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: deletecollection
+        method: DELETE
+        description: Delete a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: collections-id-add
+      path: /collections/{id}/add
+      operations:
+      - name: addphototocollection
+        method: POST
+        description: Add a Photo to a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: collections-id-photos
+      path: /collections/{id}/photos
+      operations:
+      - name: getcollectionphotos
+        method: GET
+        description: Get Collection Photos
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+          description: Page number
+        - name: per_page
+          in: query
+          type: integer
+          description: Results per page
+        - name: orientation
+          in: query
+          type: string
+          description: Filter by orientation
+    - name: collections-id-related
+      path: /collections/{id}/related
+      operations:
+      - name: getrelatedcollections
+        method: GET
+        description: Get Related Collections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: collections-id-remove
+      path: /collections/{id}/remove
+      operations:
+      - name: removephotofromcollection
+        method: DELETE
+        description: Remove a Photo from a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: photo_id
+          in: query
+          type: string
+          description: The ID of the photo to remove
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.UNSPLASH_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: unsplash-collections-rest
+    port: 8080
+    description: REST adapter for Unsplash API — Collections. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/collections
+      name: collections
+      description: REST surface for collections.
+      operations:
+      - method: GET
+        name: listcollections
+        description: List Collections
+        call: unsplash-collections.listcollections
+        with:
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcollection
+        description: Create a Collection
+        call: unsplash-collections.createcollection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/collections/{id}
+      name: collections-id
+      description: REST surface for collections-id.
+      operations:
+      - method: GET
+        name: getcollection
+        description: Get a Collection
+        call: unsplash-collections.getcollection
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecollection
+        description: Update a Collection
+        call: unsplash-collections.updatecollection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecollection
+        description: Delete a Collection
+        call: unsplash-collections.deletecollection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/collections/{id}/add
+      name: collections-id-add
+      description: REST surface for collections-id-add.
+      operations:
+      - method: POST
+        name: addphototocollection
+        description: Add a Photo to a Collection
+        call: unsplash-collections.addphototocollection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/collections/{id}/photos
+      name: collections-id-photos
+      description: REST surface for collections-id-photos.
+      operations:
+      - method: GET
+        name: getcollectionphotos
+        description: Get Collection Photos
+        call: unsplash-collections.getcollectionphotos
+        with:
+          page: rest.page
+          per_page: rest.per_page
+          orientation: rest.orientation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/collections/{id}/related
+      name: collections-id-related
+      description: REST surface for collections-id-related.
+      operations:
+      - method: GET
+        name: getrelatedcollections
+        description: Get Related Collections
+        call: unsplash-collections.getrelatedcollections
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/collections/{id}/remove
+      name: collections-id-remove
+      description: REST surface for collections-id-remove.
+      operations:
+      - method: DELETE
+        name: removephotofromcollection
+        description: Remove a Photo from a Collection
+        call: unsplash-collections.removephotofromcollection
+        with:
+          photo_id: rest.photo_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: unsplash-collections-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Unsplash API — Collections. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-collections
+      description: List Collections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unsplash-collections.listcollections
+      with:
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-collection
+      description: Create a Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: unsplash-collections.createcollection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-collection
+      description: Get a Collection
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unsplash-collections.getcollection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-collection
+      description: Update a Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: unsplash-collections.updatecollection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-collection
+      description: Delete a Collection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: unsplash-collections.deletecollection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-photo-collection
+      description: Add a Photo to a Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: unsplash-collections.addphototocollection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-collection-photos
+      description: Get Collection Photos
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unsplash-collections.getcollectionphotos
+      with:
+        page: tools.page
+        per_page: tools.per_page
+        orientation: tools.orientation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-related-collections
+      description: Get Related Collections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unsplash-collections.getrelatedcollections
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-photo-collection
+      description: Remove a Photo from a Collection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: unsplash-collections.removephotofromcollection
+      with:
+        photo_id: tools.photo_id
+      outputParameters:
+      - type: object
+        mapping: $.

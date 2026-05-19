@@ -1,0 +1,236 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Unsplash API — Search
+  description: 'Unsplash API — Search. 3 operations. Lead operation: Search Collections. Self-contained Naftiko capability
+    covering one Unsplash business surface.'
+  tags:
+  - Unsplash
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    UNSPLASH_API_KEY: UNSPLASH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: unsplash-search
+    baseUri: https://api.unsplash.com
+    description: Unsplash API — Search business capability. Self-contained, no shared references.
+    resources:
+    - name: search-collections
+      path: /search/collections
+      operations:
+      - name: searchcollections
+        method: GET
+        description: Search Collections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          description: Search query
+          required: true
+        - name: page
+          in: query
+          type: integer
+          description: Page number
+        - name: per_page
+          in: query
+          type: integer
+          description: Results per page
+    - name: search-photos
+      path: /search/photos
+      operations:
+      - name: searchphotos
+        method: GET
+        description: Search Photos
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          description: Search query string
+          required: true
+        - name: page
+          in: query
+          type: integer
+          description: Page number
+        - name: per_page
+          in: query
+          type: integer
+          description: Results per page
+        - name: order_by
+          in: query
+          type: string
+          description: How to order results
+        - name: collections
+          in: query
+          type: string
+          description: Comma-separated collection IDs to search within
+        - name: content_filter
+          in: query
+          type: string
+          description: Content safety filter level
+        - name: color
+          in: query
+          type: string
+          description: Filter by dominant color
+        - name: orientation
+          in: query
+          type: string
+          description: Filter by orientation
+        - name: lang
+          in: query
+          type: string
+          description: Language code for multi-language search (beta)
+    - name: search-users
+      path: /search/users
+      operations:
+      - name: searchusers
+        method: GET
+        description: Search Users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          description: Search query
+          required: true
+        - name: page
+          in: query
+          type: integer
+          description: Page number
+        - name: per_page
+          in: query
+          type: integer
+          description: Results per page
+    authentication:
+      type: bearer
+      token: '{{env.UNSPLASH_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: unsplash-search-rest
+    port: 8080
+    description: REST adapter for Unsplash API — Search. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/search/collections
+      name: search-collections
+      description: REST surface for search-collections.
+      operations:
+      - method: GET
+        name: searchcollections
+        description: Search Collections
+        call: unsplash-search.searchcollections
+        with:
+          query: rest.query
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/photos
+      name: search-photos
+      description: REST surface for search-photos.
+      operations:
+      - method: GET
+        name: searchphotos
+        description: Search Photos
+        call: unsplash-search.searchphotos
+        with:
+          query: rest.query
+          page: rest.page
+          per_page: rest.per_page
+          order_by: rest.order_by
+          collections: rest.collections
+          content_filter: rest.content_filter
+          color: rest.color
+          orientation: rest.orientation
+          lang: rest.lang
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/search/users
+      name: search-users
+      description: REST surface for search-users.
+      operations:
+      - method: GET
+        name: searchusers
+        description: Search Users
+        call: unsplash-search.searchusers
+        with:
+          query: rest.query
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: unsplash-search-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Unsplash API — Search. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: search-collections
+      description: Search Collections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unsplash-search.searchcollections
+      with:
+        query: tools.query
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-photos
+      description: Search Photos
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unsplash-search.searchphotos
+      with:
+        query: tools.query
+        page: tools.page
+        per_page: tools.per_page
+        order_by: tools.order_by
+        collections: tools.collections
+        content_filter: tools.content_filter
+        color: tools.color
+        orientation: tools.orientation
+        lang: tools.lang
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-users
+      description: Search Users
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unsplash-search.searchusers
+      with:
+        query: tools.query
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.

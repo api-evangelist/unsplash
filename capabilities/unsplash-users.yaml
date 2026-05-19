@@ -1,0 +1,221 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Unsplash API — Users
+  description: 'Unsplash API — Users. 4 operations. Lead operation: Get a User''s Public Profile. Self-contained Naftiko capability
+    covering one Unsplash business surface.'
+  tags:
+  - Unsplash
+  - Users
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    UNSPLASH_API_KEY: UNSPLASH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: unsplash-users
+    baseUri: https://api.unsplash.com
+    description: Unsplash API — Users business capability. Self-contained, no shared references.
+    resources:
+    - name: users-username
+      path: /users/{username}
+      operations:
+      - name: getuser
+        method: GET
+        description: Get a User's Public Profile
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: users-username-collections
+      path: /users/{username}/collections
+      operations:
+      - name: listusercollections
+        method: GET
+        description: List a User's Collections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+    - name: users-username-photos
+      path: /users/{username}/photos
+      operations:
+      - name: listuserphotos
+        method: GET
+        description: List a User's Photos
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+        - name: order_by
+          in: query
+          type: string
+        - name: stats
+          in: query
+          type: boolean
+          description: Show the stats for each user's photo
+        - name: orientation
+          in: query
+          type: string
+    - name: users-username-statistics
+      path: /users/{username}/statistics
+      operations:
+      - name: getuserstatistics
+        method: GET
+        description: Get User Statistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: resolution
+          in: query
+          type: string
+        - name: quantity
+          in: query
+          type: integer
+    authentication:
+      type: bearer
+      token: '{{env.UNSPLASH_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: unsplash-users-rest
+    port: 8080
+    description: REST adapter for Unsplash API — Users. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/users/{username}
+      name: users-username
+      description: REST surface for users-username.
+      operations:
+      - method: GET
+        name: getuser
+        description: Get a User's Public Profile
+        call: unsplash-users.getuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/users/{username}/collections
+      name: users-username-collections
+      description: REST surface for users-username-collections.
+      operations:
+      - method: GET
+        name: listusercollections
+        description: List a User's Collections
+        call: unsplash-users.listusercollections
+        with:
+          page: rest.page
+          per_page: rest.per_page
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/users/{username}/photos
+      name: users-username-photos
+      description: REST surface for users-username-photos.
+      operations:
+      - method: GET
+        name: listuserphotos
+        description: List a User's Photos
+        call: unsplash-users.listuserphotos
+        with:
+          page: rest.page
+          per_page: rest.per_page
+          order_by: rest.order_by
+          stats: rest.stats
+          orientation: rest.orientation
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/users/{username}/statistics
+      name: users-username-statistics
+      description: REST surface for users-username-statistics.
+      operations:
+      - method: GET
+        name: getuserstatistics
+        description: Get User Statistics
+        call: unsplash-users.getuserstatistics
+        with:
+          resolution: rest.resolution
+          quantity: rest.quantity
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: unsplash-users-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Unsplash API — Users. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-user-s-public-profile
+      description: Get a User's Public Profile
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unsplash-users.getuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-user-s-collections
+      description: List a User's Collections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unsplash-users.listusercollections
+      with:
+        page: tools.page
+        per_page: tools.per_page
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-user-s-photos
+      description: List a User's Photos
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unsplash-users.listuserphotos
+      with:
+        page: tools.page
+        per_page: tools.per_page
+        order_by: tools.order_by
+        stats: tools.stats
+        orientation: tools.orientation
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-user-statistics
+      description: Get User Statistics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unsplash-users.getuserstatistics
+      with:
+        resolution: tools.resolution
+        quantity: tools.quantity
+      outputParameters:
+      - type: object
+        mapping: $.
