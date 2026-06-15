@@ -1,0 +1,928 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Unsplash API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Photos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Editorial Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/photos",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to retrieve"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order results by latest, oldest, or popular"
+              }
+            ]
+          },
+          "docs": "Get a single page of the editorial photo feed. Requires public authentication (Client-ID)."
+        },
+        {
+          "info": {
+            "name": "Get a Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/photos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Photo ID"
+              }
+            ]
+          },
+          "docs": "Retrieve a single photo by ID."
+        },
+        {
+          "info": {
+            "name": "Update a Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.unsplash.com/photos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Photo ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update a photo's metadata. Requires write_photos scope."
+        },
+        {
+          "info": {
+            "name": "Get a Random Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/photos/random",
+            "params": [
+              {
+                "name": "collections",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated collection IDs to filter by"
+              },
+              {
+                "name": "topics",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated topic IDs or slugs to filter by"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Limit to photos by a specific user"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query to filter random photos"
+              },
+              {
+                "name": "orientation",
+                "value": "",
+                "type": "query",
+                "description": "Filter by photo orientation"
+              },
+              {
+                "name": "content_filter",
+                "value": "",
+                "type": "query",
+                "description": "Content safety filter level"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Number of random photos (returns array if count > 1)"
+              }
+            ]
+          },
+          "docs": "Retrieve one or more random photos. Optionally filter by orientation, color, topic, collection, featured status, username, or search query."
+        },
+        {
+          "info": {
+            "name": "Get Photo Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/photos/:id/statistics",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Photo ID"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "Time resolution for statistics"
+              },
+              {
+                "name": "quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of data points to return"
+              }
+            ]
+          },
+          "docs": "Retrieve statistics for a photo (downloads, views, likes) over time."
+        },
+        {
+          "info": {
+            "name": "Track a Photo Download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/photos/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Photo ID"
+              }
+            ]
+          },
+          "docs": "Track a photo download event. Must be called when a user downloads a photo to comply with Unsplash API guidelines. Returns the photo's download URL."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/search/photos",
+            "params": [
+              {
+                "name": "query",
+                "value": "forest mountains",
+                "type": "query",
+                "description": "Search query string"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "How to order results"
+              },
+              {
+                "name": "collections",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated collection IDs to search within"
+              },
+              {
+                "name": "content_filter",
+                "value": "",
+                "type": "query",
+                "description": "Content safety filter level"
+              },
+              {
+                "name": "color",
+                "value": "",
+                "type": "query",
+                "description": "Filter by dominant color"
+              },
+              {
+                "name": "orientation",
+                "value": "",
+                "type": "query",
+                "description": "Filter by orientation"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language code for multi-language search (beta)"
+              }
+            ]
+          },
+          "docs": "Search photos by keyword. Returns paginated results with photo objects and total count. Supports filtering by orientation, color, and content safety."
+        },
+        {
+          "info": {
+            "name": "Search Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/search/collections",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              }
+            ]
+          },
+          "docs": "Search collections by keyword."
+        },
+        {
+          "info": {
+            "name": "Search Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/search/users",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              }
+            ]
+          },
+          "docs": "Search users by keyword."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/collections",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              }
+            ]
+          },
+          "docs": "Get a single page of all featured collections."
+        },
+        {
+          "info": {
+            "name": "Create a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.unsplash.com/collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create a new collection. Requires write_collections scope."
+        },
+        {
+          "info": {
+            "name": "Get a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ]
+          },
+          "docs": "Retrieve a single collection by ID."
+        },
+        {
+          "info": {
+            "name": "Update a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.unsplash.com/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update an existing collection. Requires write_collections scope."
+        },
+        {
+          "info": {
+            "name": "Delete a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.unsplash.com/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete a collection. Requires write_collections scope."
+        },
+        {
+          "info": {
+            "name": "Get Collection Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/collections/:id/photos",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              },
+              {
+                "name": "orientation",
+                "value": "",
+                "type": "query",
+                "description": "Filter by orientation"
+              }
+            ]
+          },
+          "docs": "Retrieve photos in a collection."
+        },
+        {
+          "info": {
+            "name": "Add a Photo to a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.unsplash.com/collections/:id/add",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Add a photo to a collection. Requires write_collections scope."
+        },
+        {
+          "info": {
+            "name": "Remove a Photo from a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.unsplash.com/collections/:id/remove",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              },
+              {
+                "name": "photo_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the photo to remove"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Remove a photo from a collection. Requires write_collections scope."
+        },
+        {
+          "info": {
+            "name": "Get Related Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/collections/:id/related",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of collections related to the given one."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a User's Public Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/users/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Unsplash username"
+              }
+            ]
+          },
+          "docs": "Retrieve public details of a user by username."
+        },
+        {
+          "info": {
+            "name": "List a User's Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/users/:username/photos",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Unsplash username"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stats",
+                "value": "",
+                "type": "query",
+                "description": "Show the stats for each user's photo"
+              },
+              {
+                "name": "orientation",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of photos uploaded by a user."
+        },
+        {
+          "info": {
+            "name": "List a User's Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/users/:username/collections",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Unsplash username"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of collections created by a user."
+        },
+        {
+          "info": {
+            "name": "Get User Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/users/:username/statistics",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Unsplash username"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "quantity",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve statistics about a user's account (downloads, views, likes)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Current User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Current User Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/me",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retrieve the authenticated user's profile. Requires read_user scope."
+        },
+        {
+          "info": {
+            "name": "Update Current User Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.unsplash.com/me",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update the authenticated user's profile. Requires write_user scope."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Topics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Topics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/topics",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of topic IDs or slugs to filter"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of editorial topics."
+        },
+        {
+          "info": {
+            "name": "Get a Topic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/topics/:id_or_slug",
+            "params": [
+              {
+                "name": "id_or_slug",
+                "value": "",
+                "type": "path",
+                "description": "Topic ID or slug"
+              }
+            ]
+          },
+          "docs": "Retrieve a single topic by ID or slug."
+        },
+        {
+          "info": {
+            "name": "Get Topic Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/topics/:id_or_slug/photos",
+            "params": [
+              {
+                "name": "id_or_slug",
+                "value": "",
+                "type": "path",
+                "description": "Topic ID or slug"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orientation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve photos for a topic."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Platform Total Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/stats/totals"
+          },
+          "docs": "Retrieve overall Unsplash platform statistics."
+        },
+        {
+          "info": {
+            "name": "Get Platform Monthly Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/stats/month"
+          },
+          "docs": "Retrieve Unsplash platform statistics for the current month."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
