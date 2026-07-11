@@ -46,6 +46,10 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-schema/unsplash-photo-schema.json
 common:
+  - type: Authentication
+    url: authentication/unsplash-authentication.yml
+  - type: OAuthScopes
+    url: scopes/unsplash-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/unsplash
   - type: Website
@@ -64,6 +68,8 @@ common:
     url: https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/vocabulary/unsplash-vocabulary.yml
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-ld/unsplash-context.jsonld
+  - type: Blog
+    url: https://unsplash.com/blog/rss/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -1,0 +1,59 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/unsplash-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/unsplash-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://unsplash.com/oauth/authorize
+    tokenUrl: https://unsplash.com/oauth/token
+scopes:
+- scope: public
+  description: Read public data (default)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/unsplash-openapi.yml
+- scope: read_collections
+  description: Read collection data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/unsplash-openapi.yml
+- scope: read_photos
+  description: Read photo data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/unsplash-openapi.yml
+- scope: read_user
+  description: Read user profile data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/unsplash-openapi.yml
+- scope: write_collections
+  description: Create, update, delete collections
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/unsplash-openapi.yml
+- scope: write_likes
+  description: Like/unlike photos
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/unsplash-openapi.yml
+- scope: write_photos
+  description: Write photo data (update metadata)
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/unsplash-openapi.yml
+- scope: write_user
+  description: Write user profile data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/unsplash-openapi.yml
