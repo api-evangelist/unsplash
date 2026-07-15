@@ -46,6 +46,8 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-schema/unsplash-photo-schema.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/unsplash-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/unsplash-vulnerability-disclosure.yml
   - type: DomainSecurity
