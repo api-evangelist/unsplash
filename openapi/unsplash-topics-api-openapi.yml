@@ -1,0 +1,471 @@
+openapi: 3.0.3
+info:
+  title: Unsplash Collections Topics API
+  description: 'The Unsplash API provides access to the world''s largest open collection of high-quality, freely usable photos. Build photo-powered applications with search, random photos, user profiles, collections, topics, and statistics. Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr (production). Downloads must be tracked via the /photos/:id/download endpoint per Unsplash API guidelines.'
+  version: 1.0.0
+  contact:
+    name: Unsplash Developers
+    url: https://unsplash.com/developers
+  termsOfService: https://unsplash.com/api-terms
+servers:
+- url: https://api.unsplash.com
+  description: Unsplash API
+security:
+- ClientID: []
+tags:
+- name: Topics
+  description: Editorial topic operations
+paths:
+  /topics:
+    get:
+      operationId: listTopics
+      summary: List Topics
+      description: Get a list of editorial topics.
+      tags:
+      - Topics
+      parameters:
+      - name: ids
+        in: query
+        schema:
+          type: string
+        description: Comma-separated list of topic IDs or slugs to filter
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 30
+          default: 10
+      - name: order_by
+        in: query
+        schema:
+          type: string
+          enum:
+          - featured
+          - latest
+          - oldest
+          - position
+          default: position
+      responses:
+        '200':
+          description: List of topics
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Topic'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /topics/{id_or_slug}:
+    get:
+      operationId: getTopic
+      summary: Get a Topic
+      description: Retrieve a single topic by ID or slug.
+      tags:
+      - Topics
+      parameters:
+      - name: id_or_slug
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Topic ID or slug
+      responses:
+        '200':
+          description: Topic details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Topic'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /topics/{id_or_slug}/photos:
+    get:
+      operationId: getTopicPhotos
+      summary: Get Topic Photos
+      description: Retrieve photos for a topic.
+      tags:
+      - Topics
+      parameters:
+      - name: id_or_slug
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Topic ID or slug
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 30
+          default: 10
+      - name: orientation
+        in: query
+        schema:
+          type: string
+          enum:
+          - landscape
+          - portrait
+          - squarish
+      - name: order_by
+        in: query
+        schema:
+          type: string
+          enum:
+          - latest
+          - oldest
+          - popular
+          - views
+          - downloads
+          default: latest
+      responses:
+        '200':
+          description: Photos in topic
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Photo'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid authentication
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Topic:
+      type: object
+      description: An Unsplash editorial topic
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+          description: URL-friendly identifier
+        title:
+          type: string
+        description:
+          type: string
+        published_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        starts_at:
+          type: string
+          format: date-time
+        ends_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        featured:
+          type: boolean
+        total_photos:
+          type: integer
+        status:
+          type: string
+          enum:
+          - open
+          - closed
+        cover_photo:
+          $ref: '#/components/schemas/Photo'
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            photos:
+              type: string
+              format: uri
+    Photo:
+      type: object
+      description: An Unsplash photo object
+      properties:
+        id:
+          type: string
+          description: Unique photo identifier
+          example: Dwu85P9SOIk
+        created_at:
+          type: string
+          format: date-time
+          description: When the photo was uploaded
+        updated_at:
+          type: string
+          format: date-time
+          description: When the photo was last updated
+        promoted_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: When the photo was promoted to editorial feed
+        width:
+          type: integer
+          description: Photo width in pixels
+          example: 5616
+        height:
+          type: integer
+          description: Photo height in pixels
+          example: 3744
+        color:
+          type: string
+          description: Dominant color hex code
+          example: '#6E633A'
+        blur_hash:
+          type: string
+          description: BlurHash for placeholder preview
+          example: L~I64nofRjof%MQZWBS$Mxnhx]t6
+        description:
+          type:
+          - string
+          - 'null'
+          description: Photographer-provided description
+        alt_description:
+          type:
+          - string
+          - 'null'
+          description: Auto-generated alt text for accessibility
+        likes:
+          type: integer
+          description: Number of likes
+        downloads:
+          type: integer
+          description: Total download count
+        views:
+          type: integer
+          description: Total view count
+        liked_by_user:
+          type: boolean
+          description: Whether the current authenticated user liked this photo
+        urls:
+          type: object
+          description: Image URLs at different sizes
+          properties:
+            raw:
+              type: string
+              format: uri
+              description: Original image URL with no transformations
+            full:
+              type: string
+              format: uri
+              description: Full-quality image (large width, no compression)
+            regular:
+              type: string
+              format: uri
+              description: 1080px wide image
+            small:
+              type: string
+              format: uri
+              description: 400px wide image
+            thumb:
+              type: string
+              format: uri
+              description: 200px wide thumbnail
+            small_s3:
+              type: string
+              format: uri
+              description: Small S3-hosted image
+        links:
+          type: object
+          description: API and site links for the photo
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            download:
+              type: string
+              format: uri
+            download_location:
+              type: string
+              format: uri
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        location:
+          type: object
+          description: Location where the photo was taken
+          properties:
+            name:
+              type:
+              - string
+              - 'null'
+            city:
+              type:
+              - string
+              - 'null'
+            country:
+              type:
+              - string
+              - 'null'
+            position:
+              type: object
+              properties:
+                latitude:
+                  type:
+                  - number
+                  - 'null'
+                longitude:
+                  type:
+                  - number
+                  - 'null'
+        tags:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+        exif:
+          type: object
+          description: Camera EXIF metadata
+          properties:
+            make:
+              type:
+              - string
+              - 'null'
+            model:
+              type:
+              - string
+              - 'null'
+            name:
+              type:
+              - string
+              - 'null'
+            exposure_time:
+              type:
+              - string
+              - 'null'
+            aperture:
+              type:
+              - string
+              - 'null'
+            focal_length:
+              type:
+              - string
+              - 'null'
+            iso:
+              type:
+              - integer
+              - 'null'
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          description: Array of human-readable error messages
+    UserSummary:
+      type: object
+      description: Abbreviated user object for embedding in photo/collection responses
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        portfolio_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        bio:
+          type:
+          - string
+          - 'null'
+        location:
+          type:
+          - string
+          - 'null'
+        total_likes:
+          type: integer
+        total_photos:
+          type: integer
+        total_collections:
+          type: integer
+        profile_image:
+          type: object
+          properties:
+            small:
+              type: string
+              format: uri
+            medium:
+              type: string
+              format: uri
+            large:
+              type: string
+              format: uri
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            photos:
+              type: string
+              format: uri
+            likes:
+              type: string
+              format: uri
+  securitySchemes:
+    ClientID:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Use `Authorization: Client-ID {YOUR_ACCESS_KEY}` for public API access. Alternatively pass as query param: `?client_id={YOUR_ACCESS_KEY}`'
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://unsplash.com/oauth/authorize
+          tokenUrl: https://unsplash.com/oauth/token
+          scopes:
+            public: Read public data (default)
+            read_user: Read user profile data
+            write_user: Write user profile data
+            read_photos: Read photo data
+            write_photos: Write photo data (update metadata)
+            write_likes: Like/unlike photos
+            write_collections: Create, update, delete collections
+            read_collections: Read collection data

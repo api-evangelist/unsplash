@@ -1,0 +1,581 @@
+openapi: 3.0.3
+info:
+  title: Unsplash Collections Search API
+  description: 'The Unsplash API provides access to the world''s largest open collection of high-quality, freely usable photos. Build photo-powered applications with search, random photos, user profiles, collections, topics, and statistics. Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr (production). Downloads must be tracked via the /photos/:id/download endpoint per Unsplash API guidelines.'
+  version: 1.0.0
+  contact:
+    name: Unsplash Developers
+    url: https://unsplash.com/developers
+  termsOfService: https://unsplash.com/api-terms
+servers:
+- url: https://api.unsplash.com
+  description: Unsplash API
+security:
+- ClientID: []
+tags:
+- name: Search
+  description: Search photos, collections, and users
+paths:
+  /search/photos:
+    get:
+      operationId: searchPhotos
+      summary: Search Photos
+      description: Search photos by keyword. Returns paginated results with photo objects and total count. Supports filtering by orientation, color, and content safety.
+      tags:
+      - Search
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Search query string
+        example: forest mountains
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+        description: Page number
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 30
+          default: 10
+        description: Results per page
+      - name: order_by
+        in: query
+        schema:
+          type: string
+          enum:
+          - relevant
+          - latest
+          default: relevant
+        description: How to order results
+      - name: collections
+        in: query
+        schema:
+          type: string
+        description: Comma-separated collection IDs to search within
+      - name: content_filter
+        in: query
+        schema:
+          type: string
+          enum:
+          - low
+          - high
+          default: low
+        description: Content safety filter level
+      - name: color
+        in: query
+        schema:
+          type: string
+          enum:
+          - black_and_white
+          - black
+          - white
+          - yellow
+          - orange
+          - red
+          - purple
+          - magenta
+          - green
+          - teal
+          - blue
+        description: Filter by dominant color
+      - name: orientation
+        in: query
+        schema:
+          type: string
+          enum:
+          - landscape
+          - portrait
+          - squarish
+        description: Filter by orientation
+      - name: lang
+        in: query
+        schema:
+          type: string
+        description: Language code for multi-language search (beta)
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchPhotosResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /search/collections:
+    get:
+      operationId: searchCollections
+      summary: Search Collections
+      description: Search collections by keyword.
+      tags:
+      - Search
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Search query
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+        description: Page number
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 30
+          default: 10
+        description: Results per page
+      responses:
+        '200':
+          description: Collection search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchCollectionsResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /search/users:
+    get:
+      operationId: searchUsers
+      summary: Search Users
+      description: Search users by keyword.
+      tags:
+      - Search
+      parameters:
+      - name: query
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Search query
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+        description: Page number
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 30
+          default: 10
+        description: Results per page
+      responses:
+        '200':
+          description: User search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchUsersResult'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    User:
+      allOf:
+      - $ref: '#/components/schemas/UserSummary'
+      - type: object
+        description: Full user profile
+        properties:
+          email:
+            type: string
+            format: email
+          instagram_username:
+            type:
+            - string
+            - 'null'
+          twitter_username:
+            type:
+            - string
+            - 'null'
+          downloads:
+            type: integer
+          followers_count:
+            type: integer
+          following_count:
+            type: integer
+          allow_messages:
+            type: boolean
+          numeric_id:
+            type: integer
+          followed_by_user:
+            type: boolean
+          photos:
+            type: array
+            items:
+              $ref: '#/components/schemas/Photo'
+    Photo:
+      type: object
+      description: An Unsplash photo object
+      properties:
+        id:
+          type: string
+          description: Unique photo identifier
+          example: Dwu85P9SOIk
+        created_at:
+          type: string
+          format: date-time
+          description: When the photo was uploaded
+        updated_at:
+          type: string
+          format: date-time
+          description: When the photo was last updated
+        promoted_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: When the photo was promoted to editorial feed
+        width:
+          type: integer
+          description: Photo width in pixels
+          example: 5616
+        height:
+          type: integer
+          description: Photo height in pixels
+          example: 3744
+        color:
+          type: string
+          description: Dominant color hex code
+          example: '#6E633A'
+        blur_hash:
+          type: string
+          description: BlurHash for placeholder preview
+          example: L~I64nofRjof%MQZWBS$Mxnhx]t6
+        description:
+          type:
+          - string
+          - 'null'
+          description: Photographer-provided description
+        alt_description:
+          type:
+          - string
+          - 'null'
+          description: Auto-generated alt text for accessibility
+        likes:
+          type: integer
+          description: Number of likes
+        downloads:
+          type: integer
+          description: Total download count
+        views:
+          type: integer
+          description: Total view count
+        liked_by_user:
+          type: boolean
+          description: Whether the current authenticated user liked this photo
+        urls:
+          type: object
+          description: Image URLs at different sizes
+          properties:
+            raw:
+              type: string
+              format: uri
+              description: Original image URL with no transformations
+            full:
+              type: string
+              format: uri
+              description: Full-quality image (large width, no compression)
+            regular:
+              type: string
+              format: uri
+              description: 1080px wide image
+            small:
+              type: string
+              format: uri
+              description: 400px wide image
+            thumb:
+              type: string
+              format: uri
+              description: 200px wide thumbnail
+            small_s3:
+              type: string
+              format: uri
+              description: Small S3-hosted image
+        links:
+          type: object
+          description: API and site links for the photo
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            download:
+              type: string
+              format: uri
+            download_location:
+              type: string
+              format: uri
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        location:
+          type: object
+          description: Location where the photo was taken
+          properties:
+            name:
+              type:
+              - string
+              - 'null'
+            city:
+              type:
+              - string
+              - 'null'
+            country:
+              type:
+              - string
+              - 'null'
+            position:
+              type: object
+              properties:
+                latitude:
+                  type:
+                  - number
+                  - 'null'
+                longitude:
+                  type:
+                  - number
+                  - 'null'
+        tags:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              title:
+                type: string
+        exif:
+          type: object
+          description: Camera EXIF metadata
+          properties:
+            make:
+              type:
+              - string
+              - 'null'
+            model:
+              type:
+              - string
+              - 'null'
+            name:
+              type:
+              - string
+              - 'null'
+            exposure_time:
+              type:
+              - string
+              - 'null'
+            aperture:
+              type:
+              - string
+              - 'null'
+            focal_length:
+              type:
+              - string
+              - 'null'
+            iso:
+              type:
+              - integer
+              - 'null'
+    SearchUsersResult:
+      type: object
+      properties:
+        total:
+          type: integer
+        total_pages:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          description: Array of human-readable error messages
+    Collection:
+      type: object
+      description: An Unsplash photo collection
+      properties:
+        id:
+          type: string
+          description: Collection identifier
+        title:
+          type: string
+          description: Collection title
+        description:
+          type:
+          - string
+          - 'null'
+          description: Collection description
+        published_at:
+          type: string
+          format: date-time
+        last_collected_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        featured:
+          type: boolean
+          description: Whether the collection is featured
+        total_photos:
+          type: integer
+          description: Total number of photos in the collection
+        private:
+          type: boolean
+          description: Whether the collection is private
+        share_key:
+          type:
+          - string
+          - 'null'
+          description: Share key for private collections
+        cover_photo:
+          oneOf:
+          - $ref: '#/components/schemas/Photo'
+          - type: 'null'
+          description: Cover photo for the collection
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            photos:
+              type: string
+              format: uri
+            related:
+              type: string
+              format: uri
+    UserSummary:
+      type: object
+      description: Abbreviated user object for embedding in photo/collection responses
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        portfolio_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        bio:
+          type:
+          - string
+          - 'null'
+        location:
+          type:
+          - string
+          - 'null'
+        total_likes:
+          type: integer
+        total_photos:
+          type: integer
+        total_collections:
+          type: integer
+        profile_image:
+          type: object
+          properties:
+            small:
+              type: string
+              format: uri
+            medium:
+              type: string
+              format: uri
+            large:
+              type: string
+              format: uri
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            photos:
+              type: string
+              format: uri
+            likes:
+              type: string
+              format: uri
+    SearchPhotosResult:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of matching results
+        total_pages:
+          type: integer
+          description: Total number of pages
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Photo'
+    SearchCollectionsResult:
+      type: object
+      properties:
+        total:
+          type: integer
+        total_pages:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Collection'
+  responses:
+    Unauthorized:
+      description: Missing or invalid authentication
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    ClientID:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Use `Authorization: Client-ID {YOUR_ACCESS_KEY}` for public API access. Alternatively pass as query param: `?client_id={YOUR_ACCESS_KEY}`'
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://unsplash.com/oauth/authorize
+          tokenUrl: https://unsplash.com/oauth/token
+          scopes:
+            public: Read public data (default)
+            read_user: Read user profile data
+            write_user: Write user profile data
+            read_photos: Read photo data
+            write_photos: Write photo data (update metadata)
+            write_likes: Like/unlike photos
+            write_collections: Create, update, delete collections
+            read_collections: Read collection data

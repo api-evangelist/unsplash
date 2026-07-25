@@ -1,0 +1,99 @@
+openapi: 3.0.3
+info:
+  title: Unsplash Collections Stats API
+  description: 'The Unsplash API provides access to the world''s largest open collection of high-quality, freely usable photos. Build photo-powered applications with search, random photos, user profiles, collections, topics, and statistics. Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr (production). Downloads must be tracked via the /photos/:id/download endpoint per Unsplash API guidelines.'
+  version: 1.0.0
+  contact:
+    name: Unsplash Developers
+    url: https://unsplash.com/developers
+  termsOfService: https://unsplash.com/api-terms
+servers:
+- url: https://api.unsplash.com
+  description: Unsplash API
+security:
+- ClientID: []
+tags:
+- name: Stats
+  description: Platform statistics
+paths:
+  /stats/totals:
+    get:
+      operationId: getStatsTotals
+      summary: Get Platform Total Statistics
+      description: Retrieve overall Unsplash platform statistics.
+      tags:
+      - Stats
+      responses:
+        '200':
+          description: Platform statistics totals
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsTotals'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /stats/month:
+    get:
+      operationId: getStatsMonth
+      summary: Get Platform Monthly Statistics
+      description: Retrieve Unsplash platform statistics for the current month.
+      tags:
+      - Stats
+      responses:
+        '200':
+          description: Monthly platform statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsTotals'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid authentication
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          description: Array of human-readable error messages
+    StatsTotals:
+      type: object
+      properties:
+        total_photos:
+          type: integer
+        photo_downloads:
+          type: integer
+        total_users:
+          type: integer
+        total_collections:
+          type: integer
+  securitySchemes:
+    ClientID:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Use `Authorization: Client-ID {YOUR_ACCESS_KEY}` for public API access. Alternatively pass as query param: `?client_id={YOUR_ACCESS_KEY}`'
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://unsplash.com/oauth/authorize
+          tokenUrl: https://unsplash.com/oauth/token
+          scopes:
+            public: Read public data (default)
+            read_user: Read user profile data
+            write_user: Write user profile data
+            read_photos: Read photo data
+            write_photos: Write photo data (update metadata)
+            write_likes: Like/unlike photos
+            write_collections: Create, update, delete collections
+            read_collections: Read collection data
