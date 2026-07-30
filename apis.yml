@@ -1,4 +1,18 @@
 aid: unsplash
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/unsplash.png
 name: Unsplash
 description: >-
   Unsplash is a platform providing the world's largest collection of high-quality, freely usable photographs. The
@@ -19,32 +33,132 @@ tags:
   - Open Source
   - Media
 apis:
-  - aid: unsplash:unsplash
-    name: Unsplash API
-    description: >-
-      REST API providing access to Unsplash's full photo library with endpoints for photo search, random photos,
-      editorial feed browsing, photo detail and statistics, collection management, topic browsing, and user profiles.
-      Returns JSON responses with multiple photo size URLs (raw, full, regular, small, thumb) via imgix CDN. Rate limit:
-      50 req/hr (demo), 1000 req/hr (production). Download tracking via /photos/{id}/download is required per Unsplash
-      API guidelines.
-    humanURL: https://unsplash.com/developers
-    baseURL: https://api.unsplash.com
-    tags:
-      - Photos
-      - Search
-      - Collections
-      - Topics
-      - Statistics
-    properties:
-      - type: Documentation
-        url: https://unsplash.com/documentation
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/openapi/unsplash-openapi.yml
-      - type: SpectralRules
-        url: https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/rules/unsplash-rules.yml
-      - type: JSONSchema
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-schema/unsplash-photo-schema.json
+- aid: unsplash:unsplash-collections-api
+  name: Unsplash Collections API
+  description: Photo collection management
+  humanURL: https://unsplash.com/developers
+  baseURL: https://api.unsplash.com
+  tags:
+  - Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/unsplash-collections-api-openapi.yml
+  - type: Documentation
+    url: https://unsplash.com/documentation
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/rules/unsplash-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-schema/unsplash-photo-schema.json
+- aid: unsplash:unsplash-current-user-api
+  name: Unsplash Current User API
+  description: Authenticated user operations
+  humanURL: https://unsplash.com/developers
+  baseURL: https://api.unsplash.com
+  tags:
+  - Current User
+  properties:
+  - type: OpenAPI
+    url: openapi/unsplash-current-user-api-openapi.yml
+  - type: Documentation
+    url: https://unsplash.com/documentation
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/rules/unsplash-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-schema/unsplash-photo-schema.json
+- aid: unsplash:unsplash-photos-api
+  name: Unsplash Photos API
+  description: Photo browsing and management operations
+  humanURL: https://unsplash.com/developers
+  baseURL: https://api.unsplash.com
+  tags:
+  - Photos
+  properties:
+  - type: OpenAPI
+    url: openapi/unsplash-photos-api-openapi.yml
+  - type: Documentation
+    url: https://unsplash.com/documentation
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/rules/unsplash-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-schema/unsplash-photo-schema.json
+- aid: unsplash:unsplash-search-api
+  name: Unsplash Search API
+  description: Search photos, collections, and users
+  humanURL: https://unsplash.com/developers
+  baseURL: https://api.unsplash.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/unsplash-search-api-openapi.yml
+  - type: Documentation
+    url: https://unsplash.com/documentation
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/rules/unsplash-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-schema/unsplash-photo-schema.json
+- aid: unsplash:unsplash-stats-api
+  name: Unsplash Stats API
+  description: Platform statistics
+  humanURL: https://unsplash.com/developers
+  baseURL: https://api.unsplash.com
+  tags:
+  - Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/unsplash-stats-api-openapi.yml
+  - type: Documentation
+    url: https://unsplash.com/documentation
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/rules/unsplash-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-schema/unsplash-photo-schema.json
+- aid: unsplash:unsplash-topics-api
+  name: Unsplash Topics API
+  description: Editorial topic operations
+  humanURL: https://unsplash.com/developers
+  baseURL: https://api.unsplash.com
+  tags:
+  - Topics
+  properties:
+  - type: OpenAPI
+    url: openapi/unsplash-topics-api-openapi.yml
+  - type: Documentation
+    url: https://unsplash.com/documentation
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/rules/unsplash-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-schema/unsplash-photo-schema.json
+- aid: unsplash:unsplash-users-api
+  name: Unsplash Users API
+  description: User profile operations
+  humanURL: https://unsplash.com/developers
+  baseURL: https://api.unsplash.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/unsplash-users-api-openapi.yml
+  - type: Documentation
+    url: https://unsplash.com/documentation
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/rules/unsplash-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-schema/unsplash-photo-schema.json
 common:
   - type: AgenticAccess
     url: agentic-access/unsplash-agentic-access.yml
