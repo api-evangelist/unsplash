@@ -1,0 +1,26 @@
+{
+  "provider": "unsplash",
+  "sources": [
+    "unsplash-collections-api-openapi.yml",
+    "unsplash-current-user-api-openapi.yml",
+    "unsplash-photos-api-openapi.yml",
+    "unsplash-search-api-openapi.yml",
+    "unsplash-stats-api-openapi.yml",
+    "unsplash-topics-api-openapi.yml",
+    "unsplash-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "unsplash-collections-api-openapi.yml",
+    "unsplash-current-user-api-openapi.yml",
+    "unsplash-photos-api-openapi.yml",
+    "unsplash-search-api-openapi.yml",
+    "unsplash-stats-api-openapi.yml",
+    "unsplash-topics-api-openapi.yml",
+    "unsplash-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
