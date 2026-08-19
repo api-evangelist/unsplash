@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Unsplash Collections Current User API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Current User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Current User Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/me",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Retrieve the authenticated user's profile. Requires read_user scope."
+        },
+        {
+          "info": {
+            "name": "Update Current User Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.unsplash.com/me",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update the authenticated user's profile. Requires write_user scope."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

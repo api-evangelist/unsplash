@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Unsplash Collections Search API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/search/photos",
+            "params": [
+              {
+                "name": "query",
+                "value": "forest mountains",
+                "type": "query",
+                "description": "Search query string"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "How to order results"
+              },
+              {
+                "name": "collections",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated collection IDs to search within"
+              },
+              {
+                "name": "content_filter",
+                "value": "",
+                "type": "query",
+                "description": "Content safety filter level"
+              },
+              {
+                "name": "color",
+                "value": "",
+                "type": "query",
+                "description": "Filter by dominant color"
+              },
+              {
+                "name": "orientation",
+                "value": "",
+                "type": "query",
+                "description": "Filter by orientation"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Language code for multi-language search (beta)"
+              }
+            ]
+          },
+          "docs": "Search photos by keyword. Returns paginated results with photo objects and total count. Supports filtering by orientation, color, and content safety."
+        },
+        {
+          "info": {
+            "name": "Search Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/search/collections",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              }
+            ]
+          },
+          "docs": "Search collections by keyword."
+        },
+        {
+          "info": {
+            "name": "Search Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/search/users",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              }
+            ]
+          },
+          "docs": "Search users by keyword."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

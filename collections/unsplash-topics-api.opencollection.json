@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Unsplash Collections Topics API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Topics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Topics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/topics",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of topic IDs or slugs to filter"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of editorial topics."
+        },
+        {
+          "info": {
+            "name": "Get a Topic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/topics/:id_or_slug",
+            "params": [
+              {
+                "name": "id_or_slug",
+                "value": "",
+                "type": "path",
+                "description": "Topic ID or slug"
+              }
+            ]
+          },
+          "docs": "Retrieve a single topic by ID or slug."
+        },
+        {
+          "info": {
+            "name": "Get Topic Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/topics/:id_or_slug/photos",
+            "params": [
+              {
+                "name": "id_or_slug",
+                "value": "",
+                "type": "path",
+                "description": "Topic ID or slug"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orientation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve photos for a topic."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

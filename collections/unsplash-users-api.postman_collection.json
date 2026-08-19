@@ -1,0 +1,1027 @@
+{
+  "item": [
+    {
+      "id": "0acf8c30-c578-4555-94a0-d5706219e26f",
+      "name": "Users",
+      "description": {
+        "content": "User profile operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d6268773-1ce5-4692-8eee-c13167810074",
+          "name": "Get a User's Public Profile",
+          "request": {
+            "name": "Get a User's Public Profile",
+            "description": {
+              "content": "Retrieve public details of a user by username.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":username"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) Unsplash username"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f2598a4-c368-4f9b-bbe7-6e0f9b838706",
+              "name": "User public profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"username\": \"string\",\n  \"name\": \"string\",\n  \"portfolio_url\": null,\n  \"bio\": \"string\",\n  \"location\": null,\n  \"total_likes\": 2610,\n  \"total_photos\": 5754,\n  \"total_collections\": 9554,\n  \"profile_image\": {\n    \"small\": \"http://baoZJYGyxpkuvQNeIhnuGwqVeMqM.erFOPZO3XK-B3h4IEGFSRi7tfpSDzXAWktzuEGbu7UnT\",\n    \"medium\": \"http://GbcSHHFWHtzosOLHXCMNeWpBkG.fywV70.LFKiTQs9zEYZSKCEUklxfSZqpwQqVg-do6oUJ,q\",\n    \"large\": \"http://h.tljyx-dx1EFdMOuOROPc\"\n  },\n  \"links\": {\n    \"self\": \"https://TIVSSbcOQPUHLOKNmyAseQZwox.fgujRp2-nFktsdOkKvc+lUC0iOniVVcpS4N\",\n    \"html\": \"http://sQANGwfJYThhjHjHsIpCTDuvbyzsQ.hmvOfABv+Ho598ms7r05m.TbsFdMDf\",\n    \"photos\": \"https://eNRankJgKxb.wgJn86AIDk4l4P,UOXFUSHK0h\",\n    \"likes\": \"http://hGvZhmqmrDZw.aqngK4K1xgmsG,2OXZ51MP.+FHJRJMFFST+gNaBDNs9GIzSmH85eq\"\n  },\n  \"email\": \"RTUqR@FpXoRagTCxOlsIUVlUkcRcp.oj\",\n  \"instagram_username\": null,\n  \"twitter_username\": null,\n  \"downloads\": 1867,\n  \"followers_count\": 6071,\n  \"following_count\": 5190,\n  \"allow_messages\": true,\n  \"numeric_id\": 7660,\n  \"followed_by_user\": true,\n  \"photos\": [\n    {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"2023-09-29T22:49:54.370Z\",\n      \"updated_at\": \"2021-04-04T00:55:35.172Z\",\n      \"promoted_at\": \"2024-11-07T11:21:41.464Z\",\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": \"string\",\n      \"alt_description\": \"string\",\n      \"likes\": 1901,\n      \"downloads\": 9631,\n      \"views\": 8173,\n      \"liked_by_user\": false,\n      \"urls\": {\n        \"raw\": \"http://QGGXTrY.pvIDfvKz,VVnp4gz0mpcx9hObJcPi3dS1u6rYMAi2Vhs8f2cVLi4-h130QJAX16qnnsA97EnXuJZjV\",\n        \"full\": \"https://wxJLZrqi.thtGDkdwkl.JtA8rTmZrc3SkejsLVRDysxlVpnV9k\",\n        \"regular\": \"http://zEYmCqSENphtCQIKBaqOGQIUwxtOmr.rjgvLdgzXEg7D1\",\n        \"small\": \"http://FixiKoEaYdAQWcaZyLAqGoyQXVmq.azunX5AlGNZoGjMlp2.KknJLbCWZHAhI4QKPZ-7NhiadPgSOSE5XzZd2\",\n        \"thumb\": \"https://urRkMTGFGyD.fhwVC+vPPpAjQ\",\n        \"small_s3\": \"http://jPcgeDl.kopcFjxL\"\n      },\n      \"links\": {\n        \"self\": \"http://iqunzJAKvQ.ezncYetvZ5DcYgEiuGI2uPgBY3IZq14Jb0d7nza+HwnH4Su6ljWoMY3OfjOmP5RyWkFXoZlW17\",\n        \"html\": \"http://IAmbqdeNqlEUJRjhknCuYMoabAPYf.jczj.d5Nqgbb1rVCj4Y3SxkZ960\",\n        \"download\": \"https://ogGXPyddOoxFHiMavRfSsS.trthkQucIjYvapQhA,Q-3Pcj4-d74+1,Ek.qli+VQXHkVazp,1aDNwKvHcD6lS0WeQ-ssg5IfNr\",\n        \"download_location\": \"http://ijqSDjOitzIJfEvSXfHeTjlWJIH.efjYr1X1ujcNITSX0P8Q7J0Y\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": \"http://VGXOFtCROPL.wqrdhihcpbLmnWxso6RCbDZj5lEIwjCCj1CbVwVfwxa-iP,,v+Ts-.F2cvUEdens32+R2DQuAb\",\n        \"bio\": null,\n        \"location\": \"string\",\n        \"total_likes\": 768,\n        \"total_photos\": 8736,\n        \"total_collections\": 3327,\n        \"profile_image\": {\n          \"small\": \"http://KgDHpHxbALyvAeaVKpaHDNzPPrtGtmRT.qwyMS,Sy+0Doguc9xMOHZGaVgsHbLYdmMpkr6IjmarIyAOBlfk80oUGRj\",\n          \"medium\": \"https://JXWPqpuXohluH.gdpdfwLfamprL3DO1Ux24DtDp8GZU31MtqC8mUBK9y9zbivnFQHLuh6qqWG.m8\",\n          \"large\": \"http://UQhbBugzpXXvjvSEMByqLCnloLnThcMqF.sykgNHxQJwyPL1\"\n        },\n        \"links\": {\n          \"self\": \"https://vLhBJVLXwaDtsjurzEOELTBM.umvcnHZBOGkR0VPPYpi4DTNKR2kGlbLj5h\",\n          \"html\": \"http://ctpTAvKQMVmDOPEL.uzLYTqjsrLr47SQTDuYu96\",\n          \"photos\": \"http://C.chnhmufow+kYgBOYBYQgraFxdfZgYpVPaZsQT6zNpC,V.wKPY7Hv9Gw\",\n          \"likes\": \"http://fhkllrocaWbyHVNPCcokCaJQtI.skgKuq.2xuLgPewLivSeOPY4Z2dlHNgIaNSXZnEWESFHBdWxsVKtkWe\"\n        }\n      },\n      \"location\": {\n        \"name\": null,\n        \"city\": \"string\",\n        \"country\": \"string\",\n        \"position\": {\n          \"latitude\": 2655.3616055288367,\n          \"longitude\": null\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": null,\n        \"model\": \"string\",\n        \"name\": null,\n        \"exposure_time\": \"string\",\n        \"aperture\": \"string\",\n        \"focal_length\": \"string\",\n        \"iso\": null\n      }\n    },\n    {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"1991-07-11T10:44:35.316Z\",\n      \"updated_at\": \"1982-10-25T05:23:17.857Z\",\n      \"promoted_at\": null,\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": null,\n      \"alt_description\": \"string\",\n      \"likes\": 8151,\n      \"downloads\": 6753,\n      \"views\": 2701,\n      \"liked_by_user\": false,\n      \"urls\": {\n        \"raw\": \"https://YKMgryfovjtDeUeSKYrSwvhXJrZPqPDq.wfkCFV.H0VY3KGn.daq3RHdYMRX6M61iPaaRFj1MS4Nh\",\n        \"full\": \"https://DhuIdONnuvGlkBQadrLTIKxbjPktGQ.oipjVQqhfKS9YHKvH3uI+jQerkBVpxu5kRePTV.6nxtDdio.lnEnw4D,Dl94sGX4J\",\n        \"regular\": \"https://pCd.jsL42Q+HXl\",\n        \"small\": \"http://lTQzHVBUAh.mbYysgyXlZTEhwqfKhsfe+oP0t8JR4GZNx9ykA8GXS2P7xlCf9zn+MSV\",\n        \"thumb\": \"https://VEcMCwCWuRCwI.noveqXWGpR1Q8-zSM.uKF3elfcvj.F9W.V0xJyjKVnF9dHQ5IZDM94e1qNUt.8\",\n        \"small_s3\": \"http://AuxPjtsGmvgvXRTKTDjaUQB.wuROT\"\n      },\n      \"links\": {\n        \"self\": \"https://zENtJjJrmoOrxzsSDIUpKpjl.ihG8zMtDrQBCrNggIUqqXR3yPSQqE7.l\",\n        \"html\": \"http://lZIQFvVmg.rva2fecmLrwAoPXE88V6HNun,JroHVdhdvMAdTmRMiDN.\",\n        \"download\": \"https://wlIccyqczDNgaOqDXrdRn.dkrLh7VS.KL.,UIpgXaZ13Bs5o37MMQ5mRI2QJELXBpO\",\n        \"download_location\": \"https://coVPMlwDbAChpAEKeJHyiYiDRGlVktYN.kmliPcRZL,tAc3QbEMuC1npd7SvUjuHo75OrpP32pVKSFrnc2NfLA2BVigonclTuOI9PXcJlYd\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": \"http://bzgTNMqDdtYBLSRjKgVjWelLlEnRePdC.dkvhZxNcMT-B1\",\n        \"bio\": \"string\",\n        \"location\": \"string\",\n        \"total_likes\": 6583,\n        \"total_photos\": 6585,\n        \"total_collections\": 214,\n        \"profile_image\": {\n          \"small\": \"http://OQGIYEPFXsYSscRqAMYjLxo.smw1yAtv4zxLVcVi7SJ3pnWG9jjm6AQb9\",\n          \"medium\": \"https://aNfOqVzFFMJgAdig.enxA,O-JAMPHGc8KeXFs4Ofq\",\n          \"large\": \"https://PdKrKcJugdsLyBVA.cseQGLvai74S36xtvqhFNM7cmpm.iXtv7orWxyXLwFP\"\n        },\n        \"links\": {\n          \"self\": \"https://Lk.fcehzX2gcWMl+dtUGKQRP1,HZN++f\",\n          \"html\": \"http://bUp.tyldMvR8Z0ppRECS,UIVoeCP3Y.eiFnRfz0-lNSBtBbuMcpHQf.TiB8E7TTLBuvQsjl4vlgq.VBajoo-\",\n          \"photos\": \"https://WiIfYnnlBTelNTTAQug.qpXwLN7HdIfVzFjcxm5F2habwSk\",\n          \"likes\": \"https://fcmmJaKKWWnykftZmvbnOGqfgYaElX.fbanHUme3zhLbM0q\"\n        }\n      },\n      \"location\": {\n        \"name\": null,\n        \"city\": null,\n        \"country\": null,\n        \"position\": {\n          \"latitude\": null,\n          \"longitude\": 2129.01938095308\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": \"string\",\n        \"model\": \"string\",\n        \"name\": null,\n        \"exposure_time\": \"string\",\n        \"aperture\": \"string\",\n        \"focal_length\": null,\n        \"iso\": 594\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed51ef7d-673c-4cb0-87f7-b7c08fbc6889",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "35e0e085-dc43-49b4-9b6d-5d18b8c0b9d6",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6809c847-2bf6-4de1-8bd4-60e84534ab6d",
+          "name": "List a User's Photos",
+          "request": {
+            "name": "List a User's Photos",
+            "description": {
+              "content": "Get a list of photos uploaded by a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":username",
+                "photos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "latest"
+                },
+                {
+                  "disabled": false,
+                  "key": "stats",
+                  "value": "false",
+                  "description": "Show the stats for each user's photo"
+                },
+                {
+                  "disabled": false,
+                  "key": "orientation",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) Unsplash username"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c368475-1ded-4329-82f4-a704823ff687",
+              "name": "User's photos",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "latest"
+                    },
+                    {
+                      "key": "stats",
+                      "value": "false"
+                    },
+                    {
+                      "key": "orientation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"1953-08-30T14:42:27.586Z\",\n    \"updated_at\": \"2005-07-10T01:49:30.826Z\",\n    \"promoted_at\": \"2025-02-26T17:00:15.772Z\",\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": \"string\",\n    \"alt_description\": \"string\",\n    \"likes\": 3986,\n    \"downloads\": 4115,\n    \"views\": 4377,\n    \"liked_by_user\": true,\n    \"urls\": {\n      \"raw\": \"http://CuPiLusjIOTljFUlwtUoc.fwM4tBhNLTLue67MiNcZPc1Ezq.D.ehOo1paARWapxYv3BkSUe+,ejvbn0HLZKjhyOOURv\",\n      \"full\": \"http://IeGmR.dvrI9nHMXh8rRrswb.tWWPWxiKdnnkFoKYnd+AXmlZmt\",\n      \"regular\": \"https://XoS.kewY.maOphvtyWwfS4kUvqJxLEEp8Y\",\n      \"small\": \"https://XIouMPPpIGdXeOzyvLbKpeVrr.baplUrDfxcf+Y+D9UsyvyjlrvQi\",\n      \"thumb\": \"http://MjhIFavYpPFVjWs.qeekPk3SKnvvsrAWQmv6-k,0WFKpgB\",\n      \"small_s3\": \"https://MeGbkNjFVNFOXl.jbryqWuIyAIntb0\"\n    },\n    \"links\": {\n      \"self\": \"https://TahgNpfUuAaOJxXmRtDtADavClQqGhe.okDJmARn2gsbCSXvB+ZZSJThVpz\",\n      \"html\": \"http://jMdsvhFWmcFiPCsvFNlbmUhIDeHefEfh.yjqrR,3dRPy09d2A14\",\n      \"download\": \"http://tGaWorkqZETqbjQaFfGbVfGtcTff.ehbpfK,hFrtgXxDjxCOi2dd2OzzLBukVEFDFYXHUtHot8g,7U,XBw4PejNRfbqpra,akxt26E9Wfx\",\n      \"download_location\": \"http://gtTDoTSb.cakp1SxgdTqGXV4Q.5NWEmXZwhp5qlpItRjmM\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": null,\n      \"bio\": null,\n      \"location\": \"string\",\n      \"total_likes\": 8369,\n      \"total_photos\": 9269,\n      \"total_collections\": 7046,\n      \"profile_image\": {\n        \"small\": \"https://BZvNYNYLUtrSqLhIPbySaQIYDgpdWGq.vxdntjo8KNk8lb4LgQWh\",\n        \"medium\": \"https://yAEIG.yybOPuptWdr.kFFrKWDjMUCYRgf\",\n        \"large\": \"https://dHMFiWrlWwFolZcedkQCBeAaFn.afgahghE9LMH\"\n      },\n      \"links\": {\n        \"self\": \"http://NVybVKkWjSjFpGIHYqTksdxog.ueoo0VTeiVdDJtvTMmskyEB9ePDjf1hgniWz6fUxHrLcnwRV3Z.kg\",\n        \"html\": \"http://ufnPp.nqI4gFcdAur+U3+AVctduP3NiWWcGNVCqarmT5-bfhHyOtInM-Q2nWg3yVKvi7MTGf61N\",\n        \"photos\": \"https://PLgOQQwdu.aytWUr9p19cILcQHMgIZpkGhUKEpPgFzGepKCMTn6XYy+dKV\",\n        \"likes\": \"https://gBJtzvOMjFgJyqUwbqrlduK.gzjcp.vnfcV2lmkMzcnQyUuhxHdqKKShk.7l,AJ-Tqx81oQE,inC\"\n      }\n    },\n    \"location\": {\n      \"name\": null,\n      \"city\": \"string\",\n      \"country\": null,\n      \"position\": {\n        \"latitude\": 8535.285286198112,\n        \"longitude\": 381.78174281807145\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": \"string\",\n      \"model\": \"string\",\n      \"name\": null,\n      \"exposure_time\": \"string\",\n      \"aperture\": \"string\",\n      \"focal_length\": \"string\",\n      \"iso\": null\n    }\n  },\n  {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"2019-03-11T13:08:08.806Z\",\n    \"updated_at\": \"2017-10-19T00:30:59.900Z\",\n    \"promoted_at\": null,\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": null,\n    \"alt_description\": \"string\",\n    \"likes\": 8469,\n    \"downloads\": 4331,\n    \"views\": 3044,\n    \"liked_by_user\": true,\n    \"urls\": {\n      \"raw\": \"http://gzPYirKcNGQjXseXqLOsUBVry.ofsbXW01Fgq9evlFdQCkDoLwmmJTckEGe53wxR2clQWdII\",\n      \"full\": \"https://JDEwIyiUOsnZ.vxeMK512Ncy2vj4bdf0IPfXMO7sx-9NvK9HvCMvdP-C9PytqRwFtmZ2kUZJ-af.Tc2KWwxH\",\n      \"regular\": \"https://lsCxGRnGVfGckuUMeDURBMXizH.fhPVKdgbcCrSo-EV50dPGZd0GSHE7AnayG9DXc,J7Fl-VYdAGk,\",\n      \"small\": \"https://IjRFtSrnFNHQaUawFG.fvomYWha2TOc8o3CyGX\",\n      \"thumb\": \"http://pemIHNKbAGng.qjuqk2AbIJWje+CC9GVmCYWH.5-6DkS.mO,.jFY5iQrSuXF9\",\n      \"small_s3\": \"https://khamsYo.vwWDC7GSrKqCRlkl-NYmuoQgzt2Hs6tJOYardZdjX9Z8h0ZTPhAGR9hlMIE\"\n    },\n    \"links\": {\n      \"self\": \"http://EOVEVkiRmAlTZyhyiUEkfi.gyap.cB8fpo.ezua5B0KCW3YkdUbYtkYQp1A+fau4bLxE1WTGFUf.Bv6nlVBmbSoS7M\",\n      \"html\": \"http://geXdxro.neIOFRbzRXez1Fc3QZJHJtRBPSdaR-kmq6DN0Fb8yqMAsRz1USKVpc1h1S\",\n      \"download\": \"http://mu.ncdaQVJPr8YD.fPmSDlWTIPjEx,0pJ8UWIaaT3ueayERusY7uMFAKvXG02oA6eQact0gVddSOD,\",\n      \"download_location\": \"http://cLvlkjTGYKfskSxDztBzYDobtOAxu.eqydAQPqls,TnqOc-,htkLI8kUr36o\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": \"http://rWaHDFxn.gmLsKK9snlb-uLi+T2CAE-MprumlaW-uVcoZ1Vsm9AZO-a\",\n      \"bio\": null,\n      \"location\": null,\n      \"total_likes\": 5874,\n      \"total_photos\": 6650,\n      \"total_collections\": 7819,\n      \"profile_image\": {\n        \"small\": \"https://jBfTZhMiOfzFIbenyhXVSEwDnCP.wfdmzt4+U6MMTn\",\n        \"medium\": \"http://rtHLJjCAjJOh.mytRqcJFemv8c1rCgDgo7sEuWjrE4huDN\",\n        \"large\": \"http://eCBRObETufajlPClr.fuvZdHHgYFa+\"\n      },\n      \"links\": {\n        \"self\": \"http://WJGJyJXxccBkej.tscsRS0CY+soNtYPGzn-HEr2g8ilr8oFOYzxHryyzOrpQmLFL2vHwErB\",\n        \"html\": \"http://VeFXgdjPoMUoKMUogJNcTA.dgqrO9An99MQG6BH6LoJgrLzJyFenWTTDyA\",\n        \"photos\": \"https://UvxhDgAVOpfOIcFhwLBCxDUTcDU.zkEu1ei0lgbbwunWEz6GTKWlqW79LdZxlY-lxl\",\n        \"likes\": \"https://wzZJqzOOIFOKtjFgqTCTGEydl.qjKVjFYR.1Hv2JbaLV-DKW\"\n      }\n    },\n    \"location\": {\n      \"name\": \"string\",\n      \"city\": \"string\",\n      \"country\": null,\n      \"position\": {\n        \"latitude\": 3583.423842103852,\n        \"longitude\": 8880.136148409963\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": \"string\",\n      \"model\": \"string\",\n      \"name\": \"string\",\n      \"exposure_time\": \"string\",\n      \"aperture\": \"string\",\n      \"focal_length\": null,\n      \"iso\": 5577\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20ef1850-64e2-4c0a-b630-37d4e1b22cc4",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "latest"
+                    },
+                    {
+                      "key": "stats",
+                      "value": "false"
+                    },
+                    {
+                      "key": "orientation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e96ef4e9-0e41-429d-a55f-ce8ac3027830",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "latest"
+                    },
+                    {
+                      "key": "stats",
+                      "value": "false"
+                    },
+                    {
+                      "key": "orientation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c180367a-bc30-45d6-884d-22dcd31ebbf2",
+          "name": "List a User's Collections",
+          "request": {
+            "name": "List a User's Collections",
+            "description": {
+              "content": "Get a list of collections created by a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":username",
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) Unsplash username"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26f8fbdf-efc2-423e-bfe4-5d6813c1b626",
+              "name": "User's collections",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"published_at\": \"1990-07-15T19:38:50.804Z\",\n    \"last_collected_at\": \"1990-07-03T21:50:44.062Z\",\n    \"updated_at\": \"1995-09-06T13:35:11.141Z\",\n    \"featured\": false,\n    \"total_photos\": 2136,\n    \"private\": false,\n    \"share_key\": null,\n    \"cover_photo\": {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"1993-06-17T01:40:23.439Z\",\n      \"updated_at\": \"1978-07-25T21:27:59.956Z\",\n      \"promoted_at\": null,\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": null,\n      \"alt_description\": \"string\",\n      \"likes\": 3496,\n      \"downloads\": 844,\n      \"views\": 6994,\n      \"liked_by_user\": true,\n      \"urls\": {\n        \"raw\": \"http://TBSRNvBSoagVqlpmqdVbMfHLQYvx.jkwvzQDvKYJ+LYIs3TSyYP-E.i3\",\n        \"full\": \"https://xdhfvBmnLQgRcPzyYiEBuWzNDbTk.naggEJ60ikHNzbr-6lD55Tvd3b7MCUPqcsJXeF\",\n        \"regular\": \"https://HMmpfktNsTbCCHye.fvukfOMGatkTqhfCPlfAoEJdpoXZ\",\n        \"small\": \"https://nMuuW.lcmgBf.Zanu4-1pV.dqlmSwZq6I0CIbFk-jFYjrQCRD0njMCj\",\n        \"thumb\": \"https://bQRTITUkyhAEVfu.ddfoALMgLPzcPMnmfbE5t5H2-aN8tNs1hFgzlLa\",\n        \"small_s3\": \"http://KWYFWqlNypIkmjbHzjophtjCp.zhddFK1DPKE4m0VghVdFU2\"\n      },\n      \"links\": {\n        \"self\": \"http://PKhOacNBAGZviomnKfG.zndxs1QozQ2E\",\n        \"html\": \"http://o.uhyqo7JoBIoedZKLa6GjPo4eAjKFUrQpyX3Wa7yVa4Qc\",\n        \"download\": \"https://jc.xgznQr40BATbthTYCl\",\n        \"download_location\": \"http://EcBaOjx.cbktq7+LRzfT7fqvHLIeMOJF2NB3.aYH\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": \"https://VFDocJpxKkrSZ.apiSdGSN.ZR3mMi0XyFen.ksnaHiSWZmVlH3Z+urb8gdcBvqNl\",\n        \"bio\": \"string\",\n        \"location\": \"string\",\n        \"total_likes\": 5297,\n        \"total_photos\": 8694,\n        \"total_collections\": 9417,\n        \"profile_image\": {\n          \"small\": \"http://jzRQGiqvxYRwTsjdjIFbuRBFRqh.wzQ7jKrORnTq4k2RD8,i52z0eqOUpwAVyV,8eGbSwdmxxAkGimHhfCAysM\",\n          \"medium\": \"http://JpEeHK.ygwvFn.IFj,2GnCeKKYoF0GKkO9iPGdUzisnZd9nJc\",\n          \"large\": \"https://ZujvChvlICQPJ.fgfseQv1RFBdzb7WbIJK-iK8LRTIcBYxMwRI\"\n        },\n        \"links\": {\n          \"self\": \"https://aAZVycte.coUA8RvhW0PdDDcrem2EAep7XbX\",\n          \"html\": \"https://tcDBYrjJRfgNlkYrRwUOeSwopQeK.lyhFDuyen6MzeJXGzdOyMLJhPROXAE.\",\n          \"photos\": \"https://hZgOvQklUzNApk.hqcnwGTJYucIDsfOdNVE2k\",\n          \"likes\": \"http://craTaoFBmYmK.cgcmRwqlMcDy8-Ymg1WorzGu\"\n        }\n      },\n      \"location\": {\n        \"name\": \"string\",\n        \"city\": null,\n        \"country\": null,\n        \"position\": {\n          \"latitude\": null,\n          \"longitude\": null\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": \"string\",\n        \"model\": \"string\",\n        \"name\": null,\n        \"exposure_time\": null,\n        \"aperture\": \"string\",\n        \"focal_length\": null,\n        \"iso\": 240\n      }\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": null,\n      \"bio\": null,\n      \"location\": null,\n      \"total_likes\": 1494,\n      \"total_photos\": 3770,\n      \"total_collections\": 123,\n      \"profile_image\": {\n        \"small\": \"https://xReOewpEZrkfJupGPEWnrAaMzKB.rkzpNvk76YcFfJFbfFh\",\n        \"medium\": \"http://OMfRIaagJBkldfiALchErW.vqEoPlpfl3y2a2XB.dDA-VsO-G5UC+o72x3ez0Yzy\",\n        \"large\": \"http://sUmddDchUbMk.vhsLQdaT.G\"\n      },\n      \"links\": {\n        \"self\": \"http://lpqLHvOqbkUbpxkIfUzGrCtJqZlvj.usaphM-,RllyTX0628c8\",\n        \"html\": \"https://vQWwDpEgyTouXWc.ihHMPip0mGY+csaL0Bkd5gyH8gQm\",\n        \"photos\": \"http://HgKbUU.fhziJr1tG4AWwkABhWKSZ\",\n        \"likes\": \"https://gVZLZfQO.rlxaFFZfwNxyJS.nHn4pcbKu\"\n      }\n    },\n    \"links\": {\n      \"self\": \"http://rAFHsZcSv.qfjHcpvTLbfjkfQOejG8B5E,W9jzHFHlTaKlRjDxbWFC3LBWeIRvJrMUjdnOa8MrHFynVHQJGqHBGXgfXAhHH,xv\",\n      \"html\": \"https://RPjtREszbQnEVYqsskfZWuyekDI.stlyNV15tWZXd-FfKxI1Tk\",\n      \"photos\": \"http://icWKZw.vceFnprPZlSjosTbsq8qmyX+PcyZvI40sJZGbjvxGjnan9iMSQ\",\n      \"related\": \"http://YfyugfLQjclfvOiUMua.ezoy6V6G7panGfnmzkNSor4Blpe81VG0\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"published_at\": \"1964-09-25T05:57:18.449Z\",\n    \"last_collected_at\": \"1972-01-25T11:13:04.921Z\",\n    \"updated_at\": \"2018-12-10T17:36:06.159Z\",\n    \"featured\": false,\n    \"total_photos\": 5571,\n    \"private\": true,\n    \"share_key\": \"string\",\n    \"cover_photo\": {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"1998-04-29T23:26:33.222Z\",\n      \"updated_at\": \"1986-08-28T17:47:55.098Z\",\n      \"promoted_at\": \"1983-09-16T15:06:18.792Z\",\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": null,\n      \"alt_description\": null,\n      \"likes\": 9182,\n      \"downloads\": 3455,\n      \"views\": 8760,\n      \"liked_by_user\": true,\n      \"urls\": {\n        \"raw\": \"http://apoABGUQdeYELQSo.lsbfA4LxgW5ErfV8j+tYCgxp\",\n        \"full\": \"https://wgAArbZmAzcOUxyqtYBvWbJbuQRrWJQmY.mfvCEa7N4+TLcNzn6JrDGpR0WFFrM1J6pDuIJrDREaCovDS+zdCHZ8fm,\",\n        \"regular\": \"http://uHSJAuIfGwDLBZWoAoRySEQw.whiz.4PSSJLaWoKTtaXdLiPEVWLC-0td0iSZ\",\n        \"small\": \"https://fZcaNNhKuWMkCrMnuRwk.iijmNfchnHXqWzeBO1ZtcdLho1FEWSvFoc.K-HFAzqTszYdZ2R-ZEF\",\n        \"thumb\": \"http://rHhhxYcdug.gzsmN4cIBOgGiaQgXS3TDTgd0eIl42S4p0LV\",\n        \"small_s3\": \"http://VhfgojRgjuMBInpxyaaCb.mpysQOS1\"\n      },\n      \"links\": {\n        \"self\": \"http://BTLdcRbBJQMKhybFzBbBL.mibdnvQeqdtIzEf0lHr7Ci1crg,GiKuSNinyy0oSbbm-cjeji5W\",\n        \"html\": \"https://wj.uovuoTp-jQvF3b1uperw\",\n        \"download\": \"http://fnWOjvtIDjlyZfZzxgybWjr.lnfdREKWE1WXRAEj5tyq\",\n        \"download_location\": \"http://O.nvjtDbLS5hLSehd2K5CLH3WCSEa\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": null,\n        \"bio\": \"string\",\n        \"location\": null,\n        \"total_likes\": 769,\n        \"total_photos\": 7329,\n        \"total_collections\": 9515,\n        \"profile_image\": {\n          \"small\": \"http://PiNivxlXmZknj.vuekpSFM\",\n          \"medium\": \"http://GAbemTGkuRBdCudOe.ahe,qeiAm3nLpKmlhyRcDhKJ1poj1EALclsxeLe5c7-hPpWBw2OlXRNorQH5nerX\",\n          \"large\": \"https://KxV.wxbVMp4QKpcsIzSjZNb3Z-qts0T2jmjTrCydP.h+syLDHPUee9kR1jyvHCBRaK1\"\n        },\n        \"links\": {\n          \"self\": \"https://nvfkaBUebYdasRNPlHrSauxkSOM.bhzhBWx.v1X8-+dh0mQ52WuRhg1gF\",\n          \"html\": \"http://EbQYYPAo.vgrsIyHl1xkWIM8hfkGpUlRrI2IjHDKKn+\",\n          \"photos\": \"http://hrOrPPrvypGqiULEXsc.rnui+AbnQU15NTggPd+yTNcw8ulSz...MZI0R4f0vQXyFWsItoP2fzxw-tl32Pg1zhJqV3wWnV3ycw\",\n          \"likes\": \"http://obhBDIHGOWBuQLoskLvfEJvoquU.dsDsTfmmlBppSa0G+dqKbi8AoCiwTFe7HTX,TryjHX\"\n        }\n      },\n      \"location\": {\n        \"name\": \"string\",\n        \"city\": null,\n        \"country\": null,\n        \"position\": {\n          \"latitude\": 1932.263095628034,\n          \"longitude\": 6878.22499866921\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": \"string\",\n        \"model\": \"string\",\n        \"name\": null,\n        \"exposure_time\": \"string\",\n        \"aperture\": \"string\",\n        \"focal_length\": null,\n        \"iso\": null\n      }\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": \"https://GDaUFhOdsfhQxuFr.ubKbHn7KkgwNtpGNL.4jR6RZRo4GpBpHKdQZNr2W8kMFBq8al.9D\",\n      \"bio\": null,\n      \"location\": null,\n      \"total_likes\": 2988,\n      \"total_photos\": 1260,\n      \"total_collections\": 410,\n      \"profile_image\": {\n        \"small\": \"http://gooszTXYBrLNdG.joztN,pQ\",\n        \"medium\": \"https://gNGtLKvYAdjOQcVL.mbv20HCyrT-YHWy2P.iwbYMOaG,qIp,HWtK1SyjAH-nXEHHQ\",\n        \"large\": \"http://SkmIWEsbXLZIZmM.zkrodR9Jd-r4VElQm,zMCc7SveSdgvEnmHBprkADJEx82F\"\n      },\n      \"links\": {\n        \"self\": \"http://azYMxtwNxYyrdtyKDGDUFhXDSppYSOLo.zlrDPygqZVkEKkQN2TUvi4gLxi5BI5sVBVMKrtKuLJj-Ez-eNvinylA-\",\n        \"html\": \"https://KuREEqwuBDkYg.igztiFj7i3Xiq+LcfZ0kMnyy76C,nuRfiFqntWi1Oi0RkDp0wl3+8sNwiO7dgAPSqKt8mXr11\",\n        \"photos\": \"https://KzzKLYDYDT.qqdiCycXKFQV7\",\n        \"likes\": \"https://ne.yqmoBK-,1\"\n      }\n    },\n    \"links\": {\n      \"self\": \"https://MNmCqfYFVUzURRkRWNMDXwPqcA.ckSdbpVnvvR3etA++HF5EIdd3KklVAQbtn6p9uCU\",\n      \"html\": \"https://YNdYFVbbjTWlXKOoCEIZiOcDnaGQf.qkzPGamB+AOgFT9inSDpqR\",\n      \"photos\": \"http://EaOUKutc.rncE6T2lwGpiLDy7wKAflCx-LKIMzhvgo,-P6pyRhaEK.z\",\n      \"related\": \"https://asTvJI.iuuunJgDXIWLv2Wudf28+IWmbksdd\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e806e4c-7797-4fe7-b07c-cfc46cdfcd9b",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4b08a70-74e2-4402-91e5-f469128b131d",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4765cfff-19dc-4531-b2f8-5e22b16c4184",
+          "name": "Get User Statistics",
+          "request": {
+            "name": "Get User Statistics",
+            "description": {
+              "content": "Retrieve statistics about a user's account (downloads, views, likes).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":username",
+                "statistics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "resolution",
+                  "value": "days"
+                },
+                {
+                  "disabled": false,
+                  "key": "quantity",
+                  "value": "30"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) Unsplash username"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f6bfac9-2b9e-457c-8a4e-deb692ec12a6",
+              "name": "User statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resolution",
+                      "value": "days"
+                    },
+                    {
+                      "key": "quantity",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"username\": \"string\",\n  \"downloads\": {\n    \"total\": 728,\n    \"historical\": {\n      \"change\": 5683,\n      \"average\": 3903,\n      \"resolution\": \"string\",\n      \"quantity\": 9851,\n      \"values\": [\n        {\n          \"date\": \"1973-01-02\",\n          \"value\": 896\n        },\n        {\n          \"date\": \"2002-08-02\",\n          \"value\": 7991\n        }\n      ]\n    }\n  },\n  \"views\": {\n    \"total\": 793,\n    \"historical\": {\n      \"change\": 6474,\n      \"average\": 5348,\n      \"resolution\": \"string\",\n      \"quantity\": 6816,\n      \"values\": [\n        {\n          \"date\": \"2014-01-10\",\n          \"value\": 3855\n        },\n        {\n          \"date\": \"2009-10-21\",\n          \"value\": 6817\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "048cc254-c040-400e-942c-81fa7c81040d",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resolution",
+                      "value": "days"
+                    },
+                    {
+                      "key": "quantity",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2847d24-aced-41f7-aa5e-2301fcfd11e4",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":username",
+                    "statistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "resolution",
+                      "value": "days"
+                    },
+                    {
+                      "key": "quantity",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) Unsplash username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.unsplash.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2054b96a-fd0f-47a5-8ae9-1c2354a93c12",
+    "name": "Unsplash Collections Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Unsplash API provides access to the world's largest open collection of high-quality, freely usable photos. Build photo-powered applications with search, random photos, user profiles, collections, topics, and statistics. Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr (production). Downloads must be tracked via the /photos/:id/download endpoint per Unsplash API guidelines.\n\nContact Support:\n Name: Unsplash Developers",
+      "type": "text/plain"
+    }
+  }
+}

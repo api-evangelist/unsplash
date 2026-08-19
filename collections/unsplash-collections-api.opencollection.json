@@ -1,0 +1,281 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Unsplash Collections API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/collections",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              }
+            ]
+          },
+          "docs": "Get a single page of all featured collections."
+        },
+        {
+          "info": {
+            "name": "Create a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.unsplash.com/collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Create a new collection. Requires write_collections scope."
+        },
+        {
+          "info": {
+            "name": "Get a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ]
+          },
+          "docs": "Retrieve a single collection by ID."
+        },
+        {
+          "info": {
+            "name": "Update a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.unsplash.com/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update an existing collection. Requires write_collections scope."
+        },
+        {
+          "info": {
+            "name": "Delete a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.unsplash.com/collections/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Delete a collection. Requires write_collections scope."
+        },
+        {
+          "info": {
+            "name": "Get Collection Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/collections/:id/photos",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Results per page"
+              },
+              {
+                "name": "orientation",
+                "value": "",
+                "type": "query",
+                "description": "Filter by orientation"
+              }
+            ]
+          },
+          "docs": "Retrieve photos in a collection."
+        },
+        {
+          "info": {
+            "name": "Add a Photo to a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.unsplash.com/collections/:id/add",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Add a photo to a collection. Requires write_collections scope."
+        },
+        {
+          "info": {
+            "name": "Remove a Photo from a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.unsplash.com/collections/:id/remove",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              },
+              {
+                "name": "photo_id",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the photo to remove"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Remove a photo from a collection. Requires write_collections scope."
+        },
+        {
+          "info": {
+            "name": "Get Related Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/collections/:id/related",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Collection ID"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of collections related to the given one."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Unsplash Collections Stats API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Platform Total Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/stats/totals"
+          },
+          "docs": "Retrieve overall Unsplash platform statistics."
+        },
+        {
+          "info": {
+            "name": "Get Platform Monthly Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/stats/month"
+          },
+          "docs": "Retrieve Unsplash platform statistics for the current month."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

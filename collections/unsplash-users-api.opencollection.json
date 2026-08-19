@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Unsplash Collections Users API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a User's Public Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/users/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Unsplash username"
+              }
+            ]
+          },
+          "docs": "Retrieve public details of a user by username."
+        },
+        {
+          "info": {
+            "name": "List a User's Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/users/:username/photos",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Unsplash username"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stats",
+                "value": "",
+                "type": "query",
+                "description": "Show the stats for each user's photo"
+              },
+              {
+                "name": "orientation",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of photos uploaded by a user."
+        },
+        {
+          "info": {
+            "name": "List a User's Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/users/:username/collections",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Unsplash username"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of collections created by a user."
+        },
+        {
+          "info": {
+            "name": "Get User Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/users/:username/statistics",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "Unsplash username"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "quantity",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve statistics about a user's account (downloads, views, likes)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

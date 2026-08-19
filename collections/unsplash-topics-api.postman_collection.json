@@ -1,0 +1,702 @@
+{
+  "item": [
+    {
+      "id": "21c82059-5bfc-4270-8ad8-541af77323be",
+      "name": "Topics",
+      "description": {
+        "content": "Editorial topic operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f7f9522-6e73-4a46-b251-600aee4569c8",
+          "name": "List Topics",
+          "request": {
+            "name": "List Topics",
+            "description": {
+              "content": "Get a list of editorial topics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "topics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of topic IDs or slugs to filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "position"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc746704-f0da-421b-96e7-d5d6d6cb7297",
+              "name": "List of topics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "topics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "position"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"slug\": \"string\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"published_at\": \"1958-04-16T09:48:40.962Z\",\n    \"updated_at\": \"2006-04-07T10:48:56.063Z\",\n    \"starts_at\": \"2001-05-15T21:40:06.812Z\",\n    \"ends_at\": null,\n    \"featured\": true,\n    \"total_photos\": 3473,\n    \"status\": \"closed\",\n    \"cover_photo\": {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"2026-04-21T11:09:54.517Z\",\n      \"updated_at\": \"1985-10-05T04:48:41.800Z\",\n      \"promoted_at\": null,\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": null,\n      \"alt_description\": null,\n      \"likes\": 854,\n      \"downloads\": 9910,\n      \"views\": 6747,\n      \"liked_by_user\": true,\n      \"urls\": {\n        \"raw\": \"http://OfxtRIgYkDR.qreh1G75XG8jtirBRZ1aXaKVkJFUvM61h6Fn-TfvtRJyjPVw,YoS3qYS-l4NAOlT\",\n        \"full\": \"http://nZDdCIvnrNXocVa.xxjWx2iKEwUGPO3qcc-lWPw6zdG6edcezw9uibxxrReHkSD8vSKsYGO1gZmxyT\",\n        \"regular\": \"http://NftrAmwVYLCyqkYPugMmW.avsiSoskm31K3yEnKC.IDA4S,h1KNu3Xs,,uGqbwFzkqySKQ,CwSo0v\",\n        \"small\": \"https://ouepDuxSZgfrMwDYLsGggMOtALFnO.fyjaB.uBHDoxVPNgBmiJSVrkRtF,rE-nlWYHDfOxLJzSW6cW5y\",\n        \"thumb\": \"https://bpWKnsSKqvRCEGqKUESUBpC.thKX2SznMD03iye2GAqJ,LzFI2zoGOXrDFxSqtZ.W5HSNuF5egWZhfTxLcTskuChlFZS3ABtj\",\n        \"small_s3\": \"https://ziUzUTEJbItujI.bzgiOiRbBPK1R\"\n      },\n      \"links\": {\n        \"self\": \"https://GdQMsQadRo.kfpuVT-n9c\",\n        \"html\": \"http://AGCtlpM.anxkm.vpdwulUihXTWrJ,CGWvs9sM\",\n        \"download\": \"https://oEgSt.xzzrkeWftYML-c\",\n        \"download_location\": \"https://cSKwORjsNqVFrNkqzsom.kqqK1N09UQFRuzSM3qk1Kh6ShHjxjajS-I\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": null,\n        \"bio\": \"string\",\n        \"location\": null,\n        \"total_likes\": 63,\n        \"total_photos\": 3664,\n        \"total_collections\": 6875,\n        \"profile_image\": {\n          \"small\": \"http://nVEIxuAKucskGybyZFeDLRzpdBuND.xquajyNZQ.F-7QEI6eniz2le41wdJM4Cn,KH6r,dTJeeooQ18s8U7OIJm-GwupcfJVTBcYBHS+m+Rhb7df\",\n          \"medium\": \"https://daFIhtaDKhdbCTZuSdLwRT.mfbdotw7jtDNrKqDrFpvkfCRrisziuyKHTog8lSTLHNC0dn3RGhOST2yvGDBHH\",\n          \"large\": \"https://Df.nbhecHEzb4+9Nbf3pmuqV0CVWIdfPEzjO2M65oNN8\"\n        },\n        \"links\": {\n          \"self\": \"https://GdyVeXPMtmXboMqjRmhLgldbjspYVqgwE.yuslqVB+vGfS2yBXv5AN.uLnZ\",\n          \"html\": \"http://EFRVgp.gadFWX2fpreXr0QnCvAlV1CV-.qd.jAqfWUu\",\n          \"photos\": \"http://I.xuVpKBt5GLJyew,cc7mNFWFhGgOJ5Gk\",\n          \"likes\": \"http://sjdrTzs.riAzEU26quNsGWWnc+\"\n        }\n      },\n      \"location\": {\n        \"name\": \"string\",\n        \"city\": null,\n        \"country\": \"string\",\n        \"position\": {\n          \"latitude\": null,\n          \"longitude\": 8223.906553796369\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": \"string\",\n        \"model\": \"string\",\n        \"name\": null,\n        \"exposure_time\": null,\n        \"aperture\": null,\n        \"focal_length\": null,\n        \"iso\": 7700\n      }\n    },\n    \"links\": {\n      \"self\": \"https://dmMuKdwfkQXNcZFQ.oojaqAQaJTJqzJWbRYrWwvMtWicY-3crOmb+UFAiGdRMcL9T4WlE46BsN2Qk,D\",\n      \"html\": \"http://xXFEQXjexZbVpUptHWiboWhlqbrtvg.zkk-LLoKr7uyyF5bLdO6o,Tow1C1sw,O-R2\",\n      \"photos\": \"https://HsrguaNppaJmGoUQjWgUOnavvg.aogb+Pv83-lNMr0NQffKcFRRidyn-M.TMhwCCO3Aoq9DPeTkQZJYWZfjswtIxownAQ\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"slug\": \"string\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"published_at\": \"1985-10-10T19:03:32.212Z\",\n    \"updated_at\": \"1976-05-16T12:34:56.000Z\",\n    \"starts_at\": \"1951-05-03T07:52:49.265Z\",\n    \"ends_at\": \"1961-01-28T01:57:15.943Z\",\n    \"featured\": true,\n    \"total_photos\": 7199,\n    \"status\": \"open\",\n    \"cover_photo\": {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"2002-04-21T17:54:49.625Z\",\n      \"updated_at\": \"1995-09-13T13:12:54.021Z\",\n      \"promoted_at\": null,\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": \"string\",\n      \"alt_description\": null,\n      \"likes\": 195,\n      \"downloads\": 9651,\n      \"views\": 5728,\n      \"liked_by_user\": false,\n      \"urls\": {\n        \"raw\": \"http://cXbhlcFhcdJQCURUihvsNZIhBhLV.xdjL71iRCoTHCTleQXo5cTxhxncjNAhT0\",\n        \"full\": \"https://PayobIueTtVrqUUOBqImA.hotIql+QM,.Zvirznc1UMhvcDV-r9etVpixCYAOxBKQwE9eiy\",\n        \"regular\": \"http://OnqTajlRrwuzRgmecUKGxVebLCa.amrcOZ90X\",\n        \"small\": \"https://eCMjnNwNRBccZKrhUuHSfRDgDsxw.sgdnWGYTSB0Pe6Mg1juooINuVkG0m-J,Q3+duvjDHFZfXZbXeGb\",\n        \"thumb\": \"http://YwQcHDGYmprqZDQemDbe.tezm0IM5o2Cold+ow+D,oUnb5w,Hh4nteUxjXn7Fxr3nBmBJJ+F\",\n        \"small_s3\": \"http://CliQHDcRUYNSQPeXrVKOgs.rhpWeCJ-0U81HnpydJLBSQ86WwiBt9Ui\"\n      },\n      \"links\": {\n        \"self\": \"https://dSvXzgeDXmHrtTfzGML.uzQWd.ix,2M1bmQNB-32U3kZrJGLsD0AiLVe-.HCo3TFyDFmlOeHTkLX\",\n        \"html\": \"https://xIUM.davwB80EdcxhXIv6LYgGXiQd8JVTM5+ZldyOBhqA5xtNmp\",\n        \"download\": \"http://toigWRjDExzSqxP.thmerpyZM.IdkxAl,Rh\",\n        \"download_location\": \"http://pnD.yhuKUkXMDS\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": null,\n        \"bio\": null,\n        \"location\": null,\n        \"total_likes\": 2845,\n        \"total_photos\": 6528,\n        \"total_collections\": 5333,\n        \"profile_image\": {\n          \"small\": \"http://ZNlXrRrnuNFroliEq.zmXE-BNqtW6pvAG2kXGUZKWkMKG7OxJW2xPLaoTThCytKV5wAbr5MGKi\",\n          \"medium\": \"https://ZusIObwDtfbybuZjcvzKcKFYn.bgsrnEaC9eoPTjduVlwXhY5GpMHBdpkQ9PSonzm9rL+cSf8-k7MHXaZqcU+.vwY\",\n          \"large\": \"http://UUBqM.qciasx3VLhTL0hMINHw+3j-QThqmPcHr+P,JmLn6sw,3wgW6kPiHBBt.\"\n        },\n        \"links\": {\n          \"self\": \"https://ZDSNrxC.wjnxCKraQd,.sZZlyxsGzXCMyCOsg+DIDDqkkuDM4W02k-,l0vHKgiumw.\",\n          \"html\": \"https://KvSNhcxITgbrllhJhokrVGLiqcBWcwEl.csQKwHgqeYnR-Kz\",\n          \"photos\": \"http://YauVpKDPcTWGltsLoBAftRRRBOBBWrv.iulTmvHriZlOl1drs3\",\n          \"likes\": \"https://n.ytvsyBVPlXqp.VzcldfMM7F,qAZosceyg\"\n        }\n      },\n      \"location\": {\n        \"name\": \"string\",\n        \"city\": null,\n        \"country\": null,\n        \"position\": {\n          \"latitude\": null,\n          \"longitude\": null\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": null,\n        \"model\": null,\n        \"name\": null,\n        \"exposure_time\": \"string\",\n        \"aperture\": \"string\",\n        \"focal_length\": \"string\",\n        \"iso\": null\n      }\n    },\n    \"links\": {\n      \"self\": \"https://yCJJSKhxNSRPhHScxBULRSTyWVJSDjgVL.tnedDyQ4P\",\n      \"html\": \"http://ODQaIVWNo.bnNyE-V,p3x71pOKH+CQXICDKbDa+ZoKH1TnqspqeQ+TVOkVFtMu71hVGXY6XFcx5X\",\n      \"photos\": \"https://sjjqyksDbSOrAVjLBRlIBHCaK.rfdcCPYkUlmD\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b9ad077b-42cb-4b4c-9538-f5ec162e31d2",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "topics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "position"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71f6ef4d-51ac-4642-a877-c11467add563",
+          "name": "Get a Topic",
+          "request": {
+            "name": "Get a Topic",
+            "description": {
+              "content": "Retrieve a single topic by ID or slug.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "topics",
+                ":id_or_slug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id_or_slug",
+                  "description": "(Required) Topic ID or slug"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1d5d850-9f48-4f13-aba0-b7b108123e9f",
+              "name": "Topic details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "topics",
+                    ":id_or_slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_slug",
+                      "description": "(Required) Topic ID or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"slug\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"published_at\": \"1949-02-10T01:43:05.859Z\",\n  \"updated_at\": \"2004-04-20T21:44:12.125Z\",\n  \"starts_at\": \"1959-04-23T08:43:28.593Z\",\n  \"ends_at\": null,\n  \"featured\": true,\n  \"total_photos\": 2962,\n  \"status\": \"closed\",\n  \"cover_photo\": {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"1949-11-09T10:28:12.051Z\",\n    \"updated_at\": \"2009-03-11T07:28:11.113Z\",\n    \"promoted_at\": \"2013-11-21T07:44:40.257Z\",\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": \"string\",\n    \"alt_description\": null,\n    \"likes\": 4067,\n    \"downloads\": 726,\n    \"views\": 8952,\n    \"liked_by_user\": true,\n    \"urls\": {\n      \"raw\": \"http://jVJPFIJEhfrXd.cfCue8e6a-o8hobKdxQxaVPxgJgtSZFXUY7xtI0M,VdQsh8h-p7vgmKMSjQWRGwfUatI\",\n      \"full\": \"https://LwdttlpIQNmCZtHyhLnlibMarKY.smaTsi1Y5SJ1YP1+J7eEXPgxWD8RXk0pA7wqJKlys,vcGeE39xyMkP,klrWW-uc3fw8W2wSUvDUzluwiX,wv\",\n      \"regular\": \"http://Mx.fyIrsmkHn,tuTk7CqlcqMzVrKXnDB7UGGGENww2wFklYdCznDNAJey8\",\n      \"small\": \"http://vxmZSLFwqgmNJKUJjBXahwSXgGChDYG.thurdU08NCOn2kM2ag7AxD\",\n      \"thumb\": \"http://xBRKtEbtWWUJTBIVlPlR.coyntPMt0cu-x9egof\",\n      \"small_s3\": \"http://EapByYCNoEnnRd.ciokgVmGdCl+bjGFv,ZHqYmf5N9xZtCZQSiryjKcdAr69GLdPNcoqx\"\n    },\n    \"links\": {\n      \"self\": \"http://GWSUwcuCYbIsvMGwJ.behqkvd3oKZ9AHR,-VifY++.AsG5wewSiBu8EroekWMYXyEeB-GWtwUfXjz7\",\n      \"html\": \"http://iHbfOVhQBUKRmaQJjnjIgMXNUPVdrQ.uxzuA3fvtcBSHjvN4e.B1V7e7N,kzZunLpyTJv9v9YgHevhBNT7jYbJN-T.-ruqjQSB+vb\",\n      \"download\": \"http://DFKYxYsXhUowEZpbHNnOYydoKVHYNVw.khkcL6qmALiMwN.fzdKfX4GkTItBgqfznUWO4daMOMMzl\",\n      \"download_location\": \"https://tuaLcTOCiFDcYUygHPGHorIhRBMtXqYuq.zcKgo-fy\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": \"http://TL.yfG3Oorde1lbny5J6bcY6A4eoDFSdenHa.xPxJ7G6QdpwO\",\n      \"bio\": null,\n      \"location\": \"string\",\n      \"total_likes\": 2824,\n      \"total_photos\": 115,\n      \"total_collections\": 7555,\n      \"profile_image\": {\n        \"small\": \"https://hICxnqLtZYlzuDKErHIORowSVopw.rgnbG8ofYxh.XRt0Sm0wPoCdEzuQQqDuhhltNE\",\n        \"medium\": \"http://VfdDUgdwXbWCusOKel.znpeJTvsLwo\",\n        \"large\": \"https://evdsjCyIdPTLYUS.cubsFtPEEgVbmIFkLdrnOlFyIYA0mh6ctYlf2UnKoLzUU021,axEm-Fuv6Gf,S8+kg1-pYjtTorF4rJl\"\n      },\n      \"links\": {\n        \"self\": \"http://sxzRMdFDPrbZeYoijYNpiWkPXIyBxz.yxzzikVsjg4,Zgsazfuedo5Pc3E6qxLkZ4rl\",\n        \"html\": \"http://uJgISfVIiORngyHS.racBi,QnYF2bywKSOEHRmhrbblLH8uru3xjIY5W6e\",\n        \"photos\": \"https://aRZbkYkQmSbmmhbKgFxzGiJ.jrjfZJcNEfkuGNKY\",\n        \"likes\": \"https://JHrZykUv.iextU\"\n      }\n    },\n    \"location\": {\n      \"name\": null,\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"position\": {\n        \"latitude\": 942.3351149878212,\n        \"longitude\": 618.5812042475413\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": null,\n      \"model\": null,\n      \"name\": null,\n      \"exposure_time\": \"string\",\n      \"aperture\": null,\n      \"focal_length\": null,\n      \"iso\": 4603\n    }\n  },\n  \"links\": {\n    \"self\": \"https://VYUyJyKbfXGVWVNhiqUdyykmJDxHtlgJX.yciJpLkdSsch76J9GjxPTVg5FrfUrb7z5RJmzKWX.y7NflzC4CE-cBgeU7wWP0qVH31DlT\",\n    \"html\": \"https://YzOmIxGYumSvezSNnsdQrJKsEgqfaDotR.hpoq-xVlG4\",\n    \"photos\": \"http://FvIJEGPeBGVtXmFM.wceMdnz6Xi7-PD7P3QRKrBL6rtRdWp-nilYtfHZsN145+\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b1d86d1-eb89-4be9-b374-fd27d7ddddbf",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "topics",
+                    ":id_or_slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_slug",
+                      "description": "(Required) Topic ID or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "453ef035-4956-4542-b790-d8d2f7023f35",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "topics",
+                    ":id_or_slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_slug",
+                      "description": "(Required) Topic ID or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b8fede7-c5c9-44ae-93fe-c2643a37c8be",
+          "name": "Get Topic Photos",
+          "request": {
+            "name": "Get Topic Photos",
+            "description": {
+              "content": "Retrieve photos for a topic.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "topics",
+                ":id_or_slug",
+                "photos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "orientation",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order_by",
+                  "value": "latest"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id_or_slug",
+                  "description": "(Required) Topic ID or slug"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b874af7-b096-4dcc-b479-7a04f43adb58",
+              "name": "Photos in topic",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "topics",
+                    ":id_or_slug",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orientation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "latest"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_slug",
+                      "description": "(Required) Topic ID or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"1986-10-10T14:17:58.988Z\",\n    \"updated_at\": \"1979-10-16T17:27:49.498Z\",\n    \"promoted_at\": null,\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": null,\n    \"alt_description\": \"string\",\n    \"likes\": 7783,\n    \"downloads\": 2446,\n    \"views\": 5957,\n    \"liked_by_user\": false,\n    \"urls\": {\n      \"raw\": \"http://x.ltfzGRoX5W6nXqsX1gJiejqfdxSNmTu-r7RTae,ItewwTHLV+2ktDEcXiF\",\n      \"full\": \"https://nhEsNXQNmJfJUfpQUUutToeNxQl.uexqA6QEhta1W,P-3iSomyyqF15aQQU,ME8R3SOMsqLZwsY.-IdYmZY\",\n      \"regular\": \"http://vxNhRzYJN.szxBm8IyuIuID.j6NUDtWztNnXQFWVUSX.p7EoZ\",\n      \"small\": \"http://YyBgMKzI.ywaIxfdEtmjYXegbISm2N3sdOsEXysOlrozPQiUGuaPHD\",\n      \"thumb\": \"https://W.lwhMfKpUFrR+C7Pugb,j-CTPQsqmK3trYNsl4A4vLTmi8G,EEQ+VqT+8ULzEpw-Q9V5OL3\",\n      \"small_s3\": \"https://yPpOgpEyIiCT.wvpaIgx7SjBTk4kDqMaOCuROWYiKZB8XqMVu4xxntVv.C\"\n    },\n    \"links\": {\n      \"self\": \"http://dk.viciA2CLB6FyTqYiqaw6kbCQn29tquZNvLxpYc1Eclb0wN7BS9rmWvVbxWZhY\",\n      \"html\": \"https://iuUSkJjrS.zvbkkW0Cz5pCcCK.LRvyg5sNMekaRJ\",\n      \"download\": \"https://eIv.gsvF2yL1c3vLkvzPdAxxlMbx6tiqmwgZF1WjlfYKTuVxurtPVZAMwNuMS7jQlZ7gYXXltnmhAwnN9cu\",\n      \"download_location\": \"http://vsdnLqfdehAOYrCUjpgrhiijW.gzgkFLBx-FoCNe5\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": \"https://vdHJrZyycbDWnFZtoyjmDYdwjxQpAbPTy.ziZbrQfX+E+4hRyWB9TBIjHZ4.G0xX3wt8SeAPFygfPBFlp8xijtsfH0imIbUFGokadEbQ3TF,80fd6X5C\",\n      \"bio\": \"string\",\n      \"location\": null,\n      \"total_likes\": 6009,\n      \"total_photos\": 2845,\n      \"total_collections\": 1794,\n      \"profile_image\": {\n        \"small\": \"https://LyNUXgyVTJdKyhqqYHWJaPRCub.yvvDsPIIO+YE22odaDodWCvtLTi3LGkYaSnaZVG2W-M2\",\n        \"medium\": \"https://rsvazAXmIsowznYdmx.rzRtAX7Jd9UXkRCmXUmBOa61c0kZkI.RBLPZiZc6drhLTDKDzha\",\n        \"large\": \"https://CsReJsnSLQPxGeKMshdILFncNd.rejawHbiKQD8k0lmDVR6mu\"\n      },\n      \"links\": {\n        \"self\": \"https://yNLNNCggZBPmBwwahkhwfQLXcKApI.ulzajPIeqSgMDqdEy1uw7zbtUYJv4,BN8wZeoruJDJFNTCovvcmu-INGzx\",\n        \"html\": \"http://kCZbWtgzarNZXTodCmsPZfcdED.bbhudKQ3xoHGvGW0XiDuYUqjf75sxTDaa8jqeDt6EPEF8BojyusZFpimdS-59\",\n        \"photos\": \"http://rXrMwvjYSUxkqGfE.jrxFrcsv1jRWknQK5\",\n        \"likes\": \"https://mnaAQGBeb.yzzvasGXL.AC-WVB,fD\"\n      }\n    },\n    \"location\": {\n      \"name\": \"string\",\n      \"city\": null,\n      \"country\": \"string\",\n      \"position\": {\n        \"latitude\": null,\n        \"longitude\": null\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": null,\n      \"model\": \"string\",\n      \"name\": \"string\",\n      \"exposure_time\": null,\n      \"aperture\": null,\n      \"focal_length\": \"string\",\n      \"iso\": 186\n    }\n  },\n  {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"2013-07-05T12:06:04.182Z\",\n    \"updated_at\": \"1970-12-20T07:31:52.479Z\",\n    \"promoted_at\": null,\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": \"string\",\n    \"alt_description\": \"string\",\n    \"likes\": 594,\n    \"downloads\": 5899,\n    \"views\": 3752,\n    \"liked_by_user\": false,\n    \"urls\": {\n      \"raw\": \"https://AkexvHa.pdaNSW7zjbcaHRnmqSNf.7b-antyfuenZ+KF0bVfmz,+-ZLuwFjdVWI4B+r\",\n      \"full\": \"http://MOZrPqTLsSSmpHDAoXZrKIsXxSaGXQa.wdstzCQZ9tophIzElrtoLgpwhhVIDC1DUSE+Y.wsbo0ldm9WpkTG-EVwRKA9MzqcZg9B-Q\",\n      \"regular\": \"http://jByLwuFPOwcbR.fxjgwU1X\",\n      \"small\": \"http://gnLSAwxqiZLgAgvCGRvBH.ziqBtwHEr435ABNAXc6CI\",\n      \"thumb\": \"http://bnFXKdNPIotnOVmPRtlEebqaSIlGCI.jnaq2JL3hRUyBFlRYJbAdQMxfXwjsoi\",\n      \"small_s3\": \"https://nruWrNOzgFoIujrfzh.vaeuINHt-l+q2eubHe4MfJ0-0AuUvIvOwWpM8X,VjR5yxUUfqmYO9guaePGpDFHIPu\"\n    },\n    \"links\": {\n      \"self\": \"https://enHXl.furiJPf3S,avYSF7Zb+1\",\n      \"html\": \"http://CBZtQEPPyajCbqUMLMnsQfcolU.qjYl+pxaTvR9Y,\",\n      \"download\": \"https://zRInpBxqalljuQMH.mjyynM4OFlAn2saGgN2TwUWrzEmK8VyyoJ+Qz1oiagaaJHpn8\",\n      \"download_location\": \"https://FxUj.pmlIKqzPgzvm.CYOYRiNX,RKdG0JwhfVvggU4Jg9ZAFV\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": null,\n      \"bio\": null,\n      \"location\": null,\n      \"total_likes\": 7525,\n      \"total_photos\": 3705,\n      \"total_collections\": 6121,\n      \"profile_image\": {\n        \"small\": \"https://NXoxACczErVXkSUrMxwtSupYws.gmqE\",\n        \"medium\": \"http://MEZTeMSTnKtctAkIcEpr.cjcuyZUi5rmaH-zPoO8wge3vD.aGwlQ99R\",\n        \"large\": \"https://FtfgKlZqHOSiQiSVblI.gfiXgMMYcRqFpwA0cKhUGf745CBY0-FtPMYKv8afja\"\n      },\n      \"links\": {\n        \"self\": \"http://aGgOSZTHKQhYmowDgigJnrLxZ.rbtefreh0qSEz\",\n        \"html\": \"http://gQlekaSdoClShgAEKFgyaotSJjito.qgna+v3pQyACEYQ\",\n        \"photos\": \"http://xiRooCFzLkYigvDzfEffs.yllfLJWQ7FHI,Dr5AdGG3wykEHDpcTYyGt9t-Vw2jrwjtkMfGM0tHAJFXNSDFOy2ZL\",\n        \"likes\": \"https://Fz.wyNaj35n4rFTrHPdLZjMxcr1aNBkHlJ\"\n      }\n    },\n    \"location\": {\n      \"name\": null,\n      \"city\": \"string\",\n      \"country\": null,\n      \"position\": {\n        \"latitude\": null,\n        \"longitude\": null\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": null,\n      \"model\": null,\n      \"name\": null,\n      \"exposure_time\": \"string\",\n      \"aperture\": \"string\",\n      \"focal_length\": \"string\",\n      \"iso\": 1066\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89178ed4-f49b-4534-859b-b368a9dd3f78",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "topics",
+                    ":id_or_slug",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orientation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "latest"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_slug",
+                      "description": "(Required) Topic ID or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1476aaf-e626-4745-99cc-d8173f9735bb",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "topics",
+                    ":id_or_slug",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orientation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order_by",
+                      "value": "latest"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_slug",
+                      "description": "(Required) Topic ID or slug"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.unsplash.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e2a0b117-96e0-4b0c-a229-9974204caea0",
+    "name": "Unsplash Collections Topics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Unsplash API provides access to the world's largest open collection of high-quality, freely usable photos. Build photo-powered applications with search, random photos, user profiles, collections, topics, and statistics. Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr (production). Downloads must be tracked via the /photos/:id/download endpoint per Unsplash API guidelines.\n\nContact Support:\n Name: Unsplash Developers",
+      "type": "text/plain"
+    }
+  }
+}

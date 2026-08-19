@@ -1,0 +1,297 @@
+{
+  "item": [
+    {
+      "id": "f915a9e7-6c01-4472-9d83-1ff3b24e6960",
+      "name": "Stats",
+      "description": {
+        "content": "Platform statistics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "61b6bd62-5f2a-4222-a7c0-2ffba84c278f",
+          "name": "Get Platform Total Statistics",
+          "request": {
+            "name": "Get Platform Total Statistics",
+            "description": {
+              "content": "Retrieve overall Unsplash platform statistics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stats",
+                "totals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "591f6399-1444-4507-99f9-16b98ae2779b",
+              "name": "Platform statistics totals",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    "totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_photos\": 3936,\n  \"photo_downloads\": 4825,\n  \"total_users\": 8590,\n  \"total_collections\": 9006\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0e76311-2146-4cb2-b1d7-00cbc87a1919",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    "totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a10b97bf-8d6c-4e1f-bef1-397c5830b666",
+          "name": "Get Platform Monthly Statistics",
+          "request": {
+            "name": "Get Platform Monthly Statistics",
+            "description": {
+              "content": "Retrieve Unsplash platform statistics for the current month.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stats",
+                "month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f644e00-50b9-4f6c-91d7-353bbec48f80",
+              "name": "Monthly platform statistics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    "month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_photos\": 3936,\n  \"photo_downloads\": 4825,\n  \"total_users\": 8590,\n  \"total_collections\": 9006\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6a4377a-e2ae-4e71-8c1b-1c450d6e465f",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    "month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.unsplash.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3fc8e3f2-aa99-4578-ab0f-4fe0321f2df6",
+    "name": "Unsplash Collections Stats API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Unsplash API provides access to the world's largest open collection of high-quality, freely usable photos. Build photo-powered applications with search, random photos, user profiles, collections, topics, and statistics. Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr (production). Downloads must be tracked via the /photos/:id/download endpoint per Unsplash API guidelines.\n\nContact Support:\n Name: Unsplash Developers",
+      "type": "text/plain"
+    }
+  }
+}

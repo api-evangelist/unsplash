@@ -1,0 +1,214 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Unsplash Collections Photos API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Photos",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Editorial Photos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/photos",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number to retrieve"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page"
+              },
+              {
+                "name": "order_by",
+                "value": "",
+                "type": "query",
+                "description": "Order results by latest, oldest, or popular"
+              }
+            ]
+          },
+          "docs": "Get a single page of the editorial photo feed. Requires public authentication (Client-ID)."
+        },
+        {
+          "info": {
+            "name": "Get a Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/photos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Photo ID"
+              }
+            ]
+          },
+          "docs": "Retrieve a single photo by ID."
+        },
+        {
+          "info": {
+            "name": "Update a Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.unsplash.com/photos/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Photo ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://unsplash.com/oauth/authorize",
+              "accessTokenUrl": "https://unsplash.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Update a photo's metadata. Requires write_photos scope."
+        },
+        {
+          "info": {
+            "name": "Get a Random Photo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/photos/random",
+            "params": [
+              {
+                "name": "collections",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated collection IDs to filter by"
+              },
+              {
+                "name": "topics",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated topic IDs or slugs to filter by"
+              },
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "Limit to photos by a specific user"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search query to filter random photos"
+              },
+              {
+                "name": "orientation",
+                "value": "",
+                "type": "query",
+                "description": "Filter by photo orientation"
+              },
+              {
+                "name": "content_filter",
+                "value": "",
+                "type": "query",
+                "description": "Content safety filter level"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query",
+                "description": "Number of random photos (returns array if count > 1)"
+              }
+            ]
+          },
+          "docs": "Retrieve one or more random photos. Optionally filter by orientation, color, topic, collection, featured status, username, or search query."
+        },
+        {
+          "info": {
+            "name": "Get Photo Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/photos/:id/statistics",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Photo ID"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "Time resolution for statistics"
+              },
+              {
+                "name": "quantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of data points to return"
+              }
+            ]
+          },
+          "docs": "Retrieve statistics for a photo (downloads, views, likes) over time."
+        },
+        {
+          "info": {
+            "name": "Track a Photo Download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.unsplash.com/photos/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Photo ID"
+              }
+            ]
+          },
+          "docs": "Track a photo download event. Must be called when a user downloads a photo to comply with Unsplash API guidelines. Returns the photo's download URL."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

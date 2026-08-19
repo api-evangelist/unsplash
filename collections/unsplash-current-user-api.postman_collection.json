@@ -1,0 +1,360 @@
+{
+  "item": [
+    {
+      "id": "336902d0-519a-4e4c-a4d2-5a085106d249",
+      "name": "Current User",
+      "description": {
+        "content": "Authenticated user operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "316beeea-ee46-4a9a-ae59-7c49aa1b3b72",
+          "name": "Get Current User Profile",
+          "request": {
+            "name": "Get Current User Profile",
+            "description": {
+              "content": "Retrieve the authenticated user's profile. Requires read_user scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "public read_user write_user read_photos write_photos write_likes write_collections read_collections"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://unsplash.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://unsplash.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "766c1c8f-73e6-4d53-b602-20a2b69fadc7",
+              "name": "Authenticated user profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"username\": \"string\",\n  \"name\": \"string\",\n  \"portfolio_url\": null,\n  \"bio\": null,\n  \"location\": \"string\",\n  \"total_likes\": 7722,\n  \"total_photos\": 3762,\n  \"total_collections\": 1974,\n  \"profile_image\": {\n    \"small\": \"https://HtBITbpSwnniYlIhL.fhxxGx18ptID6NZzk.TGGwx0mBJ\",\n    \"medium\": \"http://YHunymAjCreNOQQZOMgWGk.prxGmWEcTdKCOUrfeaBVrGjIFnVbQQHIdEMKs9sSwSf\",\n    \"large\": \"https://QDSvBRFYHtKQtsKIIypRgPgTI.qfxfGsPxOFB1CQUj8ScxcF5TppOzlI3SKL5I3OCEW69\"\n  },\n  \"links\": {\n    \"self\": \"https://NorfgrRqWimBBz.wmvC\",\n    \"html\": \"https://NMteNpFHZaiMkMBEAop.fxaiawpT.tkPmrPzQKGDsfOYc-2WYHiOvkpmbv5x9tNo0U.cY5mOx-4I\",\n    \"photos\": \"http://nvzLhTxEsxOw.ifWT-lLffwR0etPTFxWdlidOGifDp4e5oG5bZz4\",\n    \"likes\": \"http://nQKDowgG.zvjvfW-AB\"\n  },\n  \"email\": \"CUk5z8hp17R@DSnOLmiuCRIwyvhwsEJ.kuuy\",\n  \"instagram_username\": \"string\",\n  \"twitter_username\": null,\n  \"downloads\": 9193,\n  \"followers_count\": 5549,\n  \"following_count\": 1965,\n  \"allow_messages\": false,\n  \"numeric_id\": 8994,\n  \"followed_by_user\": false,\n  \"photos\": [\n    {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"2021-03-29T14:30:25.605Z\",\n      \"updated_at\": \"2005-04-30T21:45:40.225Z\",\n      \"promoted_at\": \"1970-10-30T19:00:46.020Z\",\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": null,\n      \"alt_description\": null,\n      \"likes\": 274,\n      \"downloads\": 8790,\n      \"views\": 7765,\n      \"liked_by_user\": true,\n      \"urls\": {\n        \"raw\": \"https://yA.taQo6BDh1lM.B,b0dJT.D7yo2N4qQw\",\n        \"full\": \"https://LoIErYnX.yekb8KhU1+tAeP6PvgLNRjBr,kFKcjd-fJaz\",\n        \"regular\": \"http://MIjUUkvjDYhypShfZaziklYN.uqL-+hIlKFTJxpSJz5+oDYcV3\",\n        \"small\": \"https://kvHJMqwwAuxUwbPTIqnqxhUNs.jfpgrwbN92z4XxIOqV-hmDQtN9T0YnRRUXLyP4lrC+GQ9Z9szWpirN9553B0PX\",\n        \"thumb\": \"http://rcOHWPlHcQBfFdiPfujVCznhRAbJnLdx.vltbfRYEFyUf+YkO7dR.50Z\",\n        \"small_s3\": \"http://EAZRVDZS.mdccl0259-7jxwuaErSpp+,a7RQuIn\"\n      },\n      \"links\": {\n        \"self\": \"https://usfCKcHfsnuLUFmXLcRFwmW.bvpaMxtS3j.xYGSoaDO9pgIosN\",\n        \"html\": \"http://ZxPxufFxHYqeEOSCO.shdr,brahK1YSr--ZvbsMsa3HjMKVxXm\",\n        \"download\": \"http://HzT.gxloU4cdTimRUQ60bo70mGiZ3cOyM9fP6zIjPHo.pfncIOJnBIgDjWcHZj9hITN,NtFW\",\n        \"download_location\": \"https://fJmOCtZbSNmohqlwTOCakQ.gcdcXyfYFdaKZzXGie7+O5Xoh1eDhArkzhp.-\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": null,\n        \"bio\": \"string\",\n        \"location\": \"string\",\n        \"total_likes\": 9641,\n        \"total_photos\": 624,\n        \"total_collections\": 9095,\n        \"profile_image\": {\n          \"small\": \"https://yHrJilb.vqonp9uJIt5.hSl4oudDRcZw4iG7hsZqb2cOgezsiQZNGxQl1,R,\",\n          \"medium\": \"https://HpimtPMYQanNlmSgRQPNxKR.dkcUA-BT09G2w+HU\",\n          \"large\": \"https://CgLyuPxLTtnEWflxZOYZQSRUTmfJwB.hmtrW3efliVlk\"\n        },\n        \"links\": {\n          \"self\": \"http://rHsKmMlUxEhiSNCxpPCQrXOhmCj.kqxbuhjey+vD1bPe9AseIWpYctrIsrp++xqi6Y,hAY2\",\n          \"html\": \"https://SeaeamLgpGALVoNUjwNmsPAaNaN.biwPC8gFq\",\n          \"photos\": \"http://vtiHTgQzwtzJzPdaNUNUrLgsBhOWe.rufdWK6I1aYtY.C+zXwio8uuZi2zHOcvWeekU+UMV.\",\n          \"likes\": \"http://eOZmjkJbpMjHZquF.qbiCyUYqHaXSWH4mut9o0\"\n        }\n      },\n      \"location\": {\n        \"name\": null,\n        \"city\": \"string\",\n        \"country\": \"string\",\n        \"position\": {\n          \"latitude\": null,\n          \"longitude\": null\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": null,\n        \"model\": \"string\",\n        \"name\": \"string\",\n        \"exposure_time\": null,\n        \"aperture\": null,\n        \"focal_length\": \"string\",\n        \"iso\": 6552\n      }\n    },\n    {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"2011-03-27T00:23:25.338Z\",\n      \"updated_at\": \"2015-06-11T18:57:01.877Z\",\n      \"promoted_at\": \"1971-08-29T05:18:34.317Z\",\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": null,\n      \"alt_description\": \"string\",\n      \"likes\": 6330,\n      \"downloads\": 3688,\n      \"views\": 9355,\n      \"liked_by_user\": false,\n      \"urls\": {\n        \"raw\": \"https://Zh.xwHRh7nJhCXNVc\",\n        \"full\": \"http://FZ.dfnAQVtxDTD1w\",\n        \"regular\": \"http://HGGsIbMBIowLAdvegUZfKvuzoOYd.byTBzJB-V+gCPJIUX-CYdnzNcJM6p9Bus37lKDkNzcwpCruF,8Ve,ccFK\",\n        \"small\": \"http://BV.htIR23C3omanIPgc2cVL7CuObhrdEqFngNCPxJ6l27fll9\",\n        \"thumb\": \"https://Zty.ojqg.8n9pE71V+QEPINwO4vpXYwOxg.ItY\",\n        \"small_s3\": \"https://mBVKjVLSCeilEz.khkfdxSSDZG24o2k,9qiJhCY0XDNDCp6DjwYWE8D15kVQ\"\n      },\n      \"links\": {\n        \"self\": \"http://iAklOrTBg.fofZUKKd43Zp3OdN5eaWfm+Vo0MBw5cVpWINgs9s1qaIdExgn2lLbp8bSSeMfSy5IyzFhZIqQYfZ\",\n        \"html\": \"http://u.lxqntpcGhF-PBLT2QesgG+l2IbV\",\n        \"download\": \"http://VfjttiDYtRwMeTDVwK.ijvvgGmAkErwhaQ66cWJUXLiMX\",\n        \"download_location\": \"http://iHFhJCPdoviahyMWVNdWwCOQNs.mkjmod7InjtQX0sUqxvKpS+1DEL\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": \"http://TsJGbpywHivHBrMChtxGr.awsY57WYyc8c36np\",\n        \"bio\": \"string\",\n        \"location\": \"string\",\n        \"total_likes\": 4555,\n        \"total_photos\": 9611,\n        \"total_collections\": 1429,\n        \"profile_image\": {\n          \"small\": \"https://mMkTsAkJJ.jobpkwCKX\",\n          \"medium\": \"https://XDWlRpgBbaqbQmwZSEWlC.agohtThUJbCb\",\n          \"large\": \"https://h.uhufxKeOfTb0O20U2aVcLvgoIh2kc\"\n        },\n        \"links\": {\n          \"self\": \"http://acfpFmTsU.glae9DJm8meqWC4ypb.r+kZQsWKFae,AKhU8tf0nLuDlnQZKZFcJmuwpZFX\",\n          \"html\": \"http://BeoQYaZwmmtSKy.ubeQzw9wxmstXUFaPz.2wwmglHnFybauJZ0uAB9QT7HqmlHmvht6MV\",\n          \"photos\": \"http://RtjRJiUClvnhiTjoUkSYBuetAWBAN.kcgGdNGJbBhb9Cc1RgscFr8JUNk,UuvRSrWXpWEqhZISTCKMrApdOAFZmNOwR\",\n          \"likes\": \"http://k.cazMMj6tkAC.S68iOYqMS2XR8bj.bZpFx4FLPjHXyBqzBMzanno\"\n        }\n      },\n      \"location\": {\n        \"name\": \"string\",\n        \"city\": null,\n        \"country\": \"string\",\n        \"position\": {\n          \"latitude\": 2296.143494794076,\n          \"longitude\": null\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": null,\n        \"model\": \"string\",\n        \"name\": \"string\",\n        \"exposure_time\": null,\n        \"aperture\": null,\n        \"focal_length\": null,\n        \"iso\": 83\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad842311-540e-4477-b315-36ec7224dfcd",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c9213bd-e98e-46c8-8b5d-8304e0c4173b",
+          "name": "Update Current User Profile",
+          "request": {
+            "name": "Update Current User Profile",
+            "description": {
+              "content": "Update the authenticated user's profile. Requires write_user scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "public read_user write_user read_photos write_photos write_likes write_collections read_collections"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://unsplash.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://unsplash.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"url\": \"<uri>\",\n  \"location\": \"<string>\",\n  \"bio\": \"<string>\",\n  \"instagram_username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ed39ac1-a951-45f6-beae-ae9849e9b340",
+              "name": "Updated user profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"url\": \"<uri>\",\n  \"location\": \"<string>\",\n  \"bio\": \"<string>\",\n  \"instagram_username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"username\": \"string\",\n  \"name\": \"string\",\n  \"portfolio_url\": \"http://DYuLPQPjqlheJ.vnZ6SbFSS2GlEw3cR+JxImSSlufHCqURbQl9RvaDBd+qzIDlzgj6j7+rqpkzZL.ATkJuB7RhXLRMuT\",\n  \"bio\": null,\n  \"location\": null,\n  \"total_likes\": 6655,\n  \"total_photos\": 3305,\n  \"total_collections\": 9949,\n  \"profile_image\": {\n    \"small\": \"http://yURIcTkdBHdeA.ndcjyqQJriN9Kma9+nrcl1qSRatXRaK88R2,f0F\",\n    \"medium\": \"http://YBlnIzvo.yrD6FYr\",\n    \"large\": \"https://CfiKItMygLqjn.iodjSFD6GnB1mZES.93d3-McVztSJ7YGfmmF8Szr-tb-z17aCVReIErBGqE1,CMZ\"\n  },\n  \"links\": {\n    \"self\": \"https://nOxh.syU-km2\",\n    \"html\": \"https://gqipHNCnPxAyfpYqSugKgCoHWHxsSxvO.tkvhxjgl.r\",\n    \"photos\": \"https://YNcWhYPcQKjNpvTEgzUoYvGw.qxrJedA05Su4MVxA+Jxvka1Bf4BGvR\",\n    \"likes\": \"http://DDCaoNEdhPdYXCxKUVJRxUyvpzZNuRO.unpwKR-QaxsyVaE6GQdFldezmA4iEOF7m4XAKAzjk3JA0yYdgtKr3cjrnaae\"\n  },\n  \"email\": \"K-oWc4TpGP7D6m@aBIWTQ.hoo\",\n  \"instagram_username\": null,\n  \"twitter_username\": null,\n  \"downloads\": 9783,\n  \"followers_count\": 405,\n  \"following_count\": 2109,\n  \"allow_messages\": false,\n  \"numeric_id\": 5372,\n  \"followed_by_user\": true,\n  \"photos\": [\n    {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"1965-03-13T01:43:40.116Z\",\n      \"updated_at\": \"1973-08-16T05:49:11.128Z\",\n      \"promoted_at\": null,\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": null,\n      \"alt_description\": null,\n      \"likes\": 8886,\n      \"downloads\": 8486,\n      \"views\": 5979,\n      \"liked_by_user\": false,\n      \"urls\": {\n        \"raw\": \"https://YWktbQpEwEXUbapqhptJS.qmipMHg0cjh0YgBOecYxLjPlr-M\",\n        \"full\": \"https://Eqjad.fliOqbAmtiB,lfhxqeN,xejWhmOFPifG\",\n        \"regular\": \"http://pWBvkxurEKlTxDS.upnEabxKVs2sCfy8bYJPJlSAqnpdDVOF+UvNjKtXYc5lZ9E,yI.p,Pw+goXK,B3RECJJ\",\n        \"small\": \"https://lWkbJnpSNBIuGlLzkQmYPGwzi.siMKINeKnTxPbi7FE3GTctxxT8VS,crDyby8OhIFVSYvFbXx6iI8k6abSwUueEsBK1IRPg2G\",\n        \"thumb\": \"https://cSVndSSc.ceB\",\n        \"small_s3\": \"https://oPFPpnxpTt.tyxeGUFI8wONmde7cB1c5NE1\"\n      },\n      \"links\": {\n        \"self\": \"http://ILNzrNbpiKf.twhcIeUqfyeK3LycYZ732P+\",\n        \"html\": \"http://sSw.gcQlqIb1agEu6gJPbQnRfs3C2yoNhT6k+GLQ5sfnLTzCc4\",\n        \"download\": \"https://MvqoUoJabgT.ztgRbNIMBjcT+kx4krYEQWtStBNeSrSn6lhVKrA-aXfStQceCrPDU7mM+VrEryciafV,xoyC\",\n        \"download_location\": \"http://vOxuZhmRfIgGnXkCbPKSFdio.hifrkERxVf60Eg4l4AFshBOErYdKDfwSpByAnojMmcHnviYzNFTLRS16.902tPb\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": \"http://eCTQNfSEUUNAdjle.cckpcy0CrLy,0CXB\",\n        \"bio\": null,\n        \"location\": null,\n        \"total_likes\": 1248,\n        \"total_photos\": 296,\n        \"total_collections\": 7974,\n        \"profile_image\": {\n          \"small\": \"http://ZxXQ.iwbiRRyvo62FdFvogpiP8B-nnoS4l+3K5uGzIbflukjAv\",\n          \"medium\": \"https://AnTWtxlarxkTSlMZFtocoZPJQR.omw-mY7\",\n          \"large\": \"https://Rr.qtpXisaShX\"\n        },\n        \"links\": {\n          \"self\": \"http://EpkocXjR.zlHWXVtZVokR\",\n          \"html\": \"http://JkM.jwLRYyaZH6qTj-DV0jBy+VyesbTx7si\",\n          \"photos\": \"https://edAgSG.jhsjXxnilSLhlr7X4RAv1NnWTe8PTjzEt0Yl46y+mtKiGf8TR+jZn7RNRKDfbI\",\n          \"likes\": \"https://MLBBUCilCkrWrhtBGKWxV.rvewNAIfZLpr8-8q0vPhbZCC\"\n        }\n      },\n      \"location\": {\n        \"name\": null,\n        \"city\": null,\n        \"country\": \"string\",\n        \"position\": {\n          \"latitude\": 2776.987627510382,\n          \"longitude\": null\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": \"string\",\n        \"model\": \"string\",\n        \"name\": null,\n        \"exposure_time\": \"string\",\n        \"aperture\": \"string\",\n        \"focal_length\": null,\n        \"iso\": 1974\n      }\n    },\n    {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"1995-06-07T11:20:09.258Z\",\n      \"updated_at\": \"2018-07-24T11:17:15.810Z\",\n      \"promoted_at\": null,\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": \"string\",\n      \"alt_description\": null,\n      \"likes\": 6368,\n      \"downloads\": 9192,\n      \"views\": 8949,\n      \"liked_by_user\": false,\n      \"urls\": {\n        \"raw\": \"https://RXshFojlsimuq.zieJxSkjG7CO556DFoj,rZ4f1mceZAdfcq0ts6I+ho\",\n        \"full\": \"https://yIgboQHxcZbdtaJRQ.plE8c\",\n        \"regular\": \"http://P.nqmtUE.6mm-Xm5tvRS,.KnVOcUSs,h1\",\n        \"small\": \"https://KTWVwGjNCZhUGFNUINBlpcYeQnj.uofBzZfjhc5BCBVq.fIVDgpo9KuWmpwXFf.uKF5Lui\",\n        \"thumb\": \"http://eKZAchX.khuLQogNW3BgycdkTAmpJKh,VYb39vZApEV\",\n        \"small_s3\": \"http://e.quhbtbuOv909UHNfkSFJ.hwEBmMwtjMEGrE5f+BCVXYVSz.JF9Zih1CVFIzWezUw0eNZ\"\n      },\n      \"links\": {\n        \"self\": \"http://VfYSylCoUCKfXSk.vnqihIZ7azGfCx4D,bRRIiarQ6zJjCD5wzGJEi-bQp3kMjU+BCmEiVdg\",\n        \"html\": \"https://rAqZNKyzhdYaDMaWieOgLRHGd.ndTDeuVs93eIaZrWr15mVuE.GZlEd5Hw1ApJeDE4peJoorsE4,Tu.2Romb\",\n        \"download\": \"https://MGPP.avHG-GtYk2Lqkrg2ABNAsysDCGcLPbqcOmc+w4mbfGbwpT\",\n        \"download_location\": \"http://diBBHmOvbcoGJaJZ.fiuHXIn56drq+npd25g\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": null,\n        \"bio\": \"string\",\n        \"location\": null,\n        \"total_likes\": 8021,\n        \"total_photos\": 4888,\n        \"total_collections\": 2919,\n        \"profile_image\": {\n          \"small\": \"https://FjWChOuXiDozDVuOt.jhgInE\",\n          \"medium\": \"https://MxsGskzKDsvoRrlSl.rnQ3uSnTgcYqTgeCeiTF5Cqj0HG\",\n          \"large\": \"http://bsRQXjZniZohnWqyqcyZjs.ojHAcPhRIJj4REVDBSKPIPFM2qerLaprZj03Fml.Ve8-,0Vz\"\n        },\n        \"links\": {\n          \"self\": \"https://EbPOgPIC.clkspY5JbeP1Pkam62\",\n          \"html\": \"https://PXimPQTXA.fqizGosJxb2JJnPqI7XUsezkJEE93x0\",\n          \"photos\": \"https://ddDFCchQKoqvFTGrcNXwbmUCQGJgxN.antH24gPt,ZJ7gyzsNXJAI7C,h1mdUd4xmi9dqsXb7nI8wGtAQBKFObX6\",\n          \"likes\": \"https://XbUPjJuChPVXwzrFlDfFqrDjOcRpum.mifFm9mwsatccYwc,nmXXX76r+.TU7K\"\n        }\n      },\n      \"location\": {\n        \"name\": \"string\",\n        \"city\": \"string\",\n        \"country\": null,\n        \"position\": {\n          \"latitude\": null,\n          \"longitude\": 84.62089326454758\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": null,\n        \"model\": null,\n        \"name\": \"string\",\n        \"exposure_time\": \"string\",\n        \"aperture\": \"string\",\n        \"focal_length\": null,\n        \"iso\": null\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e87ed7b-e4a7-4f8d-a370-320ada0cbf8e",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<email>\",\n  \"url\": \"<uri>\",\n  \"location\": \"<string>\",\n  \"bio\": \"<string>\",\n  \"instagram_username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.unsplash.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4d42fe5b-791d-42a5-b796-2cf534fcf09e",
+    "name": "Unsplash Collections Current User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Unsplash API provides access to the world's largest open collection of high-quality, freely usable photos. Build photo-powered applications with search, random photos, user profiles, collections, topics, and statistics. Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr (production). Downloads must be tracked via the /photos/:id/download endpoint per Unsplash API guidelines.\n\nContact Support:\n Name: Unsplash Developers",
+      "type": "text/plain"
+    }
+  }
+}

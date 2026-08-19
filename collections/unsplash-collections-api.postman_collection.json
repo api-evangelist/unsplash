@@ -1,0 +1,2013 @@
+{
+  "item": [
+    {
+      "id": "e27f001b-48d3-4a71-83fd-fef6b393f1d4",
+      "name": "Collections",
+      "description": {
+        "content": "Photo collection management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c25970f-f43a-4bb2-ad93-37d32d684c74",
+          "name": "List Collections",
+          "request": {
+            "name": "List Collections",
+            "description": {
+              "content": "Get a single page of all featured collections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Results per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55ada8a3-8362-496f-b0ff-c318649cf854",
+              "name": "A list of collections",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"description\": null,\n    \"published_at\": \"1985-04-03T09:02:38.048Z\",\n    \"last_collected_at\": \"1965-12-03T21:03:41.611Z\",\n    \"updated_at\": \"2001-01-15T11:28:20.229Z\",\n    \"featured\": false,\n    \"total_photos\": 5223,\n    \"private\": true,\n    \"share_key\": \"string\",\n    \"cover_photo\": {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"1970-03-30T12:39:16.065Z\",\n      \"updated_at\": \"2019-12-23T03:14:09.599Z\",\n      \"promoted_at\": null,\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": \"string\",\n      \"alt_description\": null,\n      \"likes\": 4492,\n      \"downloads\": 9561,\n      \"views\": 5509,\n      \"liked_by_user\": true,\n      \"urls\": {\n        \"raw\": \"http://YVlvdiQUCguEFMFtBrjbDNkR.xjhkuix.sdQSTbQOdEkKeVLBW9lR,pLJSpqFn9vCPZpgzpjf0YC0hoSWWTAnJAQKUo7JbY9T.VKa9lc\",\n        \"full\": \"https://fyoF.ecgA+3x467WKkY,9TjtRNJNsOvOWZuKcgbXFzE.w-aCniGqSkWD5\",\n        \"regular\": \"https://BYTkutFxNIHBxWBOUSQU.rynsZs2hm8Sn67NCLLM,iG,-WAnOnj\",\n        \"small\": \"http://JdwdzxclOLX.hrxeQYTANRLZG\",\n        \"thumb\": \"http://YTaybhdDVSZDOmNUvDlzraDV.qscoR4wiAOKBN22yvQtfqjBcGjjGgDJc4fZuc0\",\n        \"small_s3\": \"https://KQqrHU.hdoNvRNwEz2lwdfu.yZ0dupY22,\"\n      },\n      \"links\": {\n        \"self\": \"https://MKPXKSncTQwHbhBLsFbewdGYx.dmkfuj6vdAEayodnGrk3ScR8XKHvJCg9wuDIQDUhe4gAXiohg66VmIgHVzPngI0tG\",\n        \"html\": \"http://UEgKfLVOuYbNrKyVwLYqBFzKslEL.xyrOEmTUPANLZxX4BzQ7vDr+GYc\",\n        \"download\": \"http://WyTOCxEByoJ.kwwid6l9PINezTroJZY+2yjOLfHo1,6YuwDqiqd,27Vo+Q9ew.7Ev.6Ml1mCUVVdB\",\n        \"download_location\": \"http://ZoVcUwJsz.tqeCtCs+bgO1dGYLpVs2.\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": null,\n        \"bio\": \"string\",\n        \"location\": null,\n        \"total_likes\": 2440,\n        \"total_photos\": 9485,\n        \"total_collections\": 5049,\n        \"profile_image\": {\n          \"small\": \"http://UAjTubecNLNSrMoTUgKWOIKzhIjNyVO.kvtfABrPnh3t2w,gG8zzd3xkkWb3WKW\",\n          \"medium\": \"https://HoHIITCrgHEcoFZ.dweyhUmxfKH7J32P5QetBMLsUTeTWX\",\n          \"large\": \"http://quXmxGqsPfa.ebplrc6xuWu4pu-T5gKqeIasJR-sB1HVkBAWjouR\"\n        },\n        \"links\": {\n          \"self\": \"https://ukBImOHTtBKDmArTwOTx.pwpqx9utG8TGuUFYtCDWMDxb3f8gGl,GN7EzL4C+moLYd9l\",\n          \"html\": \"https://PdipFDQVDicVVzlRiAf.pnpyY3e29SoiT.Em2RNVoG4MdSaWdDzzVw,Z+\",\n          \"photos\": \"https://mMsdxwJUZZ.kgMruq-3OqrSGzuganHTBFh-pgPRtBwDtIdaZbpoSCDZYEh2MvmEg\",\n          \"likes\": \"https://agzuZmsHtmdQtmHcObShSkZe.hdVBd9Vwjr6OWbdRBBAt\"\n        }\n      },\n      \"location\": {\n        \"name\": \"string\",\n        \"city\": null,\n        \"country\": null,\n        \"position\": {\n          \"latitude\": 9349.105750984208,\n          \"longitude\": 8131.097142350735\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": \"string\",\n        \"model\": \"string\",\n        \"name\": \"string\",\n        \"exposure_time\": null,\n        \"aperture\": \"string\",\n        \"focal_length\": \"string\",\n        \"iso\": 8068\n      }\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": \"https://JZupkJCnBIFvOoFebUcOKEQDArZ.jjuSuHnE-mBpVqIWP-nwlvOt9qlyx+RShpUT.O\",\n      \"bio\": null,\n      \"location\": null,\n      \"total_likes\": 1241,\n      \"total_photos\": 5663,\n      \"total_collections\": 1547,\n      \"profile_image\": {\n        \"small\": \"http://ZxSpfLsIhBjDTCJNHgZRwGlYR.yrkbrYMjItYlC.3mKuJhT5aL-LriUpOyjdC0J\",\n        \"medium\": \"https://EqdhDllNZrRrmCNNTlSYlRFDHhmPdHYdx.qsqW470N05GNvXHxfEV4mmdWVV.uGTuAY4Zg62WbF2mX4ZEhoh-\",\n        \"large\": \"http://WojNeCcyjedsqYxkejXByH.ipVwd+PRQpT,,IKuOuv-kNTShXm3ZmHg2lQpRA4rfpwL72sw\"\n      },\n      \"links\": {\n        \"self\": \"https://hPcZRfKyGNLWHe.uhtUfPCU6JdqAKAQC\",\n        \"html\": \"https://WArJ.ljnWn+I0+vpWbXtyRj-EmLy4Qu\",\n        \"photos\": \"http://GtneJhcmoTSaIsXEb.oblivbTXAeTfvYJ73xoFjYxy4Rl937eohb+iAyNC2Zwfy2H7Deo\",\n        \"likes\": \"https://AwPFt.urhn8qFn5AK+nQRi.RstYXl8lb,Wht2ymjfw.g\"\n      }\n    },\n    \"links\": {\n      \"self\": \"https://Ph.utfYgH22pRONpBj8UeH-Owf+QMgIIFqPzcvBjimQ3QMjOu\",\n      \"html\": \"https://GfCfBgWlUVHiBIwCNeHmjHlKu.anrrtyZoumJuVCuAGLh0dH.zulmnWumXefQz0k.O23o687XMYb-ZvH75EzojI.\",\n      \"photos\": \"http://ZiIJ.qydWZehYs,xiU,.09NtQXNkZ\",\n      \"related\": \"http://uOYdMpOramIxRbDf.fggrrWdS7kKMqM820kGkBZijVHe-ERnQwyr5cTPxkAhuhiGyNuFkWNwnjg\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"description\": null,\n    \"published_at\": \"1993-04-07T13:25:34.256Z\",\n    \"last_collected_at\": \"1986-10-06T03:35:35.388Z\",\n    \"updated_at\": \"1970-06-07T00:07:57.465Z\",\n    \"featured\": true,\n    \"total_photos\": 1529,\n    \"private\": false,\n    \"share_key\": null,\n    \"cover_photo\": {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"1982-09-06T21:20:30.843Z\",\n      \"updated_at\": \"1974-06-02T00:43:49.440Z\",\n      \"promoted_at\": null,\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": null,\n      \"alt_description\": null,\n      \"likes\": 2986,\n      \"downloads\": 8874,\n      \"views\": 2213,\n      \"liked_by_user\": true,\n      \"urls\": {\n        \"raw\": \"https://cfidyXhVeQRJCZYYLZxXBBCddZQfp.kutWp,xyOyODZhXE,1WqF2gWhUbH5kQsUqKBZ6k+PT\",\n        \"full\": \"https://PGxIxRjNBitoafYixBAXAAYxzedSikc.fmdkR88UHmbaqwY+50ySqacG+nqJ3xXNYiQt6cJ2AfSHQPXd6A4lo9tz5TURGhVWs\",\n        \"regular\": \"https://qtb.plkQy3AHhd0WYxXtuPuKCOt8rDvt4fK.0lY2-q\",\n        \"small\": \"https://vKooFXae.vttFK4.,rAikOMTBr5BufrknoW9-CER5Je6qQjDgEJFJAHUk\",\n        \"thumb\": \"http://IvixjzjnWNrsGq.zlD1NekjeXtBgDtwjSQ4Xz713k8kipunL-o8gdgJLC.gqCxaVQaG2VRnWy8\",\n        \"small_s3\": \"http://SojmJmiOhORcbOG.uslrAjEF+Fu7h+CL-sFda8oc.\"\n      },\n      \"links\": {\n        \"self\": \"https://UcCSAKGehg.vfzY9ZuNgeWjXdewUv9kzqiBCzZAbGL7nVpt5OkwUSb+W9h97qnh7\",\n        \"html\": \"https://WAXNAL.ezqrhjikCbKGvO-a9-ZGSkbqztU4jF,xUX-9gQsK1CPsPjYe+aUHMdOpmlpMlKBhXG4\",\n        \"download\": \"https://mKoObDiFmIVXMOt.pgoPmyHk9\",\n        \"download_location\": \"https://VItGCEWKxgBtkrM.wbnfa8UGG\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": \"https://oXscxrkZ.sctb5n6QNVqddFI\",\n        \"bio\": \"string\",\n        \"location\": \"string\",\n        \"total_likes\": 5574,\n        \"total_photos\": 2722,\n        \"total_collections\": 8702,\n        \"profile_image\": {\n          \"small\": \"https://IHZqlZkIZtVh.nnGi+BZXq645SuVAp0I3IR9C5\",\n          \"medium\": \"https://wXbPiYLvxqqi.jkezXpvnDq0EjtDod.egktQuKaUdQA8yIqXSAl-7A57Hb2QnDNm\",\n          \"large\": \"https://aEMWBhyFQqooeEo.vcc,jl-BrGCcC,eAl3RII1t73uszwu4s\"\n        },\n        \"links\": {\n          \"self\": \"https://iJzvjZWIjJIOtoMSDmVzOijHcppqR.aqyqq,CqkeA3t.XLr,OlWqoghvdKbMmTc,L16,KF4zEdLo7DBnR\",\n          \"html\": \"http://QALOudYiTAAaJrvgjzsXqIGYxjHHR.zrjvk0aB1BaLdGOnQsIKL0.7JluYEn9REka28WMYDdX\",\n          \"photos\": \"https://gbGcckaPLKZCfqMGkhGhsUYTVk.dnyQRWGpgdgxEIGb7--5anFMb\",\n          \"likes\": \"http://IVWmxJpEffTbAZIgXjEpp.hohlHzz6mgUDNmyh+URN0S4LWMolq0FJ,XB9lUxbDdZUiBBTzcM,DFK8MEM9GIS\"\n        }\n      },\n      \"location\": {\n        \"name\": \"string\",\n        \"city\": \"string\",\n        \"country\": null,\n        \"position\": {\n          \"latitude\": null,\n          \"longitude\": null\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": \"string\",\n        \"model\": null,\n        \"name\": \"string\",\n        \"exposure_time\": null,\n        \"aperture\": \"string\",\n        \"focal_length\": null,\n        \"iso\": 2289\n      }\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": \"http://bzNqnLbQAcM.wkaMhXW9m2KlWCVSujLblKLcDr,A1DYv2rTLUo-z4Yz4NCKDJK1c9cFvkImediLEs\",\n      \"bio\": null,\n      \"location\": null,\n      \"total_likes\": 3504,\n      \"total_photos\": 4840,\n      \"total_collections\": 7736,\n      \"profile_image\": {\n        \"small\": \"https://ZlNUkRCCbaRLDQkdtfcDKJpmB.snEo2yk.rcXmFu4ZYpXSzw8-v2IC1.UshYbwpdx25gNYmpFJWjOKV\",\n        \"medium\": \"https://MRtkni.nsonEQ\",\n        \"large\": \"https://j.dkyVMUfdzx6AoCKxFCC2O1PtdTPIA8Hns5GFwxVFQspjtzuybecfvG7CNolWOmAJ0b1\"\n      },\n      \"links\": {\n        \"self\": \"http://YmerSqXuYwa.qdcleBNQh7McujiupQQwiQKBuU3f6AMVqJ+xgHMCRc,v7vdyUuyCQJHHNH,3xZAB8\",\n        \"html\": \"http://FgxorjYwrRE.bvkiALsBqTrmVqe-wpSs\",\n        \"photos\": \"http://XHYKHdxhByJjfxJBPXxGYQqwQGeAtLI.pyNBgUQ,q3BST7VS0ndySKEuOwJSCvkFZJb,GgXirV1A\",\n        \"likes\": \"https://dQeqTPXLakAeFJqwQQK.tdrF2qJTEL7gBwFrsOZU+qP9m8R9l+Jdro.mM\"\n      }\n    },\n    \"links\": {\n      \"self\": \"http://BTCWBg.xopQS,J3dC5LN,Ph7CSNC-SN\",\n      \"html\": \"http://ng.tsDKw6+H,WiOvtKEbQB4w43,TLSoSwhASy\",\n      \"photos\": \"http://STHGmlFKbCXKijvLuFNsnCXgCEkHUL.csphqBiYVdlzewqHWhod8d1RupKsGPXNwM0PHjxkEtg3Ic\",\n      \"related\": \"https://Tg.jwNQk8FzQIVnYFOT0tmpTzmn0DKzlo4IU6Bzn5gqMzDNiqK6ohFqCslzRkAcTHrwEvzEYm+FRmd\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c409ec47-2e1e-417d-99e5-fd8ef3cf4afb",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32a9de73-b44f-4d42-9462-db5216eab718",
+          "name": "Create a Collection",
+          "request": {
+            "name": "Create a Collection",
+            "description": {
+              "content": "Create a new collection. Requires write_collections scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "public read_user write_user read_photos write_photos write_likes write_collections read_collections"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://unsplash.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://unsplash.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"private\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b5b6723-a7ab-4140-9d28-e3cc0a274562",
+              "name": "Created collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"private\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"published_at\": \"2012-09-21T00:40:05.994Z\",\n  \"last_collected_at\": \"1976-07-10T12:43:23.713Z\",\n  \"updated_at\": \"1968-12-31T01:41:07.683Z\",\n  \"featured\": false,\n  \"total_photos\": 5240,\n  \"private\": true,\n  \"share_key\": \"string\",\n  \"cover_photo\": {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"2011-08-14T03:07:21.604Z\",\n    \"updated_at\": \"2016-12-02T04:27:55.058Z\",\n    \"promoted_at\": \"2001-07-01T08:45:23.723Z\",\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": null,\n    \"alt_description\": null,\n    \"likes\": 4209,\n    \"downloads\": 2449,\n    \"views\": 2919,\n    \"liked_by_user\": false,\n    \"urls\": {\n      \"raw\": \"https://akJxbwqcuwJoksuCkCIbFMfqOkibxN.jyreKCsqYwpZIG4OZFnZ.ITc0Y,aiknBm-d5SLdwnNgaBqxcNaAyxge3S9ubLmZS.WVQfA\",\n      \"full\": \"https://ljRYIcEN.vwnRqiw.AEKW2Csy-UlURGxE7PRKcNcTTbYlGfUd.ypA\",\n      \"regular\": \"https://UjMdNKiOuioXPBJEqlGorFquIPoTXmK.owpj,bCP19ardZ0ft3Kb,kwtUlyda5eqQ1s4Asu7K.Lc\",\n      \"small\": \"http://QvlJrSreGBvVJwaZRlSPpXqVMk.hemefxDJ.c4lfSNbg55doVHLn\",\n      \"thumb\": \"https://HYdkDnIFdtlaXjqdLsJMLRDlZoK.ynxlzLDmsAC\",\n      \"small_s3\": \"https://eYNdafiLnsVgCdjFamVSmFTi.qcchFAU+GrZ8wiRYCLeYo4+fEzzV-dedUILG.vgd0AH3aLYhIr-iuqQNThmIrc0q\"\n    },\n    \"links\": {\n      \"self\": \"http://TqNTGJaDGmIBditb.kwrnFLGROyi5FhC5PZiadQbSMR5BDpL2lQp80mwYaYElKwZqIL7jaFa2hLHtS4yZzbaGiLXzKf\",\n      \"html\": \"https://dipipKFizoTSdFyazmJnKie.gekZpiZ1TJyTQ-ya6FCRKeO2uc2JIcOsQzf8DJrVEjKwGSBTk0\",\n      \"download\": \"https://TZPmCbzGjQHXlgSgMH.jjvH0uSoE,XLfZ5ZF7mH3tNe28m9k2Aw3GFE0Birdshx\",\n      \"download_location\": \"http://wcYTVjhTElLCP.vqcze0JtA6kUP-uQO,soIuyaLtqP5xDBYuXlmrQxaV4jWT\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": null,\n      \"bio\": null,\n      \"location\": \"string\",\n      \"total_likes\": 6545,\n      \"total_photos\": 3123,\n      \"total_collections\": 8914,\n      \"profile_image\": {\n        \"small\": \"http://ONDgJWbcMPQ.dsaFeAjO9tWeyX5iyjHtAsDSvDYw+DQrnh1.W+Je8MZlnIf7vhHziZmqom4W\",\n        \"medium\": \"https://qmjzOXPAOpWSvVciCAZR.cmryRk6eLJ\",\n        \"large\": \"https://nMuVIskBvWsArXDZWnfRlRCcclvcmqfV.gktJYvSsA2sxblzTpjD3QVVFycVOtqQ8I\"\n      },\n      \"links\": {\n        \"self\": \"http://cuBncVBdLokwiXrZpjIsSLHWGnVvwB.kypjkjfqXoAiJuDCCR\",\n        \"html\": \"https://YTKnLWhEVeqdWosDACGVYL.hcoOOZtuUHsyROgOOK1p1PmnQLxzQ,a0O8Ve3pJN-8+\",\n        \"photos\": \"https://WvcHAMRNvWqzEr.wzcvBQ8SdyYh-5vKKaRn0KvAccOzsFC+XNdWPr,E0H0Pjc-AteAnbEI-PWdf\",\n        \"likes\": \"http://UasdBWEXJbJzxECkWPwiVKgvb.dquRKdWu7ZFEl2.siijjSbwyj\"\n      }\n    },\n    \"location\": {\n      \"name\": null,\n      \"city\": \"string\",\n      \"country\": null,\n      \"position\": {\n        \"latitude\": 3241.0026989498897,\n        \"longitude\": null\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": null,\n      \"model\": null,\n      \"name\": \"string\",\n      \"exposure_time\": null,\n      \"aperture\": \"string\",\n      \"focal_length\": \"string\",\n      \"iso\": 4881\n    }\n  },\n  \"user\": {\n    \"id\": \"string\",\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"portfolio_url\": null,\n    \"bio\": null,\n    \"location\": \"string\",\n    \"total_likes\": 9254,\n    \"total_photos\": 7959,\n    \"total_collections\": 9028,\n    \"profile_image\": {\n      \"small\": \"http://pOACfcellShSHidesszCNCXW.tqMUbRtLuf8syAPfu8fv.VhP4-kJloh\",\n      \"medium\": \"http://OKP.bfvmGEhbVSOnSJX4l\",\n      \"large\": \"https://qXnIqFsZUhuGHtEsmkeLLhuKOv.mzdxt2V6VBYt3umCxX6rlqzCDOaP8Q1vtAYvB5zMnhWUNoZ9W,4.+akHyKMFN\"\n    },\n    \"links\": {\n      \"self\": \"https://RTbcDSHxfucNHuGyDV.wubVQpXHktWVfbs8c\",\n      \"html\": \"http://hUtcldiVFHTTlLQEFJRMeHDMunjba.cybV7\",\n      \"photos\": \"https://GCpFJOQEFrUPncGYqrrb.nktv-nz.MJVZSfxZbC,Tc,UV9si49eyAPuoPXcKNOBr7u\",\n      \"likes\": \"http://LifUMaAdLdpxlR.aqyfjS\"\n    }\n  },\n  \"links\": {\n    \"self\": \"http://qcZWqUajnthTzTKrMhIewWpc.eysdKtdgY5RhUoJvLZbnzeq1eTf1GVuoGFOa0LNJrPNrEnuN-fjz2tfEPwa\",\n    \"html\": \"http://fGaLrItvhqlQnIDRsCzutpfw.cdaBJ,3hvx+PmJzKNFpHNYrOMVYMc\",\n    \"photos\": \"http://BcWdctgQzSMPszXTuSDbbtHhhku.frwww-gHO,+StrTmJ4KcJjtCJCL8xbjYGIgzGPxDQed0pEw.NV2CBon+YA1BqiGA\",\n    \"related\": \"http://SgBvRxr.blvhNhnei+LFy+N-HIHXFsUWg.y1Z7G.VDnGVteNfdWs33JB\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "446b795a-0de4-46d1-bfcf-2dd0a9fc6ab9",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"private\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b37162d-7b03-40e7-af26-d1fc87ce216a",
+          "name": "Get a Collection",
+          "request": {
+            "name": "Get a Collection",
+            "description": {
+              "content": "Retrieve a single collection by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Collection ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1351c78f-f6b4-4012-9f10-6b6ad62cd208",
+              "name": "A collection object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"published_at\": \"2012-09-21T00:40:05.994Z\",\n  \"last_collected_at\": \"1976-07-10T12:43:23.713Z\",\n  \"updated_at\": \"1968-12-31T01:41:07.683Z\",\n  \"featured\": false,\n  \"total_photos\": 5240,\n  \"private\": true,\n  \"share_key\": \"string\",\n  \"cover_photo\": {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"2011-08-14T03:07:21.604Z\",\n    \"updated_at\": \"2016-12-02T04:27:55.058Z\",\n    \"promoted_at\": \"2001-07-01T08:45:23.723Z\",\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": null,\n    \"alt_description\": null,\n    \"likes\": 4209,\n    \"downloads\": 2449,\n    \"views\": 2919,\n    \"liked_by_user\": false,\n    \"urls\": {\n      \"raw\": \"https://akJxbwqcuwJoksuCkCIbFMfqOkibxN.jyreKCsqYwpZIG4OZFnZ.ITc0Y,aiknBm-d5SLdwnNgaBqxcNaAyxge3S9ubLmZS.WVQfA\",\n      \"full\": \"https://ljRYIcEN.vwnRqiw.AEKW2Csy-UlURGxE7PRKcNcTTbYlGfUd.ypA\",\n      \"regular\": \"https://UjMdNKiOuioXPBJEqlGorFquIPoTXmK.owpj,bCP19ardZ0ft3Kb,kwtUlyda5eqQ1s4Asu7K.Lc\",\n      \"small\": \"http://QvlJrSreGBvVJwaZRlSPpXqVMk.hemefxDJ.c4lfSNbg55doVHLn\",\n      \"thumb\": \"https://HYdkDnIFdtlaXjqdLsJMLRDlZoK.ynxlzLDmsAC\",\n      \"small_s3\": \"https://eYNdafiLnsVgCdjFamVSmFTi.qcchFAU+GrZ8wiRYCLeYo4+fEzzV-dedUILG.vgd0AH3aLYhIr-iuqQNThmIrc0q\"\n    },\n    \"links\": {\n      \"self\": \"http://TqNTGJaDGmIBditb.kwrnFLGROyi5FhC5PZiadQbSMR5BDpL2lQp80mwYaYElKwZqIL7jaFa2hLHtS4yZzbaGiLXzKf\",\n      \"html\": \"https://dipipKFizoTSdFyazmJnKie.gekZpiZ1TJyTQ-ya6FCRKeO2uc2JIcOsQzf8DJrVEjKwGSBTk0\",\n      \"download\": \"https://TZPmCbzGjQHXlgSgMH.jjvH0uSoE,XLfZ5ZF7mH3tNe28m9k2Aw3GFE0Birdshx\",\n      \"download_location\": \"http://wcYTVjhTElLCP.vqcze0JtA6kUP-uQO,soIuyaLtqP5xDBYuXlmrQxaV4jWT\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": null,\n      \"bio\": null,\n      \"location\": \"string\",\n      \"total_likes\": 6545,\n      \"total_photos\": 3123,\n      \"total_collections\": 8914,\n      \"profile_image\": {\n        \"small\": \"http://ONDgJWbcMPQ.dsaFeAjO9tWeyX5iyjHtAsDSvDYw+DQrnh1.W+Je8MZlnIf7vhHziZmqom4W\",\n        \"medium\": \"https://qmjzOXPAOpWSvVciCAZR.cmryRk6eLJ\",\n        \"large\": \"https://nMuVIskBvWsArXDZWnfRlRCcclvcmqfV.gktJYvSsA2sxblzTpjD3QVVFycVOtqQ8I\"\n      },\n      \"links\": {\n        \"self\": \"http://cuBncVBdLokwiXrZpjIsSLHWGnVvwB.kypjkjfqXoAiJuDCCR\",\n        \"html\": \"https://YTKnLWhEVeqdWosDACGVYL.hcoOOZtuUHsyROgOOK1p1PmnQLxzQ,a0O8Ve3pJN-8+\",\n        \"photos\": \"https://WvcHAMRNvWqzEr.wzcvBQ8SdyYh-5vKKaRn0KvAccOzsFC+XNdWPr,E0H0Pjc-AteAnbEI-PWdf\",\n        \"likes\": \"http://UasdBWEXJbJzxECkWPwiVKgvb.dquRKdWu7ZFEl2.siijjSbwyj\"\n      }\n    },\n    \"location\": {\n      \"name\": null,\n      \"city\": \"string\",\n      \"country\": null,\n      \"position\": {\n        \"latitude\": 3241.0026989498897,\n        \"longitude\": null\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": null,\n      \"model\": null,\n      \"name\": \"string\",\n      \"exposure_time\": null,\n      \"aperture\": \"string\",\n      \"focal_length\": \"string\",\n      \"iso\": 4881\n    }\n  },\n  \"user\": {\n    \"id\": \"string\",\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"portfolio_url\": null,\n    \"bio\": null,\n    \"location\": \"string\",\n    \"total_likes\": 9254,\n    \"total_photos\": 7959,\n    \"total_collections\": 9028,\n    \"profile_image\": {\n      \"small\": \"http://pOACfcellShSHidesszCNCXW.tqMUbRtLuf8syAPfu8fv.VhP4-kJloh\",\n      \"medium\": \"http://OKP.bfvmGEhbVSOnSJX4l\",\n      \"large\": \"https://qXnIqFsZUhuGHtEsmkeLLhuKOv.mzdxt2V6VBYt3umCxX6rlqzCDOaP8Q1vtAYvB5zMnhWUNoZ9W,4.+akHyKMFN\"\n    },\n    \"links\": {\n      \"self\": \"https://RTbcDSHxfucNHuGyDV.wubVQpXHktWVfbs8c\",\n      \"html\": \"http://hUtcldiVFHTTlLQEFJRMeHDMunjba.cybV7\",\n      \"photos\": \"https://GCpFJOQEFrUPncGYqrrb.nktv-nz.MJVZSfxZbC,Tc,UV9si49eyAPuoPXcKNOBr7u\",\n      \"likes\": \"http://LifUMaAdLdpxlR.aqyfjS\"\n    }\n  },\n  \"links\": {\n    \"self\": \"http://qcZWqUajnthTzTKrMhIewWpc.eysdKtdgY5RhUoJvLZbnzeq1eTf1GVuoGFOa0LNJrPNrEnuN-fjz2tfEPwa\",\n    \"html\": \"http://fGaLrItvhqlQnIDRsCzutpfw.cdaBJ,3hvx+PmJzKNFpHNYrOMVYMc\",\n    \"photos\": \"http://BcWdctgQzSMPszXTuSDbbtHhhku.frwww-gHO,+StrTmJ4KcJjtCJCL8xbjYGIgzGPxDQed0pEw.NV2CBon+YA1BqiGA\",\n    \"related\": \"http://SgBvRxr.blvhNhnei+LFy+N-HIHXFsUWg.y1Z7G.VDnGVteNfdWs33JB\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5b4c67b-805e-4a78-a854-d57ed7a0a1fe",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1bf23f4d-c346-48b6-adc2-2c4d3632fca0",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9dff1a63-d2ec-4b1b-933e-725055921faa",
+          "name": "Update a Collection",
+          "request": {
+            "name": "Update a Collection",
+            "description": {
+              "content": "Update an existing collection. Requires write_collections scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Collection ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "public read_user write_user read_photos write_photos write_likes write_collections read_collections"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://unsplash.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://unsplash.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"private\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b5f54f79-e2b9-4b40-93c8-2708db955b85",
+              "name": "Updated collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"private\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"published_at\": \"2012-09-21T00:40:05.994Z\",\n  \"last_collected_at\": \"1976-07-10T12:43:23.713Z\",\n  \"updated_at\": \"1968-12-31T01:41:07.683Z\",\n  \"featured\": false,\n  \"total_photos\": 5240,\n  \"private\": true,\n  \"share_key\": \"string\",\n  \"cover_photo\": {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"2011-08-14T03:07:21.604Z\",\n    \"updated_at\": \"2016-12-02T04:27:55.058Z\",\n    \"promoted_at\": \"2001-07-01T08:45:23.723Z\",\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": null,\n    \"alt_description\": null,\n    \"likes\": 4209,\n    \"downloads\": 2449,\n    \"views\": 2919,\n    \"liked_by_user\": false,\n    \"urls\": {\n      \"raw\": \"https://akJxbwqcuwJoksuCkCIbFMfqOkibxN.jyreKCsqYwpZIG4OZFnZ.ITc0Y,aiknBm-d5SLdwnNgaBqxcNaAyxge3S9ubLmZS.WVQfA\",\n      \"full\": \"https://ljRYIcEN.vwnRqiw.AEKW2Csy-UlURGxE7PRKcNcTTbYlGfUd.ypA\",\n      \"regular\": \"https://UjMdNKiOuioXPBJEqlGorFquIPoTXmK.owpj,bCP19ardZ0ft3Kb,kwtUlyda5eqQ1s4Asu7K.Lc\",\n      \"small\": \"http://QvlJrSreGBvVJwaZRlSPpXqVMk.hemefxDJ.c4lfSNbg55doVHLn\",\n      \"thumb\": \"https://HYdkDnIFdtlaXjqdLsJMLRDlZoK.ynxlzLDmsAC\",\n      \"small_s3\": \"https://eYNdafiLnsVgCdjFamVSmFTi.qcchFAU+GrZ8wiRYCLeYo4+fEzzV-dedUILG.vgd0AH3aLYhIr-iuqQNThmIrc0q\"\n    },\n    \"links\": {\n      \"self\": \"http://TqNTGJaDGmIBditb.kwrnFLGROyi5FhC5PZiadQbSMR5BDpL2lQp80mwYaYElKwZqIL7jaFa2hLHtS4yZzbaGiLXzKf\",\n      \"html\": \"https://dipipKFizoTSdFyazmJnKie.gekZpiZ1TJyTQ-ya6FCRKeO2uc2JIcOsQzf8DJrVEjKwGSBTk0\",\n      \"download\": \"https://TZPmCbzGjQHXlgSgMH.jjvH0uSoE,XLfZ5ZF7mH3tNe28m9k2Aw3GFE0Birdshx\",\n      \"download_location\": \"http://wcYTVjhTElLCP.vqcze0JtA6kUP-uQO,soIuyaLtqP5xDBYuXlmrQxaV4jWT\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": null,\n      \"bio\": null,\n      \"location\": \"string\",\n      \"total_likes\": 6545,\n      \"total_photos\": 3123,\n      \"total_collections\": 8914,\n      \"profile_image\": {\n        \"small\": \"http://ONDgJWbcMPQ.dsaFeAjO9tWeyX5iyjHtAsDSvDYw+DQrnh1.W+Je8MZlnIf7vhHziZmqom4W\",\n        \"medium\": \"https://qmjzOXPAOpWSvVciCAZR.cmryRk6eLJ\",\n        \"large\": \"https://nMuVIskBvWsArXDZWnfRlRCcclvcmqfV.gktJYvSsA2sxblzTpjD3QVVFycVOtqQ8I\"\n      },\n      \"links\": {\n        \"self\": \"http://cuBncVBdLokwiXrZpjIsSLHWGnVvwB.kypjkjfqXoAiJuDCCR\",\n        \"html\": \"https://YTKnLWhEVeqdWosDACGVYL.hcoOOZtuUHsyROgOOK1p1PmnQLxzQ,a0O8Ve3pJN-8+\",\n        \"photos\": \"https://WvcHAMRNvWqzEr.wzcvBQ8SdyYh-5vKKaRn0KvAccOzsFC+XNdWPr,E0H0Pjc-AteAnbEI-PWdf\",\n        \"likes\": \"http://UasdBWEXJbJzxECkWPwiVKgvb.dquRKdWu7ZFEl2.siijjSbwyj\"\n      }\n    },\n    \"location\": {\n      \"name\": null,\n      \"city\": \"string\",\n      \"country\": null,\n      \"position\": {\n        \"latitude\": 3241.0026989498897,\n        \"longitude\": null\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": null,\n      \"model\": null,\n      \"name\": \"string\",\n      \"exposure_time\": null,\n      \"aperture\": \"string\",\n      \"focal_length\": \"string\",\n      \"iso\": 4881\n    }\n  },\n  \"user\": {\n    \"id\": \"string\",\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"portfolio_url\": null,\n    \"bio\": null,\n    \"location\": \"string\",\n    \"total_likes\": 9254,\n    \"total_photos\": 7959,\n    \"total_collections\": 9028,\n    \"profile_image\": {\n      \"small\": \"http://pOACfcellShSHidesszCNCXW.tqMUbRtLuf8syAPfu8fv.VhP4-kJloh\",\n      \"medium\": \"http://OKP.bfvmGEhbVSOnSJX4l\",\n      \"large\": \"https://qXnIqFsZUhuGHtEsmkeLLhuKOv.mzdxt2V6VBYt3umCxX6rlqzCDOaP8Q1vtAYvB5zMnhWUNoZ9W,4.+akHyKMFN\"\n    },\n    \"links\": {\n      \"self\": \"https://RTbcDSHxfucNHuGyDV.wubVQpXHktWVfbs8c\",\n      \"html\": \"http://hUtcldiVFHTTlLQEFJRMeHDMunjba.cybV7\",\n      \"photos\": \"https://GCpFJOQEFrUPncGYqrrb.nktv-nz.MJVZSfxZbC,Tc,UV9si49eyAPuoPXcKNOBr7u\",\n      \"likes\": \"http://LifUMaAdLdpxlR.aqyfjS\"\n    }\n  },\n  \"links\": {\n    \"self\": \"http://qcZWqUajnthTzTKrMhIewWpc.eysdKtdgY5RhUoJvLZbnzeq1eTf1GVuoGFOa0LNJrPNrEnuN-fjz2tfEPwa\",\n    \"html\": \"http://fGaLrItvhqlQnIDRsCzutpfw.cdaBJ,3hvx+PmJzKNFpHNYrOMVYMc\",\n    \"photos\": \"http://BcWdctgQzSMPszXTuSDbbtHhhku.frwww-gHO,+StrTmJ4KcJjtCJCL8xbjYGIgzGPxDQed0pEw.NV2CBon+YA1BqiGA\",\n    \"related\": \"http://SgBvRxr.blvhNhnei+LFy+N-HIHXFsUWg.y1Z7G.VDnGVteNfdWs33JB\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff1a6126-8d19-4717-b490-6277fb0fecdb",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"private\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c9effed6-0d9d-40cf-82c5-7e44f8e6e107",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"private\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9bb48fe0-7eb7-41e3-9b56-e97b27df8090",
+          "name": "Delete a Collection",
+          "request": {
+            "name": "Delete a Collection",
+            "description": {
+              "content": "Delete a collection. Requires write_collections scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Collection ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "public read_user write_user read_photos write_photos write_likes write_collections read_collections"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://unsplash.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://unsplash.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "19ff7536-f396-4055-9220-04fbfade41bd",
+              "name": "Collection deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7365cc6b-07c1-47de-b8d9-707b4d8a60af",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54c9dcab-1c52-4f4f-ba65-7f5602db62f9",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3d15598-ec7f-4a63-997b-957ebb6963d0",
+          "name": "Get Collection Photos",
+          "request": {
+            "name": "Get Collection Photos",
+            "description": {
+              "content": "Retrieve photos in a collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ":id",
+                "photos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Results per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "orientation",
+                  "value": "<string>",
+                  "description": "Filter by orientation"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Collection ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa940f26-499d-4d2f-8c19-e2e5a04da327",
+              "name": "Photos in the collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orientation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"2014-12-27T09:51:03.827Z\",\n    \"updated_at\": \"1961-06-14T00:41:29.124Z\",\n    \"promoted_at\": null,\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": \"string\",\n    \"alt_description\": null,\n    \"likes\": 9796,\n    \"downloads\": 6902,\n    \"views\": 2169,\n    \"liked_by_user\": false,\n    \"urls\": {\n      \"raw\": \"https://pzgMyQxmi.kfmdgVRE.njYHo3sUsgFvLHoc7kE+ckpaVitoGeSt.wHb73U-PXRLLA5L1w-DMkOQc2,4euPV3n+jdgUOgq.F1mEYV3mh\",\n      \"full\": \"https://wOerVAjwtEzjesFya.unslsHvUbni,Ne85quwWlJowofLIIbekefJznOi\",\n      \"regular\": \"https://JLcdDsfuSCGBajywcYotOyGcs.xlj4UWnfi\",\n      \"small\": \"http://M.mmbgektC2skaro\",\n      \"thumb\": \"https://EiVeKNxrFoyQUFkGQhxaLnPxttqM.nkijJCA,r7,rGciCxd2\",\n      \"small_s3\": \"https://rXMufqmlzEXztpnrWgqKWBUrPcmchbTw.xsdZwO93uBp-U-svgc7smxux0E+BwuVRIr\"\n    },\n    \"links\": {\n      \"self\": \"https://WHoZORwTe.nlAWOKX9FLGohHNUwKS-bukslBbTEAPfgM\",\n      \"html\": \"https://wvf.jcepzsyB8\",\n      \"download\": \"https://PuzhFmQsqu.dipHzdZx\",\n      \"download_location\": \"https://SzwcCNGiyZPBX.qmakYcWb8k+e-2CjOJ,Y76b.VgkcFtjRWyrwCaIMnpRpSxv.u,8JhVvIGuH.fA0,6,ogBbCiz0,\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": null,\n      \"bio\": null,\n      \"location\": \"string\",\n      \"total_likes\": 3409,\n      \"total_photos\": 9886,\n      \"total_collections\": 3465,\n      \"profile_image\": {\n        \"small\": \"http://PKegyJeQWJbmmPnkMfqZRT.voJD++KPN10TlscExgDvnBtpZCgaZZMLSQVLd7vfg3m795WsJ2KWL\",\n        \"medium\": \"http://GEjoKPhTgRxMrtYOcMPpEoXnSTvpN.prYsqrbFc2Y-ZbZGgtYi.wEFd4P8J1mEe+XWaCR6GaVyaRXQYMbOOHlVv\",\n        \"large\": \"https://QFZqLwcjloHyYqAXJQWggqIUtGENhVBq.wcVVY6Q0eFGhkL.7jK8vObON\"\n      },\n      \"links\": {\n        \"self\": \"http://YsqIANSWHNxr.kilquBiC5XeaOFQ84g6Ch+fqPm3pY3E,3P3K2slGzmRZd3.P,tY6QiqAD2CXeS\",\n        \"html\": \"http://GnmdBXYxJszWlDeszi.aquxWPZvTKosnZQr,vRD6f5tvS9\",\n        \"photos\": \"https://XIovcKzJGWOcgQeVSZIfuIiDOuXB.cwmRQ7GH75LDkxHiXELZsR,nO\",\n        \"likes\": \"https://mHpHckaRQDvgCgYbUkBwiALdz.gqyxuootJZpHcxYtEoIjih1w+fbqromlkAdLx+lQaM61.3Ph5bZISuXUxH,0o+LZQYTC\"\n      }\n    },\n    \"location\": {\n      \"name\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"position\": {\n        \"latitude\": 6653.696915950893,\n        \"longitude\": null\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": null,\n      \"model\": \"string\",\n      \"name\": \"string\",\n      \"exposure_time\": \"string\",\n      \"aperture\": null,\n      \"focal_length\": \"string\",\n      \"iso\": 7649\n    }\n  },\n  {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"1955-07-11T17:51:35.242Z\",\n    \"updated_at\": \"1994-10-23T23:27:27.423Z\",\n    \"promoted_at\": \"1979-03-28T06:53:39.818Z\",\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": \"string\",\n    \"alt_description\": \"string\",\n    \"likes\": 7165,\n    \"downloads\": 5687,\n    \"views\": 2752,\n    \"liked_by_user\": false,\n    \"urls\": {\n      \"raw\": \"http://xdkVNeYWbIA.jwskUU49wDOflc1,w3f+MtoxPz\",\n      \"full\": \"https://gcueABzIgJg.hdAa+2MdeBOlyzfMn9XalF.hZ1\",\n      \"regular\": \"http://HpOXPgOcVMQUGPVSVA.fcdsZB0cI97RmXNSEYWNKkdx7qob4Ii+mF7kvljF\",\n      \"small\": \"https://hRuEjFcoOmhlpIrdY.nlf9g.ebpa-1BolWD.CFzT\",\n      \"thumb\": \"https://wGoAyqKrDaHjUwAuhgMw.uznUI,vA0CM2Bb0xSCScfVZS1vgIMf8IIHgFHn6nMbvDsTk\",\n      \"small_s3\": \"https://rXLkfOuYMg.gsjewnutkXkPbeZ9FzR.MxLOIvwEtRv8x3vxRAGUNDC0JfHPcTyZS2JMWefEO7U1hixXGVpmQpj\"\n    },\n    \"links\": {\n      \"self\": \"https://EQlwTzEUvvtdjVgKlxuuMgfkjN.mfqb4x4a-bgSRUGw\",\n      \"html\": \"http://WqjldbrlRSRGiubOSBf.hcikxUEgtmSNOLFgaTHUereb7omcaq\",\n      \"download\": \"http://Fr.rmjbPmn-i05aueeLMnQUEo.rYfa1boCwndbj6HrfYHHnRI-RYqerEuaQBhQMMoLl\",\n      \"download_location\": \"http://zAoRJAGsCvicdYCnTrcPdqIC.ymEt\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": \"http://g.jwses5UIyBECQTHoq.DYs89ade8We6tmlEms3nPDzicKcsXw\",\n      \"bio\": \"string\",\n      \"location\": null,\n      \"total_likes\": 1457,\n      \"total_photos\": 8124,\n      \"total_collections\": 2490,\n      \"profile_image\": {\n        \"small\": \"https://fHFkBbHgZQUykTIvPmUnRPBmOwG.jtzgBQdA0IZR8uMi7bLKW0PcCzrExS.jzFJUJCFWntJpp2L3CJsqY-QopHUYG+BwH4f-3U4Yei7\",\n        \"medium\": \"https://yaVlXhdkrNptiadJAH.bcuk4wIKd-ZERsF0u7nuUkiU4L2G2BDxH-,fJhXiFKc0V28swXtUbFj-ixY06XvB\",\n        \"large\": \"http://rXiGTwvHEtejcImBMtcleptREUaH.ayZ+\"\n      },\n      \"links\": {\n        \"self\": \"https://gQlqXOAy.deJi57xHw\",\n        \"html\": \"http://BAo.axu-d7Q66cEWs\",\n        \"photos\": \"https://LsL.crbZnqjo3L,1LkF5\",\n        \"likes\": \"http://gbOfFwkfUEMbPtGvPsQyZjGsBNwaraYKI.vjloN07,zMrTiv,ILvUq.GmMuFNTKKCXE9EVqWwLMmCoAbcgrEf-4Tb\"\n      }\n    },\n    \"location\": {\n      \"name\": null,\n      \"city\": null,\n      \"country\": \"string\",\n      \"position\": {\n        \"latitude\": null,\n        \"longitude\": null\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": null,\n      \"model\": \"string\",\n      \"name\": \"string\",\n      \"exposure_time\": \"string\",\n      \"aperture\": \"string\",\n      \"focal_length\": \"string\",\n      \"iso\": null\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e34dead-edc5-43d1-8721-99fcfcdb03aa",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orientation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9756f52-2d03-46bb-90fc-faf17ec64bee",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "orientation",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5539aa4-2f25-4ed5-ba03-63f3028f3915",
+          "name": "Add a Photo to a Collection",
+          "request": {
+            "name": "Add a Photo to a Collection",
+            "description": {
+              "content": "Add a photo to a collection. Requires write_collections scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ":id",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Collection ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "public read_user write_user read_photos write_photos write_likes write_collections read_collections"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://unsplash.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://unsplash.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"photo_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e2a0d4e-8af3-49a8-8dea-7eb3c78ff485",
+              "name": "Photo added to collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"photo_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"photo\": {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"2013-08-11T02:43:22.735Z\",\n    \"updated_at\": \"1982-05-13T04:08:43.673Z\",\n    \"promoted_at\": null,\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": null,\n    \"alt_description\": null,\n    \"likes\": 220,\n    \"downloads\": 7804,\n    \"views\": 7591,\n    \"liked_by_user\": true,\n    \"urls\": {\n      \"raw\": \"http://QThMuIGsDxXIdisFRORnXduHdwKEm.gbclLIbu97B-wfFLOE,jmXTxzkXHgTM\",\n      \"full\": \"https://pxfIkwOPTsC.sqD6Zcgc8jUIVvhH5D5A0M4qSYE\",\n      \"regular\": \"http://GnHgNQxrIj.courmD1NMG.QNA.FLmtd,5QbzeJ,WGUBrjSHkIlAk6saaNHlq\",\n      \"small\": \"https://qAfAdjjMqFM.zguwyZMKOBhdCsmJ75rWG.GZ2EWF-M2yeDW5nC5Sc3pAygyPqVgAzwfT-SVRxR\",\n      \"thumb\": \"http://a.snpVp10DJvEfXgxbr5hWq6zYo74fv,\",\n      \"small_s3\": \"http://vKboO.qvaywbx1Al8103GMlpzBSF,f33RsGXl55Fw4yIjtzIy5nM-IS,jmWTeX-BCesDu41y\"\n    },\n    \"links\": {\n      \"self\": \"https://cHTaUdmdtuiICdZTSvgToAdSWtn.rqoIxYcyYpv1g4B6b1OBYNIGgsP9tHm\",\n      \"html\": \"http://aJWOJd.yuJB21hEBGx9KGtrRpvnMOS7liikGcI\",\n      \"download\": \"https://WLfRFZKnIg.edma4liVZkoC0ZIKFistYnVaIWjY3ANeGawb7hg6+LN,tHNsn5T2ivN\",\n      \"download_location\": \"https://VPXgBoyJlYpNjFoAJldncWWKkpmebi.bdg1UzGzTKluVlm0wMqV3Aec\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": null,\n      \"bio\": \"string\",\n      \"location\": null,\n      \"total_likes\": 4837,\n      \"total_photos\": 4934,\n      \"total_collections\": 6808,\n      \"profile_image\": {\n        \"small\": \"https://OVxCoQvByjpbsvCSCCa.oanxWLYLGf-OMWDekMpw2csPD6.7yhoI.OaaQV\",\n        \"medium\": \"http://ypwTHyerysVKnXYtLKFonWgOzSZMwyPuG.wunhC70yputTiplcSP-VMHdc454cWgZGQaxdNAWz46CfVGvm44M\",\n        \"large\": \"https://bzvZSqbQwzMqHXpIvZYLwMkgI.chjyANoFYKVKbcz8nVC,FnWzueGij7wfCPdm4lhCP1Gcqe8X4XBohrwaasQPI7wFXUQXi\"\n      },\n      \"links\": {\n        \"self\": \"https://KCJOamPznvWo.flotVk0uFUB5nJr4Q2\",\n        \"html\": \"https://pN.jlusI6th6W,2WfGlxJ6QG\",\n        \"photos\": \"https://qyjjaLZHVm.fzRhfTC8TcR69G\",\n        \"likes\": \"http://AguYEzOCCrlHCfQhzFUpHED.udqbRZzT\"\n      }\n    },\n    \"location\": {\n      \"name\": \"string\",\n      \"city\": \"string\",\n      \"country\": \"string\",\n      \"position\": {\n        \"latitude\": null,\n        \"longitude\": 9249.082655816941\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": \"string\",\n      \"model\": \"string\",\n      \"name\": null,\n      \"exposure_time\": null,\n      \"aperture\": null,\n      \"focal_length\": null,\n      \"iso\": 1801\n    }\n  },\n  \"collection\": {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"published_at\": \"2018-12-28T13:28:03.456Z\",\n    \"last_collected_at\": \"1953-03-20T22:05:59.220Z\",\n    \"updated_at\": \"2022-02-25T08:42:46.960Z\",\n    \"featured\": true,\n    \"total_photos\": 2603,\n    \"private\": true,\n    \"share_key\": \"string\",\n    \"cover_photo\": {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"1995-02-27T07:24:17.206Z\",\n      \"updated_at\": \"1951-02-20T00:18:09.230Z\",\n      \"promoted_at\": \"2015-12-30T12:29:14.377Z\",\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": \"string\",\n      \"alt_description\": \"string\",\n      \"likes\": 2343,\n      \"downloads\": 6545,\n      \"views\": 9887,\n      \"liked_by_user\": false,\n      \"urls\": {\n        \"raw\": \"http://SElNJzcoFq.ipd6HJyzFhnv\",\n        \"full\": \"http://bWfgAxbDgcGXYMmfU.vkqPMPRTbJtDuGX5WEt-kyg,vRhFAtsyIqKdV.\",\n        \"regular\": \"http://CedOYsViYniAvEVzbZrowUKclIrAjwu.qchgWU2zp4pxQz3CIalwQycA3MKlV8YyF1rCjsi3OD6U6LKhOnORA8RGCy1\",\n        \"small\": \"http://mBeejf.anujslsC,K\",\n        \"thumb\": \"https://tpzmEu.ltrhRA0,c-ju96z\",\n        \"small_s3\": \"https://FKVwKYoEOtDZOiiwijjjnjxAm.fhwjZXq5XGZa.wHxoD3Qes60J\"\n      },\n      \"links\": {\n        \"self\": \"http://h.kupzn5rtl,YxuS2.dfSM1Iae\",\n        \"html\": \"https://iNRqULWLHmwISxcEklQnLTGoXV.xnjmPtB6dAgqU.83UOpxx,bfvXyWC8MHgKbGTn\",\n        \"download\": \"http://yKfZsYdVcVTsRfHok.zjwgBjA7cE+d4l6H\",\n        \"download_location\": \"http://xosZ.yqiPkifeISYpA3,sIX-5gb-Q5eeR6eek3y46fsjwcJ4UMp\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": null,\n        \"bio\": \"string\",\n        \"location\": \"string\",\n        \"total_likes\": 692,\n        \"total_photos\": 9819,\n        \"total_collections\": 5626,\n        \"profile_image\": {\n          \"small\": \"http://ENJXLSXvV.rgjlV3q-3AHOE7m0FxdFgpmBVMjyoo\",\n          \"medium\": \"https://rDObXIxetOWSosKf.ycD3UtYHovDzu\",\n          \"large\": \"http://gJrmpPfsPvDlsNbIFuPfu.uebiAzkeFHHISLoGeFJELgtHt2+ZGfVIs42zRh9\"\n        },\n        \"links\": {\n          \"self\": \"https://TkTCJANPmmpDVxZyGIMDBMaimFphWjpB.rekexkNGR1mkCPuFe\",\n          \"html\": \"http://vNlHWUtFRXslkmQkyRj.qflpFGdmvyExPfA.ZiorFAZC2ijfqQ69apuh7SwkVhQbd5RpCLSFD\",\n          \"photos\": \"https://HPFzGaBFzBVMgG.svawpAheDrG5zAhVnDPFk,V32,XTrxY\",\n          \"likes\": \"https://zSBMzZARvdhjfASzuLuelrEKk.ihbdSKIkBf5ag2w5mCSuTESKLpq7oECWExUPwNcE8CB\"\n        }\n      },\n      \"location\": {\n        \"name\": null,\n        \"city\": \"string\",\n        \"country\": null,\n        \"position\": {\n          \"latitude\": 6085.977351061159,\n          \"longitude\": 5249.017991775186\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": \"string\",\n        \"model\": \"string\",\n        \"name\": null,\n        \"exposure_time\": \"string\",\n        \"aperture\": \"string\",\n        \"focal_length\": null,\n        \"iso\": null\n      }\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": \"http://oMGoJqqzUXs.txrewwwp+J.QDUvKkxzta3KmrLBqv1HqX601plVG0kvdeP50V\",\n      \"bio\": \"string\",\n      \"location\": null,\n      \"total_likes\": 6583,\n      \"total_photos\": 918,\n      \"total_collections\": 9151,\n      \"profile_image\": {\n        \"small\": \"https://tVxw.uvmiRAf1oES5KJjdf8XDKOqcsLKvQ1Vm03cJzMh7eCr\",\n        \"medium\": \"https://TkDyIbbXQtFxKacERNOZ.fezw,zUWQfOiO-x.h2VnzfPPgAu2K,hMBCYvk9HUzQQVjfeJkJ0gBEsae2VZPMvhHXGOZrR\",\n        \"large\": \"https://DCmHGs.lcdooMMPDQDo\"\n      },\n      \"links\": {\n        \"self\": \"https://CkHCBxxteXlbdqhrKnIlpAYfXaOwEYMak.qdYZG76RTGMUdj.xZDoHWMX7bH5zpwLXWJ65tg8tjp+SLZa1S7Yp+hIHkkj93+bNs\",\n        \"html\": \"https://QCmanbPijkmHLulkFORmcBg.kmskctyYBWRwgcQ8JrRwtOtXDyWg6HysWRsc\",\n        \"photos\": \"https://ruZNKuNwHmZmUO.plkgQ1\",\n        \"likes\": \"https://AqR.dvjzQ3n,M2HwgPosuqOrjmXd9t+5YUR+nqP49ejAbiWhiDk\"\n      }\n    },\n    \"links\": {\n      \"self\": \"https://FlREUMQicrLxXJWO.adoxdGb82zwm0Eu0,63ifkakLWUN.OG\",\n      \"html\": \"https://gsJOtkLtGfLYXIDmmVZHO.lipwUEplU15zNK0U+9jtn.+rUSSqOmiotJ3u,X3yYTMTP2lLxVAyaqy+q4cuPnF\",\n      \"photos\": \"http://OhOtFLoXQJhAdpYxlvGkvNcDQrMxDYh.vjbOyBsYnACJMwWO6H-YHCddPfXgTsqsGoRe5OQa16Fi2Hv56jpEtGN,x1lEEMEsH\",\n      \"related\": \"https://xjVdLuwucvkHfNPhisHRK.jtlvGcswtzq2ovaDqR7CPVq-YIzPuVFNDCRmkv30Tj4ummEt3hi3+1kbJ3\"\n    }\n  },\n  \"user\": {\n    \"id\": \"string\",\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"portfolio_url\": \"http://SIkWBWhuKoKTeTIbLrtKSgkILKhkUMT.chAZ2oejGzb-zHC,oB2Ol\",\n    \"bio\": \"string\",\n    \"location\": null,\n    \"total_likes\": 7521,\n    \"total_photos\": 91,\n    \"total_collections\": 6533,\n    \"profile_image\": {\n      \"small\": \"https://qsdnSyCAopGSQ.pbfPtmD4JORJfuq0C1T1T+mwFpCYsk9KdwMpDjlZc1qYPkxLO4WVVprKmY--x\",\n      \"medium\": \"https://ZNLtTqqeNmxBuNDkq.ejzKKK9-up7p+TOdLZhnBAGVWaeLWwGYFTIrfzEKQukrPHrl8nbgCfkr\",\n      \"large\": \"https://uigvadbnwvJhaJWC.ndoXJqoXATH5iECrdaWGK1SyD7vPwnFvD\"\n    },\n    \"links\": {\n      \"self\": \"https://VnTBmCaatEU.auuV5w5tyjNvvdwXyJ8gvhzznJASOZ\",\n      \"html\": \"https://mRNhIEBxLJElhkUmLbhFTlkABwyRFMYNG.hslHY8Y0DTJCZECTQlCUShWWgvfkmwcQwBCW,V3GvtnK9rIWDYcFl36PPxIk+HMd\",\n      \"photos\": \"https://ZlDKm.vaboUK\",\n      \"likes\": \"http://IiXWdtCL.hlycX9ZLN82F7vZsF24kVqSWbkDfeBx5cmjFb8.7YQpA0wy-LMcTMKmY50xhOE\"\n    },\n    \"email\": \"sKpU@quPbIRIjHQOoFVuFqFl.xo\",\n    \"instagram_username\": \"string\",\n    \"twitter_username\": \"string\",\n    \"downloads\": 8997,\n    \"followers_count\": 7397,\n    \"following_count\": 3983,\n    \"allow_messages\": false,\n    \"numeric_id\": 6379,\n    \"followed_by_user\": true,\n    \"photos\": [\n      {\n        \"id\": \"Dwu85P9SOIk\",\n        \"created_at\": \"1997-10-02T22:05:55.647Z\",\n        \"updated_at\": \"1994-05-22T00:47:25.135Z\",\n        \"promoted_at\": \"1959-12-16T07:38:22.363Z\",\n        \"width\": 5616,\n        \"height\": 3744,\n        \"color\": \"#6E633A\",\n        \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n        \"description\": \"string\",\n        \"alt_description\": \"string\",\n        \"likes\": 7146,\n        \"downloads\": 4539,\n        \"views\": 4185,\n        \"liked_by_user\": true,\n        \"urls\": {\n          \"raw\": \"http://VFOfbFHvSXdkxTW.rxNQPPpi8jNHJSV2icjJ5avsh+hjSF9b4Lvv6TrD82Buq\",\n          \"full\": \"https://EHuGNEPZy.rfvXxQm,-u+YQ,pf-GAt4FAbyU111QxMzeOxQECHoNTKntN7WvT\",\n          \"regular\": \"http://RunbIlLvIvhxUlH.ppbb7DkcVvtcJUoN0OQs-NAV08gLBBbYkNOFjNdlUNm+8GOkPqQCv.GB+Gfy2Gfwks1jpHER8PnMbz,q\",\n          \"small\": \"http://DrwYOmNnTqzKLQHGyjdZ.epyoN3GAoCFO4xHaFpWTns5Gu4HryhhIV\",\n          \"thumb\": \"http://ohJLQGysyUJyaBCpVxyclxnjfZq.bqHU.hUCsfY,H2cywyhH.Mmp-jvUMjNH041tCwUr.GqOtaEyKY5EfBZtHlQl9KwOtw49l\",\n          \"small_s3\": \"http://yxGspri.opgaG-baM,ltK,uv-CA-7FujCv7w-Jc,XuW5g0PxiEVu8XLFQPfjzn\"\n        },\n        \"links\": {\n          \"self\": \"https://sRbkocqrr.safvJukgbcQGm0\",\n          \"html\": \"http://lehYCLVhiDjxCSEONz.wbqQ6l2\",\n          \"download\": \"http://BzxBmv.rhr4e4TyoA9djBW2Z,70gUdcQycd\",\n          \"download_location\": \"http://riSljQbYsrvwYsWbQHWRVHwsjO.iwdyOKDAaMPxFqtZHxYRfLP-w.uN7ufku4J3G3ngOIz9hzQg.QLTJxMMwmGCSpZMPo\"\n        },\n        \"user\": {\n          \"id\": \"string\",\n          \"username\": \"string\",\n          \"name\": \"string\",\n          \"portfolio_url\": null,\n          \"bio\": \"string\",\n          \"location\": \"string\",\n          \"total_likes\": 2695,\n          \"total_photos\": 7325,\n          \"total_collections\": 2645,\n          \"profile_image\": {\n            \"small\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"medium\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"large\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"links\": {\n            \"self\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"photos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"likes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"location\": {\n          \"name\": null,\n          \"city\": null,\n          \"country\": null,\n          \"position\": {\n            \"latitude\": null,\n            \"longitude\": 6560.911747365232\n          }\n        },\n        \"tags\": [\n          {\n            \"type\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"type\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"exif\": {\n          \"make\": \"string\",\n          \"model\": \"string\",\n          \"name\": \"string\",\n          \"exposure_time\": null,\n          \"aperture\": null,\n          \"focal_length\": \"string\",\n          \"iso\": null\n        }\n      },\n      {\n        \"id\": \"Dwu85P9SOIk\",\n        \"created_at\": \"1950-03-14T16:48:02.118Z\",\n        \"updated_at\": \"1972-10-10T02:51:08.196Z\",\n        \"promoted_at\": null,\n        \"width\": 5616,\n        \"height\": 3744,\n        \"color\": \"#6E633A\",\n        \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n        \"description\": \"string\",\n        \"alt_description\": \"string\",\n        \"likes\": 9318,\n        \"downloads\": 4919,\n        \"views\": 1353,\n        \"liked_by_user\": false,\n        \"urls\": {\n          \"raw\": \"http://AoThXxqOQcMFoSX.dxszfY-ugBrU0f18PD2CZB88UTQPNuLJ-ZdHmZH1x\",\n          \"full\": \"https://EFSZFXNhKTIyyyjbxDgNc.whyqfFkAN1pRir75msmFEguZWOJQvKdDMS3zqyqAtUQ4vuCmXArPMeq09Iaw8KEjqCldJxEmoctAvhDGcFI9LFLSWaWUSIn\",\n          \"regular\": \"http://RzZLtVNChL.pacenAGy\",\n          \"small\": \"http://LXeBLJpSyxjuBe.uitA0ZiWYI4njzjB0aUz\",\n          \"thumb\": \"https://sHsQRbIerdatfSPYGHsq.rmlrhsg0iwUODfUsmWok.sPLc8Dsn+EWG.FUksQUXvMGm4B1iNPQUqnsALwrQHur-r.3CgMw5Ps\",\n          \"small_s3\": \"http://YZCEyVDc.uoSWbaBJAsI\"\n        },\n        \"links\": {\n          \"self\": \"http://jOAKZQNCFTEBcW.kblfEpJ64NRaRwIlfBJoo8oT6J.gAqva9DcGD-xFM5O4uayzs2bZafi9XyZxJkhqOJR\",\n          \"html\": \"https://LGGLCzbnJTaPANEJ.rkqmJCdDJH1\",\n          \"download\": \"https://Q.vevTS.gb,yPf2.79\",\n          \"download_location\": \"http://GejoXczEH.fvnQVL-OfKEnzPOOMUZKwbB1XeFWzxA7ADfS1,fQJZg1MMGsflyVjnUhyiaQrXG3lt-KU9q8,oWtUuaR23Jh\"\n        },\n        \"user\": {\n          \"id\": \"string\",\n          \"username\": \"string\",\n          \"name\": \"string\",\n          \"portfolio_url\": null,\n          \"bio\": null,\n          \"location\": \"string\",\n          \"total_likes\": 828,\n          \"total_photos\": 5930,\n          \"total_collections\": 1503,\n          \"profile_image\": {\n            \"small\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"medium\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"large\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"links\": {\n            \"self\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"html\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"photos\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"likes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"location\": {\n          \"name\": null,\n          \"city\": null,\n          \"country\": \"string\",\n          \"position\": {\n            \"latitude\": 3522.794275822575,\n            \"longitude\": null\n          }\n        },\n        \"tags\": [\n          {\n            \"type\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"type\": \"string\",\n            \"title\": \"string\"\n          }\n        ],\n        \"exif\": {\n          \"make\": \"string\",\n          \"model\": null,\n          \"name\": null,\n          \"exposure_time\": \"string\",\n          \"aperture\": \"string\",\n          \"focal_length\": null,\n          \"iso\": 7631\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "505c53d9-98ed-4e5e-90fc-96a87673b444",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"photo_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2c398cc-4d12-4d42-a6bc-89f974ef3c09",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"photo_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3a9efa8-3983-44fc-8539-bdf759a972fe",
+          "name": "Remove a Photo from a Collection",
+          "request": {
+            "name": "Remove a Photo from a Collection",
+            "description": {
+              "content": "Remove a photo from a collection. Requires write_collections scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ":id",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "photo_id",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the photo to remove"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Collection ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "public read_user write_user read_photos write_photos write_likes write_collections read_collections"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://unsplash.com/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://unsplash.com/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b2a44c70-1f5b-4940-8082-ddb84446443e",
+              "name": "Photo removed from collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "photo_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "af688b8d-9df2-420a-a37d-f3960c7075fd",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "photo_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88582061-e504-4f32-9b8b-053ba53c0622",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "photo_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b29661b-f490-4170-87cc-01819c12b6e5",
+          "name": "Get Related Collections",
+          "request": {
+            "name": "Get Related Collections",
+            "description": {
+              "content": "Retrieve a list of collections related to the given one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collections",
+                ":id",
+                "related"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Collection ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87868bb0-33be-4445-a9a4-ffc373910fba",
+              "name": "Related collections",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "related"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"description\": null,\n    \"published_at\": \"1982-04-24T20:28:27.460Z\",\n    \"last_collected_at\": \"1969-11-14T19:16:33.606Z\",\n    \"updated_at\": \"2016-12-17T12:48:39.245Z\",\n    \"featured\": false,\n    \"total_photos\": 9903,\n    \"private\": false,\n    \"share_key\": null,\n    \"cover_photo\": {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"1965-06-16T09:39:09.641Z\",\n      \"updated_at\": \"2024-06-03T20:10:21.399Z\",\n      \"promoted_at\": null,\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": \"string\",\n      \"alt_description\": null,\n      \"likes\": 144,\n      \"downloads\": 621,\n      \"views\": 3886,\n      \"liked_by_user\": true,\n      \"urls\": {\n        \"raw\": \"http://bNXVZvKEUsPawIzYcMMoYJaDIyFJWw.txlsLEyk0BcZu-Tiq,JB\",\n        \"full\": \"https://YgGuiiuumBxshAeNKbmuT.zljjSzUMIXDmJYSzZAPYyWjlfKqGG7ep+DNna8cwYSCldVpYeUIpaBGO53NE7NdmKNo,1AFp2PjYh31w2aWD.nu\",\n        \"regular\": \"https://FQUQkDqtHhbcpBGgUjpzUoZsRgfAvQnVE.jmxyJ.o0bHMYAJAflRVDqGQk.IkArqqna1\",\n        \"small\": \"http://yIOlQfnhaUexIAulceHZUiwFb.mukdCD2HP4FyDg86zx.xTLORTDX5bxo\",\n        \"thumb\": \"http://VYsIRWuSTtlmzHNLPdDHKgzZdubXgBND.eqkEvkE\",\n        \"small_s3\": \"https://ILsOaXxCTbaSamvsN.dlgK4yS6ihQs\"\n      },\n      \"links\": {\n        \"self\": \"http://NHMuCriXqTyGAjjYMjZJsFBqeUEMJfa.giwyknv\",\n        \"html\": \"https://kPLhluEOuOixWd.sirlj7l-P\",\n        \"download\": \"https://hnVVDVgDXrvh.ffbmtfaLtcJDogZs5Nw-3FjO3f.Vqx5zP+fvz-9cOMJc,JcLtsut.FnfT\",\n        \"download_location\": \"http://eQyV.pzou74uq9.mxvBCmOKmoXkD\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": null,\n        \"bio\": \"string\",\n        \"location\": null,\n        \"total_likes\": 6531,\n        \"total_photos\": 1790,\n        \"total_collections\": 5221,\n        \"profile_image\": {\n          \"small\": \"https://JUabsNJTJhCAriaQIhtYvLUWSkt.taff.HAsRdZhN.QxY7hQLI3yVyP4HsHnXVaor2y2RTE4PBvCyt66mo\",\n          \"medium\": \"https://YwAOBekDUfYzuOXaOV.xgutgDXShCPYsh6eAImiseHPZv3Wr.57\",\n          \"large\": \"http://UYMJCnCPhPqvGRBahSPTwCtuS.hlgbjIMr9TcNy8zCt4ls0NTnp1N.1mAG-84CbXaEj19Qgzyna\"\n        },\n        \"links\": {\n          \"self\": \"https://rQxlZHvDvLKGQiS.kyckTQccRje.jKUe.A,UW3urrE\",\n          \"html\": \"https://hXHl.mdoOv6p6jfNEdOJjvvP30bqxzf4T9FZTt\",\n          \"photos\": \"https://NXnOclaIzDhxlvousst.kdkkrYyu7UbqPO-.e54hdU2hD2M\",\n          \"likes\": \"http://fJfpMAnLgguXDRNfEAN.gbrFRdxL-XxLnST\"\n        }\n      },\n      \"location\": {\n        \"name\": null,\n        \"city\": \"string\",\n        \"country\": null,\n        \"position\": {\n          \"latitude\": 7150.680813494172,\n          \"longitude\": 4393.729122997652\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": null,\n        \"model\": null,\n        \"name\": null,\n        \"exposure_time\": \"string\",\n        \"aperture\": null,\n        \"focal_length\": \"string\",\n        \"iso\": null\n      }\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": \"http://duhOERJzYIqrssdLTHN.zwlpRsYGn+g4GSSI7zBpvB0MkHJQU4jdTq0tfNuvbfVUB4FKa0,.nCiRaE+4N+E\",\n      \"bio\": null,\n      \"location\": \"string\",\n      \"total_likes\": 1141,\n      \"total_photos\": 5904,\n      \"total_collections\": 3338,\n      \"profile_image\": {\n        \"small\": \"http://OCVXzkIzwpDbprNdRzp.ogcfb1-yAX,OfFUJt\",\n        \"medium\": \"http://LxMTcGI.ikqcabIyewrRITatwBPDlEyC6agnqCMdLA27wFfKSR\",\n        \"large\": \"http://BGkSJfIGIAEjZkGOODoMSOcbREYlNJAlN.nyrv7objtmjvm,pnt0ZoGtQBjY5f3\"\n      },\n      \"links\": {\n        \"self\": \"https://EwOJgZMivmtm.vbvILzrYuy9tj+i1yl5mc-uQ5niBPZoihkCbn,72nS.86-IozrhDefQt,vQxkfL1euchCaGRSXfBweEG\",\n        \"html\": \"https://aUArpQxlvGtDxvsSrmJGvZUnWI.jbuUhru-E\",\n        \"photos\": \"http://dCwYLcsHcKYNneHSTeIXn.ljCm3oyq\",\n        \"likes\": \"https://RATJjAWMDQOy.mqnRPWGWV7tTshi+pJd7bEgKVphumHAPCAGABd5waWXYaZqyQ\"\n      }\n    },\n    \"links\": {\n      \"self\": \"http://dUqfZAImlhfKLKyfpN.ztieM4r8OXzKiTbiSkHVB1udHIc.XNFly7.yqvsA,wU7zgu2\",\n      \"html\": \"https://jzlZNL.upYVxHSILnobR29ic-NrF\",\n      \"photos\": \"http://RHlsiTrOOudRWGBNqOpqHhspaJUSafWZ.njtI2W5ioDVFQJMwIeERBoL9RMF5dspduLR6g6G,g3hzLbqXD9\",\n      \"related\": \"http://TRZpPzGIPaaO.sgkgpxN9,5x-hY,BrBA-arLIymI0uhq4GXMht5ya6MyGB3jySpJP6xX0LyqHfQRZUWbQ\"\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"description\": null,\n    \"published_at\": \"1960-04-30T15:28:11.780Z\",\n    \"last_collected_at\": \"1977-10-30T13:22:51.747Z\",\n    \"updated_at\": \"2010-11-23T03:30:58.435Z\",\n    \"featured\": true,\n    \"total_photos\": 7477,\n    \"private\": true,\n    \"share_key\": \"string\",\n    \"cover_photo\": {\n      \"id\": \"Dwu85P9SOIk\",\n      \"created_at\": \"1986-05-05T08:16:25.691Z\",\n      \"updated_at\": \"1995-11-11T18:54:50.132Z\",\n      \"promoted_at\": \"2015-03-13T11:40:23.924Z\",\n      \"width\": 5616,\n      \"height\": 3744,\n      \"color\": \"#6E633A\",\n      \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n      \"description\": null,\n      \"alt_description\": null,\n      \"likes\": 5245,\n      \"downloads\": 5817,\n      \"views\": 6851,\n      \"liked_by_user\": false,\n      \"urls\": {\n        \"raw\": \"http://GaZowoyUfUzoRfOiInkI.pndhG6Ik4iF1T-tKwwgS078zv6gUTlPXTMo8sylmEMPSh9S5xc\",\n        \"full\": \"http://aYgAdFDWt.svlxp0v8FTq49XPfhB9uYijg16ZjgzE93VhvM,Ywy9\",\n        \"regular\": \"https://AIvBuN.arypJBFNsRXztp\",\n        \"small\": \"http://AFEIsgfb.gxsKtUUkiVag5C2B,EspyvnPwX37EbdbYbqYeaj5-0+z,+T8dc715V2JvlvfoBseZ2UU\",\n        \"thumb\": \"https://IAhLw.llvpDwucyFOB1ip\",\n        \"small_s3\": \"https://FUiYdRpFTjfjEAsEkJklDfkDP.gcxRrqerBIiRe04XJIU4ZnshhZWwRNFF5sZw,zRLixAsNiK6EN6A.dUBvuVgkkvf3SJ.,cXN\"\n      },\n      \"links\": {\n        \"self\": \"https://JtRFLAzaMyqf.uyoxrv.JoRv4plRWrOKwcgRw-pBgOcwE,U-eZS,beLQi3hoKw5K1ZVyRl\",\n        \"html\": \"https://gEXEgRfpSDWo.ueEL\",\n        \"download\": \"http://pVmqy.ptXzg7EXAOGfy8,vKn-sSMMHGRpZdwBRbTYhTVI6jPgwwl3FcP-ZToBduHxz8N4bzO\",\n        \"download_location\": \"https://GXDobtpkfqPokOeEuuvAUgvwOPiucOP.itxtFQ,4jgoxbuCFeun23xBDecVzc5my\"\n      },\n      \"user\": {\n        \"id\": \"string\",\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"portfolio_url\": \"http://srOQlloYOcyrqlSpHD.zcjvxrtP8uVMpoQAYrh.ZfLMA4qs5YJLW61ksCLmwUqYWDPsqeEBYj6\",\n        \"bio\": null,\n        \"location\": null,\n        \"total_likes\": 2760,\n        \"total_photos\": 4367,\n        \"total_collections\": 1908,\n        \"profile_image\": {\n          \"small\": \"http://bNBlNlUAlimNaa.fcfxLzLvLkQqYIUfnvY2GQnuQBo.gK\",\n          \"medium\": \"http://DaoxpFMCVLTNtJiuyprUmRjDX.trjdllozaZ3HCl\",\n          \"large\": \"https://w.byyY,9uVDsPsrWWnRGjGJoBt2OoAY\"\n        },\n        \"links\": {\n          \"self\": \"http://TxEUt.lhtvkeRzYebI0u,APkMMZrUgXwebCoZfzNmPMYd8YeV7zT6Kxr\",\n          \"html\": \"http://xRINzKob.ktxcPRensrcTdxZjXoeocfhVG,RL\",\n          \"photos\": \"https://aLkc.pmjxrIoZOH9DYVXTguzDS0wBBZA\",\n          \"likes\": \"https://IcvUtIrITqehOhcWChYkcrxrfCStxqV.jnfPUWk6MxnKMWjyO-tToQAq\"\n        }\n      },\n      \"location\": {\n        \"name\": \"string\",\n        \"city\": \"string\",\n        \"country\": null,\n        \"position\": {\n          \"latitude\": 7876.649325599227,\n          \"longitude\": null\n        }\n      },\n      \"tags\": [\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"exif\": {\n        \"make\": null,\n        \"model\": null,\n        \"name\": \"string\",\n        \"exposure_time\": null,\n        \"aperture\": null,\n        \"focal_length\": null,\n        \"iso\": null\n      }\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": null,\n      \"bio\": \"string\",\n      \"location\": \"string\",\n      \"total_likes\": 8105,\n      \"total_photos\": 5366,\n      \"total_collections\": 9321,\n      \"profile_image\": {\n        \"small\": \"http://MkVmNtkkYiFfERgIRgHYEoYZXlWQIpy.eqFONkg5NUh4CJmOtvYL-ojFazN1oTK-rl6uAk2s3qF.JWKx3mV.vx0Q,J970Q72bNuQgrL\",\n        \"medium\": \"https://VPRMyMpNJzFUbFNGqyYdIWT.xyTJhD,+gVN.x7GnXcVUFvsyAuZugRVIJFkfaE\",\n        \"large\": \"https://ISNdUzyFYOnWRbVzlWJXpT.qgizBU02Dt2wCTfGs5hYhZ5oZUX2upE4DkxSUjxFI-cjw7QUd3OfhiFM6.Wf7S6WAC5O1cb\"\n      },\n      \"links\": {\n        \"self\": \"https://DBSEIxt.txvTudBCu0AVza8q.L.hTZxBE6Sy75AyCt6F.VEcyIfXSPqqjMbACdx,zlZ\",\n        \"html\": \"https://QjbbTxxCEOFhz.nokiMHJwI4PgwCuSfujY+Vm+7i2zagyHo,YQvKlaaHB4nMcPqIeAd3fv29zsileC4dJPxcos\",\n        \"photos\": \"https://ptVNiIuLFnaMuvMvHiPRPfIqlTzxQh.iebjeaJShFjrYpONx3mnCfB\",\n        \"likes\": \"http://ZhMQjtz.hytivBxDNhmFenPrLmnh\"\n      }\n    },\n    \"links\": {\n      \"self\": \"https://c.rnjZ2PipIETKYowVUjqda8dD0GI1\",\n      \"html\": \"http://dSGtlttKamIUuHmQKHcEnkNdcyf.uqxpK.qHlOSm+fWIDN3uHYSjyDm-1eeXQytGo\",\n      \"photos\": \"https://VmRBIQtNEYOGIdMGnbaKRARH.vogPyy.41zaQy-L+J2+G+oR\",\n      \"related\": \"http://gvTRFQMHEggQpFApBNLh.ldjFA9HPjU0W0nQVxPU3c3zIq.AA8NRRfMRfWm\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef79b62b-2fb9-45e0-9d40-c38defc8c9da",
+              "name": "Missing or invalid authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "related"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16c7b8b2-f119-411e-93b2-828d49d9d18d",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collections",
+                    ":id",
+                    "related"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Collection ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.unsplash.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b763addc-15ca-4e49-b6ca-b52520fe8fd3",
+    "name": "Unsplash Collections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Unsplash API provides access to the world's largest open collection of high-quality, freely usable photos. Build photo-powered applications with search, random photos, user profiles, collections, topics, and statistics. Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr (production). Downloads must be tracked via the /photos/:id/download endpoint per Unsplash API guidelines.\n\nContact Support:\n Name: Unsplash Developers",
+      "type": "text/plain"
+    }
+  }
+}
