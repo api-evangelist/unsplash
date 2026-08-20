@@ -26,6 +26,14 @@ specificationVersion: '0.23'
 type: Index
 tags:
   - Photos
+  - Image
+  - Photography
+  - Stock Photos
+  - Creative
+  - Open-Source
+  - Media
+tags_raw:
+  - Photos
   - Images
   - Photography
   - Stock Photos
@@ -39,6 +47,8 @@ apis:
   humanURL: https://unsplash.com/developers
   baseURL: https://api.unsplash.com
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -147,6 +157,8 @@ apis:
   humanURL: https://unsplash.com/developers
   baseURL: https://api.unsplash.com
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
