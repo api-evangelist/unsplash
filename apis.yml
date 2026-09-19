@@ -150,6 +150,8 @@ apis:
   humanURL: https://unsplash.com/developers
   baseURL: https://api.unsplash.com
   tags:
+  - Topic
+  tags_raw:
   - Topics
   properties:
   - type: OpenAPI
