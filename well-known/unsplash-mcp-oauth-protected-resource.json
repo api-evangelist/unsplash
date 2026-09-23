@@ -1,0 +1,1 @@
+{"resource":"https://mcp.unsplash.com/mcp","resource_name":"Unsplash MCP Server","authorization_servers":["https://mcp.unsplash.com/"],"bearer_methods_supported":["header"],"scopes_supported":["read_user","read_photos","write_photos","read_collections","write_collections","read_bookmarks","write_bookmarks","public"]}

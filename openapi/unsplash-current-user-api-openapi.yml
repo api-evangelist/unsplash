@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Unsplash Collections Current User API
+  title: Unsplash Current User API
   description: 'The Unsplash API provides access to the world''s largest open collection of high-quality, freely usable photos. Build photo-powered applications with search, random photos, user profiles, collections, topics, and statistics. Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr (production). Downloads must be tracked via the /photos/:id/download endpoint per Unsplash API guidelines.'
   version: 1.0.0
   contact:
@@ -79,39 +79,62 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    User:
-      allOf:
-      - $ref: '#/components/schemas/UserSummary'
-      - type: object
-        description: Full user profile
-        properties:
-          email:
-            type: string
-            format: email
-          instagram_username:
-            type:
-            - string
-            - 'null'
-          twitter_username:
-            type:
-            - string
-            - 'null'
-          downloads:
-            type: integer
-          followers_count:
-            type: integer
-          following_count:
-            type: integer
-          allow_messages:
-            type: boolean
-          numeric_id:
-            type: integer
-          followed_by_user:
-            type: boolean
-          photos:
-            type: array
-            items:
-              $ref: '#/components/schemas/Photo'
+    UserSummary:
+      type: object
+      description: Abbreviated user object for embedding in photo/collection responses
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        portfolio_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        bio:
+          type:
+          - string
+          - 'null'
+        location:
+          type:
+          - string
+          - 'null'
+        total_likes:
+          type: integer
+        total_photos:
+          type: integer
+        total_collections:
+          type: integer
+        profile_image:
+          type: object
+          properties:
+            small:
+              type: string
+              format: uri
+            medium:
+              type: string
+              format: uri
+            large:
+              type: string
+              format: uri
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            photos:
+              type: string
+              format: uri
+            likes:
+              type: string
+              format: uri
     Photo:
       type: object
       description: An Unsplash photo object
@@ -294,62 +317,39 @@ components:
           items:
             type: string
           description: Array of human-readable error messages
-    UserSummary:
-      type: object
-      description: Abbreviated user object for embedding in photo/collection responses
-      properties:
-        id:
-          type: string
-        username:
-          type: string
-        name:
-          type: string
-        portfolio_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        bio:
-          type:
-          - string
-          - 'null'
-        location:
-          type:
-          - string
-          - 'null'
-        total_likes:
-          type: integer
-        total_photos:
-          type: integer
-        total_collections:
-          type: integer
-        profile_image:
-          type: object
-          properties:
-            small:
-              type: string
-              format: uri
-            medium:
-              type: string
-              format: uri
-            large:
-              type: string
-              format: uri
-        links:
-          type: object
-          properties:
-            self:
-              type: string
-              format: uri
-            html:
-              type: string
-              format: uri
-            photos:
-              type: string
-              format: uri
-            likes:
-              type: string
-              format: uri
+    User:
+      allOf:
+      - $ref: '#/components/schemas/UserSummary'
+      - type: object
+        description: Full user profile
+        properties:
+          email:
+            type: string
+            format: email
+          instagram_username:
+            type:
+            - string
+            - 'null'
+          twitter_username:
+            type:
+            - string
+            - 'null'
+          downloads:
+            type: integer
+          followers_count:
+            type: integer
+          following_count:
+            type: integer
+          allow_messages:
+            type: boolean
+          numeric_id:
+            type: integer
+          followed_by_user:
+            type: boolean
+          photos:
+            type: array
+            items:
+              $ref: '#/components/schemas/Photo'
   responses:
     Unauthorized:
       description: Missing or invalid authentication
