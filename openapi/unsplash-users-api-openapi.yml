@@ -225,31 +225,6 @@ components:
             related:
               type: string
               format: uri
-    StatHistorical:
-      type: object
-      properties:
-        change:
-          type: integer
-          description: Change in the period
-        average:
-          type: integer
-          description: Average over the period
-        resolution:
-          type: string
-          description: Time resolution (days)
-        quantity:
-          type: integer
-          description: Number of data points
-        values:
-          type: array
-          items:
-            type: object
-            properties:
-              date:
-                type: string
-                format: date
-              value:
-                type: integer
     UserStatistics:
       type: object
       properties:
@@ -269,6 +244,39 @@ components:
               type: integer
             historical:
               $ref: '#/components/schemas/StatHistorical'
+    User:
+      allOf:
+      - $ref: '#/components/schemas/UserSummary'
+      - type: object
+        description: Full user profile
+        properties:
+          email:
+            type: string
+            format: email
+          instagram_username:
+            type:
+            - string
+            - 'null'
+          twitter_username:
+            type:
+            - string
+            - 'null'
+          downloads:
+            type: integer
+          followers_count:
+            type: integer
+          following_count:
+            type: integer
+          allow_messages:
+            type: boolean
+          numeric_id:
+            type: integer
+          followed_by_user:
+            type: boolean
+          photos:
+            type: array
+            items:
+              $ref: '#/components/schemas/Photo'
     UserSummary:
       type: object
       description: Abbreviated user object for embedding in photo/collection responses
@@ -499,6 +507,31 @@ components:
               type:
               - integer
               - 'null'
+    StatHistorical:
+      type: object
+      properties:
+        change:
+          type: integer
+          description: Change in the period
+        average:
+          type: integer
+          description: Average over the period
+        resolution:
+          type: string
+          description: Time resolution (days)
+        quantity:
+          type: integer
+          description: Number of data points
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+                format: date
+              value:
+                type: integer
     Error:
       type: object
       properties:
@@ -507,39 +540,6 @@ components:
           items:
             type: string
           description: Array of human-readable error messages
-    User:
-      allOf:
-      - $ref: '#/components/schemas/UserSummary'
-      - type: object
-        description: Full user profile
-        properties:
-          email:
-            type: string
-            format: email
-          instagram_username:
-            type:
-            - string
-            - 'null'
-          twitter_username:
-            type:
-            - string
-            - 'null'
-          downloads:
-            type: integer
-          followers_count:
-            type: integer
-          following_count:
-            type: integer
-          allow_messages:
-            type: boolean
-          numeric_id:
-            type: integer
-          followed_by_user:
-            type: boolean
-          photos:
-            type: array
-            items:
-              $ref: '#/components/schemas/Photo'
   parameters:
     Username:
       name: username

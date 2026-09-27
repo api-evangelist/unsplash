@@ -256,6 +256,63 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/User'
+    User:
+      allOf:
+      - $ref: '#/components/schemas/UserSummary'
+      - type: object
+        description: Full user profile
+        properties:
+          email:
+            type: string
+            format: email
+          instagram_username:
+            type:
+            - string
+            - 'null'
+          twitter_username:
+            type:
+            - string
+            - 'null'
+          downloads:
+            type: integer
+          followers_count:
+            type: integer
+          following_count:
+            type: integer
+          allow_messages:
+            type: boolean
+          numeric_id:
+            type: integer
+          followed_by_user:
+            type: boolean
+          photos:
+            type: array
+            items:
+              $ref: '#/components/schemas/Photo'
+    SearchCollectionsResult:
+      type: object
+      properties:
+        total:
+          type: integer
+        total_pages:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Collection'
+    SearchPhotosResult:
+      type: object
+      properties:
+        total:
+          type: integer
+          description: Total number of matching results
+        total_pages:
+          type: integer
+          description: Total number of pages
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Photo'
     UserSummary:
       type: object
       description: Abbreviated user object for embedding in photo/collection responses
@@ -312,39 +369,6 @@ components:
             likes:
               type: string
               format: uri
-    User:
-      allOf:
-      - $ref: '#/components/schemas/UserSummary'
-      - type: object
-        description: Full user profile
-        properties:
-          email:
-            type: string
-            format: email
-          instagram_username:
-            type:
-            - string
-            - 'null'
-          twitter_username:
-            type:
-            - string
-            - 'null'
-          downloads:
-            type: integer
-          followers_count:
-            type: integer
-          following_count:
-            type: integer
-          allow_messages:
-            type: boolean
-          numeric_id:
-            type: integer
-          followed_by_user:
-            type: boolean
-          photos:
-            type: array
-            items:
-              $ref: '#/components/schemas/Photo'
     Photo:
       type: object
       description: An Unsplash photo object
@@ -519,19 +543,6 @@ components:
               type:
               - integer
               - 'null'
-    SearchPhotosResult:
-      type: object
-      properties:
-        total:
-          type: integer
-          description: Total number of matching results
-        total_pages:
-          type: integer
-          description: Total number of pages
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Photo'
     Error:
       type: object
       properties:
@@ -540,17 +551,6 @@ components:
           items:
             type: string
           description: Array of human-readable error messages
-    SearchCollectionsResult:
-      type: object
-      properties:
-        total:
-          type: integer
-        total_pages:
-          type: integer
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/Collection'
   responses:
     Unauthorized:
       description: Missing or invalid authentication

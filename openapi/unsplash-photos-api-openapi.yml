@@ -263,32 +263,54 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  parameters:
+    PhotoId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Photo ID
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid authentication
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    StatHistorical:
+    PhotoStatistics:
       type: object
       properties:
-        change:
-          type: integer
-          description: Change in the period
-        average:
-          type: integer
-          description: Average over the period
-        resolution:
+        id:
           type: string
-          description: Time resolution (days)
-        quantity:
-          type: integer
-          description: Number of data points
-        values:
-          type: array
-          items:
-            type: object
-            properties:
-              date:
-                type: string
-                format: date
-              value:
-                type: integer
+        downloads:
+          type: object
+          properties:
+            total:
+              type: integer
+            historical:
+              $ref: '#/components/schemas/StatHistorical'
+        views:
+          type: object
+          properties:
+            total:
+              type: integer
+            historical:
+              $ref: '#/components/schemas/StatHistorical'
+        likes:
+          type: object
+          properties:
+            total:
+              type: integer
+            historical:
+              $ref: '#/components/schemas/StatHistorical'
     UserSummary:
       type: object
       description: Abbreviated user object for embedding in photo/collection responses
@@ -519,6 +541,31 @@ components:
               type:
               - integer
               - 'null'
+    StatHistorical:
+      type: object
+      properties:
+        change:
+          type: integer
+          description: Change in the period
+        average:
+          type: integer
+          description: Average over the period
+        resolution:
+          type: string
+          description: Time resolution (days)
+        quantity:
+          type: integer
+          description: Number of data points
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+                format: date
+              value:
+                type: integer
     Error:
       type: object
       properties:
@@ -527,53 +574,6 @@ components:
           items:
             type: string
           description: Array of human-readable error messages
-    PhotoStatistics:
-      type: object
-      properties:
-        id:
-          type: string
-        downloads:
-          type: object
-          properties:
-            total:
-              type: integer
-            historical:
-              $ref: '#/components/schemas/StatHistorical'
-        views:
-          type: object
-          properties:
-            total:
-              type: integer
-            historical:
-              $ref: '#/components/schemas/StatHistorical'
-        likes:
-          type: object
-          properties:
-            total:
-              type: integer
-            historical:
-              $ref: '#/components/schemas/StatHistorical'
-  responses:
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid authentication
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-  parameters:
-    PhotoId:
-      name: id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Photo ID
   securitySchemes:
     ClientID:
       type: apiKey

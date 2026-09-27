@@ -41,7 +41,7 @@ tags:
   - Photography
   - Stock Photos
   - Creative
-  - Open-Source
+  - Open Source
   - Media
 tags_raw:
   - Photos
@@ -51,6 +51,7 @@ tags_raw:
   - Creative
   - Open Source
   - Media
+  - Open-Source
 apis:
 - aid: unsplash:unsplash-collections-api
   name: Unsplash Collections API

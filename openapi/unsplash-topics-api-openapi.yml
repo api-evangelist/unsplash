@@ -147,6 +147,56 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    Topic:
+      type: object
+      description: An Unsplash editorial topic
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+          description: URL-friendly identifier
+        title:
+          type: string
+        description:
+          type: string
+        published_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        starts_at:
+          type: string
+          format: date-time
+        ends_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        featured:
+          type: boolean
+        total_photos:
+          type: integer
+        status:
+          type: string
+          enum:
+          - open
+          - closed
+        cover_photo:
+          $ref: '#/components/schemas/Photo'
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            photos:
+              type: string
+              format: uri
     UserSummary:
       type: object
       description: Abbreviated user object for embedding in photo/collection responses
@@ -201,56 +251,6 @@ components:
               type: string
               format: uri
             likes:
-              type: string
-              format: uri
-    Topic:
-      type: object
-      description: An Unsplash editorial topic
-      properties:
-        id:
-          type: string
-        slug:
-          type: string
-          description: URL-friendly identifier
-        title:
-          type: string
-        description:
-          type: string
-        published_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        starts_at:
-          type: string
-          format: date-time
-        ends_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        featured:
-          type: boolean
-        total_photos:
-          type: integer
-        status:
-          type: string
-          enum:
-          - open
-          - closed
-        cover_photo:
-          $ref: '#/components/schemas/Photo'
-        links:
-          type: object
-          properties:
-            self:
-              type: string
-              format: uri
-            html:
-              type: string
-              format: uri
-            photos:
               type: string
               format: uri
     Photo:
