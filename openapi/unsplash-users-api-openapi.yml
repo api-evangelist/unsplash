@@ -165,174 +165,39 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Collection:
-      type: object
-      description: An Unsplash photo collection
-      properties:
-        id:
-          type: string
-          description: Collection identifier
-        title:
-          type: string
-          description: Collection title
-        description:
-          type:
-          - string
-          - 'null'
-          description: Collection description
-        published_at:
-          type: string
-          format: date-time
-        last_collected_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        featured:
-          type: boolean
-          description: Whether the collection is featured
-        total_photos:
-          type: integer
-          description: Total number of photos in the collection
-        private:
-          type: boolean
-          description: Whether the collection is private
-        share_key:
-          type:
-          - string
-          - 'null'
-          description: Share key for private collections
-        cover_photo:
-          oneOf:
-          - $ref: '#/components/schemas/Photo'
-          - type: 'null'
-          description: Cover photo for the collection
-        user:
-          $ref: '#/components/schemas/UserSummary'
-        links:
-          type: object
-          properties:
-            self:
-              type: string
-              format: uri
-            html:
-              type: string
-              format: uri
-            photos:
-              type: string
-              format: uri
-            related:
-              type: string
-              format: uri
-    UserStatistics:
+    Error:
       type: object
       properties:
-        username:
-          type: string
-        downloads:
-          type: object
-          properties:
-            total:
-              type: integer
-            historical:
-              $ref: '#/components/schemas/StatHistorical'
-        views:
-          type: object
-          properties:
-            total:
-              type: integer
-            historical:
-              $ref: '#/components/schemas/StatHistorical'
-    User:
-      allOf:
-      - $ref: '#/components/schemas/UserSummary'
-      - type: object
-        description: Full user profile
-        properties:
-          email:
+        errors:
+          type: array
+          items:
             type: string
-            format: email
-          instagram_username:
-            type:
-            - string
-            - 'null'
-          twitter_username:
-            type:
-            - string
-            - 'null'
-          downloads:
-            type: integer
-          followers_count:
-            type: integer
-          following_count:
-            type: integer
-          allow_messages:
-            type: boolean
-          numeric_id:
-            type: integer
-          followed_by_user:
-            type: boolean
-          photos:
-            type: array
-            items:
-              $ref: '#/components/schemas/Photo'
-    UserSummary:
+          description: Array of human-readable error messages
+    StatHistorical:
       type: object
-      description: Abbreviated user object for embedding in photo/collection responses
       properties:
-        id:
-          type: string
-        username:
-          type: string
-        name:
-          type: string
-        portfolio_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        bio:
-          type:
-          - string
-          - 'null'
-        location:
-          type:
-          - string
-          - 'null'
-        total_likes:
+        change:
           type: integer
-        total_photos:
+          description: Change in the period
+        average:
           type: integer
-        total_collections:
+          description: Average over the period
+        resolution:
+          type: string
+          description: Time resolution (days)
+        quantity:
           type: integer
-        profile_image:
-          type: object
-          properties:
-            small:
-              type: string
-              format: uri
-            medium:
-              type: string
-              format: uri
-            large:
-              type: string
-              format: uri
-        links:
-          type: object
-          properties:
-            self:
-              type: string
-              format: uri
-            html:
-              type: string
-              format: uri
-            photos:
-              type: string
-              format: uri
-            likes:
-              type: string
-              format: uri
+          description: Number of data points
+        values:
+          type: array
+          items:
+            type: object
+            properties:
+              date:
+                type: string
+                format: date
+              value:
+                type: integer
     Photo:
       type: object
       description: An Unsplash photo object
@@ -507,39 +372,174 @@ components:
               type:
               - integer
               - 'null'
-    StatHistorical:
+    UserStatistics:
       type: object
       properties:
-        change:
-          type: integer
-          description: Change in the period
-        average:
-          type: integer
-          description: Average over the period
-        resolution:
+        username:
           type: string
-          description: Time resolution (days)
-        quantity:
-          type: integer
-          description: Number of data points
-        values:
-          type: array
-          items:
-            type: object
-            properties:
-              date:
-                type: string
-                format: date
-              value:
-                type: integer
-    Error:
+        downloads:
+          type: object
+          properties:
+            total:
+              type: integer
+            historical:
+              $ref: '#/components/schemas/StatHistorical'
+        views:
+          type: object
+          properties:
+            total:
+              type: integer
+            historical:
+              $ref: '#/components/schemas/StatHistorical'
+    Collection:
       type: object
+      description: An Unsplash photo collection
       properties:
-        errors:
-          type: array
-          items:
+        id:
+          type: string
+          description: Collection identifier
+        title:
+          type: string
+          description: Collection title
+        description:
+          type:
+          - string
+          - 'null'
+          description: Collection description
+        published_at:
+          type: string
+          format: date-time
+        last_collected_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        featured:
+          type: boolean
+          description: Whether the collection is featured
+        total_photos:
+          type: integer
+          description: Total number of photos in the collection
+        private:
+          type: boolean
+          description: Whether the collection is private
+        share_key:
+          type:
+          - string
+          - 'null'
+          description: Share key for private collections
+        cover_photo:
+          oneOf:
+          - $ref: '#/components/schemas/Photo'
+          - type: 'null'
+          description: Cover photo for the collection
+        user:
+          $ref: '#/components/schemas/UserSummary'
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            photos:
+              type: string
+              format: uri
+            related:
+              type: string
+              format: uri
+    User:
+      allOf:
+      - $ref: '#/components/schemas/UserSummary'
+      - type: object
+        description: Full user profile
+        properties:
+          email:
             type: string
-          description: Array of human-readable error messages
+            format: email
+          instagram_username:
+            type:
+            - string
+            - 'null'
+          twitter_username:
+            type:
+            - string
+            - 'null'
+          downloads:
+            type: integer
+          followers_count:
+            type: integer
+          following_count:
+            type: integer
+          allow_messages:
+            type: boolean
+          numeric_id:
+            type: integer
+          followed_by_user:
+            type: boolean
+          photos:
+            type: array
+            items:
+              $ref: '#/components/schemas/Photo'
+    UserSummary:
+      type: object
+      description: Abbreviated user object for embedding in photo/collection responses
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        name:
+          type: string
+        portfolio_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        bio:
+          type:
+          - string
+          - 'null'
+        location:
+          type:
+          - string
+          - 'null'
+        total_likes:
+          type: integer
+        total_photos:
+          type: integer
+        total_collections:
+          type: integer
+        profile_image:
+          type: object
+          properties:
+            small:
+              type: string
+              format: uri
+            medium:
+              type: string
+              format: uri
+            large:
+              type: string
+              format: uri
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            html:
+              type: string
+              format: uri
+            photos:
+              type: string
+              format: uri
+            likes:
+              type: string
+              format: uri
   parameters:
     Username:
       name: username
@@ -549,14 +549,14 @@ components:
         type: string
       description: Unsplash username
   responses:
-    NotFound:
-      description: Resource not found
+    Unauthorized:
+      description: Missing or invalid authentication
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid authentication
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
