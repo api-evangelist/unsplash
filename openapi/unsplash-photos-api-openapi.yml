@@ -371,14 +371,6 @@ components:
                 format: date
               value:
                 type: integer
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          description: Array of human-readable error messages
     Photo:
       type: object
       description: An Unsplash photo object
@@ -553,6 +545,14 @@ components:
               type:
               - integer
               - 'null'
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          description: Array of human-readable error messages
   responses:
     NotFound:
       description: Resource not found

@@ -79,39 +79,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    User:
-      allOf:
-      - $ref: '#/components/schemas/UserSummary'
-      - type: object
-        description: Full user profile
-        properties:
-          email:
-            type: string
-            format: email
-          instagram_username:
-            type:
-            - string
-            - 'null'
-          twitter_username:
-            type:
-            - string
-            - 'null'
-          downloads:
-            type: integer
-          followers_count:
-            type: integer
-          following_count:
-            type: integer
-          allow_messages:
-            type: boolean
-          numeric_id:
-            type: integer
-          followed_by_user:
-            type: boolean
-          photos:
-            type: array
-            items:
-              $ref: '#/components/schemas/Photo'
     UserSummary:
       type: object
       description: Abbreviated user object for embedding in photo/collection responses
@@ -168,14 +135,6 @@ components:
             likes:
               type: string
               format: uri
-    Error:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
-          description: Array of human-readable error messages
     Photo:
       type: object
       description: An Unsplash photo object
@@ -350,6 +309,47 @@ components:
               type:
               - integer
               - 'null'
+    Error:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+          description: Array of human-readable error messages
+    User:
+      allOf:
+      - $ref: '#/components/schemas/UserSummary'
+      - type: object
+        description: Full user profile
+        properties:
+          email:
+            type: string
+            format: email
+          instagram_username:
+            type:
+            - string
+            - 'null'
+          twitter_username:
+            type:
+            - string
+            - 'null'
+          downloads:
+            type: integer
+          followers_count:
+            type: integer
+          following_count:
+            type: integer
+          allow_messages:
+            type: boolean
+          numeric_id:
+            type: integer
+          followed_by_user:
+            type: boolean
+          photos:
+            type: array
+            items:
+              $ref: '#/components/schemas/Photo'
   responses:
     Unauthorized:
       description: Missing or invalid authentication
