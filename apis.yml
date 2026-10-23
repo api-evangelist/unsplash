@@ -186,6 +186,8 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/unsplash/refs/heads/main/json-schema/unsplash-photo-schema.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/unsplash/overview
   - type: Plans
     url: plans/unsplash-plans-pricing.yml
   - type: RateLimits
