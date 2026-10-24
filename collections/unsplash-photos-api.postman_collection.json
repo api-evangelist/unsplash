@@ -1,1319 +1,1327 @@
 {
+  "info": {
+    "_postman_id": "8c06a60d-0024-40b0-840a-f92d3c61509d",
+    "name": "Unsplash Photos API",
+    "description": "The Unsplash API provides access to the world's largest open collection of high-quality, freely usable photos. Build photo-powered applications with search, random photos, user profiles, collections, topics, and statistics. Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr (production). Downloads must be tracked via the /photos/:id/download endpoint per Unsplash API guidelines.\n\nContact Support:\n Name: Unsplash Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:15:41.000Z",
+    "updatedAt": "2026-10-21T21:15:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8c06a60d-0024-40b0-840a-f92d3c61509d"
+  },
   "item": [
     {
-      "id": "defad7d5-e12d-4793-af54-4293cbbdbfd4",
-      "name": "Photos",
-      "description": {
-        "content": "Photo browsing and management operations",
-        "type": "text/plain"
-      },
+      "name": "photos",
       "item": [
         {
-          "id": "e6cff9f8-c239-46f1-a077-ba9f2910df4c",
-          "name": "List Editorial Photos",
-          "request": {
-            "name": "List Editorial Photos",
-            "description": {
-              "content": "Get a single page of the editorial photo feed. Requires public authentication (Client-ID).",
-              "type": "text/plain"
+          "name": "{id}",
+          "item": [
+            {
+              "name": "statistics",
+              "item": [
+                {
+                  "name": "Get Photo Statistics",
+                  "id": "32003ee9-f5ac-42b0-a8e8-7e6512726e3e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/photos/:id/statistics?resolution=days&quantity=30",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "photos",
+                        ":id",
+                        "statistics"
+                      ],
+                      "query": [
+                        {
+                          "description": "Time resolution for statistics",
+                          "key": "resolution",
+                          "value": "days"
+                        },
+                        {
+                          "description": "Number of data points to return",
+                          "key": "quantity",
+                          "value": "30"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "c5d6077c-2f4f-4b38-97e7-8e40ecf52b50",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Photo ID"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve statistics for a photo (downloads, views, likes) over time."
+                  },
+                  "response": [
+                    {
+                      "id": "19284492-c6dc-4d17-91b1-48a3418189fc",
+                      "name": "Photo statistics",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/photos/:id/statistics?resolution=days&quantity=30",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photos",
+                            ":id",
+                            "statistics"
+                          ],
+                          "query": [
+                            {
+                              "description": "Time resolution for statistics",
+                              "key": "resolution",
+                              "value": "days"
+                            },
+                            {
+                              "description": "Number of data points to return",
+                              "key": "quantity",
+                              "value": "30"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"downloads\": {\n    \"total\": \"<integer>\",\n    \"historical\": {\n      \"change\": \"<integer>\",\n      \"average\": \"<integer>\",\n      \"resolution\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"values\": [\n        {\n          \"date\": \"<date>\",\n          \"value\": \"<integer>\"\n        },\n        {\n          \"date\": \"<date>\",\n          \"value\": \"<integer>\"\n        }\n      ]\n    }\n  },\n  \"views\": {\n    \"total\": \"<integer>\",\n    \"historical\": {\n      \"change\": \"<integer>\",\n      \"average\": \"<integer>\",\n      \"resolution\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"values\": [\n        {\n          \"date\": \"<date>\",\n          \"value\": \"<integer>\"\n        },\n        {\n          \"date\": \"<date>\",\n          \"value\": \"<integer>\"\n        }\n      ]\n    }\n  },\n  \"likes\": {\n    \"total\": \"<integer>\",\n    \"historical\": {\n      \"change\": \"<integer>\",\n      \"average\": \"<integer>\",\n      \"resolution\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"values\": [\n        {\n          \"date\": \"<date>\",\n          \"value\": \"<integer>\"\n        },\n        {\n          \"date\": \"<date>\",\n          \"value\": \"<integer>\"\n        }\n      ]\n    }\n  }\n}",
+                      "createdAt": "2026-10-21T21:15:41.000Z",
+                      "updatedAt": "2026-10-21T21:15:41.000Z",
+                      "uid": "35240-19284492-c6dc-4d17-91b1-48a3418189fc"
+                    },
+                    {
+                      "id": "90faff03-639a-48b9-af9a-60cc49870c62",
+                      "name": "Missing or invalid authentication",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/photos/:id/statistics?resolution=days&quantity=30",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photos",
+                            ":id",
+                            "statistics"
+                          ],
+                          "query": [
+                            {
+                              "description": "Time resolution for statistics",
+                              "key": "resolution",
+                              "value": "days"
+                            },
+                            {
+                              "description": "Number of data points to return",
+                              "key": "quantity",
+                              "value": "30"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-21T21:15:41.000Z",
+                      "updatedAt": "2026-10-21T21:15:41.000Z",
+                      "uid": "35240-90faff03-639a-48b9-af9a-60cc49870c62"
+                    },
+                    {
+                      "id": "0548eb52-3016-40b4-a1f6-4b8197cda5b5",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/photos/:id/statistics?resolution=days&quantity=30",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photos",
+                            ":id",
+                            "statistics"
+                          ],
+                          "query": [
+                            {
+                              "description": "Time resolution for statistics",
+                              "key": "resolution",
+                              "value": "days"
+                            },
+                            {
+                              "description": "Number of data points to return",
+                              "key": "quantity",
+                              "value": "30"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-21T21:15:41.000Z",
+                      "updatedAt": "2026-10-21T21:15:41.000Z",
+                      "uid": "35240-0548eb52-3016-40b4-a1f6-4b8197cda5b5"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T21:15:41.000Z",
+                  "updatedAt": "2026-10-21T21:15:41.000Z",
+                  "uid": "35240-32003ee9-f5ac-42b0-a8e8-7e6512726e3e"
+                }
+              ],
+              "id": "0585e9f9-43be-45e9-8f6c-0150dff6f73d",
+              "createdAt": "2026-10-21T21:15:41.000Z",
+              "updatedAt": "2026-10-21T21:15:41.000Z",
+              "uid": "35240-0585e9f9-43be-45e9-8f6c-0150dff6f73d"
             },
+            {
+              "name": "download",
+              "item": [
+                {
+                  "name": "Track a Photo Download",
+                  "id": "fc81ef43-5935-4937-a1d6-738a739149ef",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/photos/:id/download",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "photos",
+                        ":id",
+                        "download"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4e70a14e-5a97-43a4-b973-3a75cf637427",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Photo ID"
+                        }
+                      ]
+                    },
+                    "description": "Track a photo download event. Must be called when a user downloads a photo to comply with Unsplash API guidelines. Returns the photo's download URL."
+                  },
+                  "response": [
+                    {
+                      "id": "3e15aeb0-3f4b-4923-8172-5308ee3e90de",
+                      "name": "Download tracking response with download URL",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/photos/:id/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photos",
+                            ":id",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"url\": \"<uri>\"\n}",
+                      "createdAt": "2026-10-21T21:15:41.000Z",
+                      "updatedAt": "2026-10-21T21:15:41.000Z",
+                      "uid": "35240-3e15aeb0-3f4b-4923-8172-5308ee3e90de"
+                    },
+                    {
+                      "id": "4f87f389-ca97-4b97-8deb-e8cccf467ae7",
+                      "name": "Missing or invalid authentication",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/photos/:id/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photos",
+                            ":id",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-21T21:15:41.000Z",
+                      "updatedAt": "2026-10-21T21:15:41.000Z",
+                      "uid": "35240-4f87f389-ca97-4b97-8deb-e8cccf467ae7"
+                    },
+                    {
+                      "id": "7aec3067-0d86-4745-8d13-e7e1effdb288",
+                      "name": "Resource not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/photos/:id/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "photos",
+                            ":id",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-10-21T21:15:41.000Z",
+                      "updatedAt": "2026-10-21T21:15:41.000Z",
+                      "uid": "35240-7aec3067-0d86-4745-8d13-e7e1effdb288"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T21:15:41.000Z",
+                  "updatedAt": "2026-10-21T21:15:41.000Z",
+                  "uid": "35240-fc81ef43-5935-4937-a1d6-738a739149ef"
+                }
+              ],
+              "id": "b3ddeec3-8aca-4854-813e-3723cf4b9121",
+              "createdAt": "2026-10-21T21:15:41.000Z",
+              "updatedAt": "2026-10-21T21:15:41.000Z",
+              "uid": "35240-b3ddeec3-8aca-4854-813e-3723cf4b9121"
+            },
+            {
+              "name": "Get a Photo",
+              "id": "77358425-3774-4d32-a009-4fb6e27a1773",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/photos/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "photos",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "8cc6c300-b2e7-433e-84ed-32878bf1794d",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Photo ID"
+                    }
+                  ]
+                },
+                "description": "Retrieve a single photo by ID."
+              },
+              "response": [
+                {
+                  "id": "9dcdb02a-afc2-4606-9a54-4f9db8ed2ab0",
+                  "name": "A photo object",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/photos/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "photos",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"promoted_at\": \"<string,null-date-time>\",\n  \"width\": \"<integer>\",\n  \"height\": \"<integer>\",\n  \"color\": \"<string>\",\n  \"blur_hash\": \"<string>\",\n  \"description\": \"<string,null>\",\n  \"alt_description\": \"<string,null>\",\n  \"likes\": \"<integer>\",\n  \"downloads\": \"<integer>\",\n  \"views\": \"<integer>\",\n  \"liked_by_user\": \"<boolean>\",\n  \"urls\": {\n    \"raw\": \"<uri>\",\n    \"full\": \"<uri>\",\n    \"regular\": \"<uri>\",\n    \"small\": \"<uri>\",\n    \"thumb\": \"<uri>\",\n    \"small_s3\": \"<uri>\"\n  },\n  \"links\": {\n    \"self\": \"<uri>\",\n    \"html\": \"<uri>\",\n    \"download\": \"<uri>\",\n    \"download_location\": \"<uri>\"\n  },\n  \"user\": {\n    \"id\": \"<string>\",\n    \"username\": \"<string>\",\n    \"name\": \"<string>\",\n    \"portfolio_url\": \"<string,null-uri>\",\n    \"bio\": \"<string,null>\",\n    \"location\": \"<string,null>\",\n    \"total_likes\": \"<integer>\",\n    \"total_photos\": \"<integer>\",\n    \"total_collections\": \"<integer>\",\n    \"profile_image\": {\n      \"small\": \"<uri>\",\n      \"medium\": \"<uri>\",\n      \"large\": \"<uri>\"\n    },\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"html\": \"<uri>\",\n      \"photos\": \"<uri>\",\n      \"likes\": \"<uri>\"\n    }\n  },\n  \"location\": {\n    \"name\": \"<string,null>\",\n    \"city\": \"<string,null>\",\n    \"country\": \"<string,null>\",\n    \"position\": {\n      \"latitude\": \"<number,null>\",\n      \"longitude\": \"<number,null>\"\n    }\n  },\n  \"tags\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"exif\": {\n    \"make\": \"<string,null>\",\n    \"model\": \"<string,null>\",\n    \"name\": \"<string,null>\",\n    \"exposure_time\": \"<string,null>\",\n    \"aperture\": \"<string,null>\",\n    \"focal_length\": \"<string,null>\",\n    \"iso\": \"<integer,null>\"\n  }\n}",
+                  "createdAt": "2026-10-21T21:15:41.000Z",
+                  "updatedAt": "2026-10-21T21:15:41.000Z",
+                  "uid": "35240-9dcdb02a-afc2-4606-9a54-4f9db8ed2ab0"
+                },
+                {
+                  "id": "77cbfaae-1e39-4158-b68a-57bf06d77d8e",
+                  "name": "Missing or invalid authentication",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/photos/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "photos",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-10-21T21:15:41.000Z",
+                  "updatedAt": "2026-10-21T21:15:41.000Z",
+                  "uid": "35240-77cbfaae-1e39-4158-b68a-57bf06d77d8e"
+                },
+                {
+                  "id": "b206f368-5fd9-403c-b9b6-c4fdb034f827",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/photos/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "photos",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-10-21T21:15:41.000Z",
+                  "updatedAt": "2026-10-21T21:15:41.000Z",
+                  "uid": "35240-b206f368-5fd9-403c-b9b6-c4fdb034f827"
+                }
+              ],
+              "createdAt": "2026-10-21T21:15:41.000Z",
+              "updatedAt": "2026-10-21T21:15:41.000Z",
+              "uid": "35240-77358425-3774-4d32-a009-4fb6e27a1773"
+            },
+            {
+              "name": "Update a Photo",
+              "id": "f0d917a4-5bd9-4408-994f-a66aaaa3fed6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "oauth2",
+                  "oauth2": [
+                    {
+                      "key": "scope",
+                      "value": "public read_user write_user read_photos write_photos write_likes write_collections read_collections",
+                      "type": "string"
+                    },
+                    {
+                      "key": "accessTokenUrl",
+                      "value": "https://unsplash.com/oauth/token",
+                      "type": "string"
+                    },
+                    {
+                      "key": "authUrl",
+                      "value": "https://unsplash.com/oauth/authorize",
+                      "type": "string"
+                    },
+                    {
+                      "key": "grant_type",
+                      "value": "authorization_code",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"show_on_profile\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"location\": {\n    \"latitude\": \"<float>\",\n    \"longitude\": \"<float>\",\n    \"name\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/photos/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "photos",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6e2adf40-04df-4531-aafd-e8753132c3fe",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Photo ID"
+                    }
+                  ]
+                },
+                "description": "Update a photo's metadata. Requires write_photos scope."
+              },
+              "response": [
+                {
+                  "id": "5f79d9b4-e452-4cdd-a1c1-da212c8d9461",
+                  "name": "Updated photo object",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"description\": \"<string>\",\n  \"show_on_profile\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"location\": {\n    \"latitude\": \"<float>\",\n    \"longitude\": \"<float>\",\n    \"name\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/photos/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "photos",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"promoted_at\": \"<string,null-date-time>\",\n  \"width\": \"<integer>\",\n  \"height\": \"<integer>\",\n  \"color\": \"<string>\",\n  \"blur_hash\": \"<string>\",\n  \"description\": \"<string,null>\",\n  \"alt_description\": \"<string,null>\",\n  \"likes\": \"<integer>\",\n  \"downloads\": \"<integer>\",\n  \"views\": \"<integer>\",\n  \"liked_by_user\": \"<boolean>\",\n  \"urls\": {\n    \"raw\": \"<uri>\",\n    \"full\": \"<uri>\",\n    \"regular\": \"<uri>\",\n    \"small\": \"<uri>\",\n    \"thumb\": \"<uri>\",\n    \"small_s3\": \"<uri>\"\n  },\n  \"links\": {\n    \"self\": \"<uri>\",\n    \"html\": \"<uri>\",\n    \"download\": \"<uri>\",\n    \"download_location\": \"<uri>\"\n  },\n  \"user\": {\n    \"id\": \"<string>\",\n    \"username\": \"<string>\",\n    \"name\": \"<string>\",\n    \"portfolio_url\": \"<string,null-uri>\",\n    \"bio\": \"<string,null>\",\n    \"location\": \"<string,null>\",\n    \"total_likes\": \"<integer>\",\n    \"total_photos\": \"<integer>\",\n    \"total_collections\": \"<integer>\",\n    \"profile_image\": {\n      \"small\": \"<uri>\",\n      \"medium\": \"<uri>\",\n      \"large\": \"<uri>\"\n    },\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"html\": \"<uri>\",\n      \"photos\": \"<uri>\",\n      \"likes\": \"<uri>\"\n    }\n  },\n  \"location\": {\n    \"name\": \"<string,null>\",\n    \"city\": \"<string,null>\",\n    \"country\": \"<string,null>\",\n    \"position\": {\n      \"latitude\": \"<number,null>\",\n      \"longitude\": \"<number,null>\"\n    }\n  },\n  \"tags\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"exif\": {\n    \"make\": \"<string,null>\",\n    \"model\": \"<string,null>\",\n    \"name\": \"<string,null>\",\n    \"exposure_time\": \"<string,null>\",\n    \"aperture\": \"<string,null>\",\n    \"focal_length\": \"<string,null>\",\n    \"iso\": \"<integer,null>\"\n  }\n}",
+                  "createdAt": "2026-10-21T21:15:41.000Z",
+                  "updatedAt": "2026-10-21T21:15:41.000Z",
+                  "uid": "35240-5f79d9b4-e452-4cdd-a1c1-da212c8d9461"
+                },
+                {
+                  "id": "59740db4-01fb-4446-bc74-9f4fbe504f79",
+                  "name": "Missing or invalid authentication",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"description\": \"<string>\",\n  \"show_on_profile\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"location\": {\n    \"latitude\": \"<float>\",\n    \"longitude\": \"<float>\",\n    \"name\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/photos/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "photos",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-10-21T21:15:41.000Z",
+                  "updatedAt": "2026-10-21T21:15:41.000Z",
+                  "uid": "35240-59740db4-01fb-4446-bc74-9f4fbe504f79"
+                },
+                {
+                  "id": "e76d6124-6c14-4a97-a8e8-6db2e513bcf2",
+                  "name": "Resource not found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"description\": \"<string>\",\n  \"show_on_profile\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"location\": {\n    \"latitude\": \"<float>\",\n    \"longitude\": \"<float>\",\n    \"name\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/photos/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "photos",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-10-21T21:15:41.000Z",
+                  "updatedAt": "2026-10-21T21:15:41.000Z",
+                  "uid": "35240-e76d6124-6c14-4a97-a8e8-6db2e513bcf2"
+                }
+              ],
+              "createdAt": "2026-10-21T21:15:41.000Z",
+              "updatedAt": "2026-10-21T21:15:41.000Z",
+              "uid": "35240-f0d917a4-5bd9-4408-994f-a66aaaa3fed6"
+            }
+          ],
+          "id": "28365ae5-b540-47e3-973c-338120a0bca8",
+          "createdAt": "2026-10-21T21:15:41.000Z",
+          "updatedAt": "2026-10-21T21:15:41.000Z",
+          "uid": "35240-28365ae5-b540-47e3-973c-338120a0bca8"
+        },
+        {
+          "name": "random",
+          "item": [
+            {
+              "name": "Get a Random Photo",
+              "id": "fafdd404-5fc9-42b6-92c8-9ea9b41d4b02",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/photos/random?collections=<string>&topics=<string>&username=<string>&query=<string>&orientation=squarish&content_filter=low&count=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "photos",
+                    "random"
+                  ],
+                  "query": [
+                    {
+                      "description": "Comma-separated collection IDs to filter by",
+                      "key": "collections",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Comma-separated topic IDs or slugs to filter by",
+                      "key": "topics",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Limit to photos by a specific user",
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search query to filter random photos",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by photo orientation",
+                      "key": "orientation",
+                      "value": "squarish"
+                    },
+                    {
+                      "description": "Content safety filter level",
+                      "key": "content_filter",
+                      "value": "low"
+                    },
+                    {
+                      "description": "Number of random photos (returns array if count > 1)",
+                      "key": "count",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Retrieve one or more random photos. Optionally filter by orientation, color, topic, collection, featured status, username, or search query."
+              },
+              "response": [
+                {
+                  "id": "9fe1beb0-39b7-442e-b1ea-d4d9c9d2a201",
+                  "name": "A random photo or array of photos",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/photos/random?collections=<string>&topics=<string>&username=<string>&query=<string>&orientation=squarish&content_filter=low&count=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "photos",
+                        "random"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated collection IDs to filter by",
+                          "key": "collections",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated topic IDs or slugs to filter by",
+                          "key": "topics",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit to photos by a specific user",
+                          "key": "username",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search query to filter random photos",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by photo orientation",
+                          "key": "orientation",
+                          "value": "squarish"
+                        },
+                        {
+                          "description": "Content safety filter level",
+                          "key": "content_filter",
+                          "value": "low"
+                        },
+                        {
+                          "description": "Number of random photos (returns array if count > 1)",
+                          "key": "count",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"promoted_at\": \"<string,null-date-time>\",\n  \"width\": \"<integer>\",\n  \"height\": \"<integer>\",\n  \"color\": \"<string>\",\n  \"blur_hash\": \"<string>\",\n  \"description\": \"<string,null>\",\n  \"alt_description\": \"<string,null>\",\n  \"likes\": \"<integer>\",\n  \"downloads\": \"<integer>\",\n  \"views\": \"<integer>\",\n  \"liked_by_user\": \"<boolean>\",\n  \"urls\": {\n    \"raw\": \"<uri>\",\n    \"full\": \"<uri>\",\n    \"regular\": \"<uri>\",\n    \"small\": \"<uri>\",\n    \"thumb\": \"<uri>\",\n    \"small_s3\": \"<uri>\"\n  },\n  \"links\": {\n    \"self\": \"<uri>\",\n    \"html\": \"<uri>\",\n    \"download\": \"<uri>\",\n    \"download_location\": \"<uri>\"\n  },\n  \"user\": {\n    \"id\": \"<string>\",\n    \"username\": \"<string>\",\n    \"name\": \"<string>\",\n    \"portfolio_url\": \"<string,null-uri>\",\n    \"bio\": \"<string,null>\",\n    \"location\": \"<string,null>\",\n    \"total_likes\": \"<integer>\",\n    \"total_photos\": \"<integer>\",\n    \"total_collections\": \"<integer>\",\n    \"profile_image\": {\n      \"small\": \"<uri>\",\n      \"medium\": \"<uri>\",\n      \"large\": \"<uri>\"\n    },\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"html\": \"<uri>\",\n      \"photos\": \"<uri>\",\n      \"likes\": \"<uri>\"\n    }\n  },\n  \"location\": {\n    \"name\": \"<string,null>\",\n    \"city\": \"<string,null>\",\n    \"country\": \"<string,null>\",\n    \"position\": {\n      \"latitude\": \"<number,null>\",\n      \"longitude\": \"<number,null>\"\n    }\n  },\n  \"tags\": [\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"exif\": {\n    \"make\": \"<string,null>\",\n    \"model\": \"<string,null>\",\n    \"name\": \"<string,null>\",\n    \"exposure_time\": \"<string,null>\",\n    \"aperture\": \"<string,null>\",\n    \"focal_length\": \"<string,null>\",\n    \"iso\": \"<integer,null>\"\n  }\n}",
+                  "createdAt": "2026-10-21T21:15:41.000Z",
+                  "updatedAt": "2026-10-21T21:15:41.000Z",
+                  "uid": "35240-9fe1beb0-39b7-442e-b1ea-d4d9c9d2a201"
+                },
+                {
+                  "id": "f71e85c9-0218-41cb-8020-f876be8278f1",
+                  "name": "Missing or invalid authentication",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/photos/random?collections=<string>&topics=<string>&username=<string>&query=<string>&orientation=squarish&content_filter=low&count=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "photos",
+                        "random"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated collection IDs to filter by",
+                          "key": "collections",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Comma-separated topic IDs or slugs to filter by",
+                          "key": "topics",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Limit to photos by a specific user",
+                          "key": "username",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Search query to filter random photos",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by photo orientation",
+                          "key": "orientation",
+                          "value": "squarish"
+                        },
+                        {
+                          "description": "Content safety filter level",
+                          "key": "content_filter",
+                          "value": "low"
+                        },
+                        {
+                          "description": "Number of random photos (returns array if count > 1)",
+                          "key": "count",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-10-21T21:15:41.000Z",
+                  "updatedAt": "2026-10-21T21:15:41.000Z",
+                  "uid": "35240-f71e85c9-0218-41cb-8020-f876be8278f1"
+                }
+              ],
+              "createdAt": "2026-10-21T21:15:41.000Z",
+              "updatedAt": "2026-10-21T21:15:41.000Z",
+              "uid": "35240-fafdd404-5fc9-42b6-92c8-9ea9b41d4b02"
+            }
+          ],
+          "id": "41634aba-16d8-4f40-ba55-b4f1bdd95ed8",
+          "createdAt": "2026-10-21T21:15:41.000Z",
+          "updatedAt": "2026-10-21T21:15:41.000Z",
+          "uid": "35240-41634aba-16d8-4f40-ba55-b4f1bdd95ed8"
+        },
+        {
+          "name": "List Editorial Photos",
+          "id": "c75c03eb-f14a-488b-87bf-6a7e78f3881b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/photos?page=1&per_page=10&order_by=latest",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "photos"
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
               "query": [
                 {
-                  "disabled": false,
+                  "description": "Page number to retrieve",
                   "key": "page",
-                  "value": "1",
-                  "description": "Page number to retrieve"
+                  "value": "1"
                 },
                 {
-                  "disabled": false,
+                  "description": "Number of items per page",
                   "key": "per_page",
-                  "value": "10",
-                  "description": "Number of items per page"
+                  "value": "10"
                 },
                 {
-                  "disabled": false,
+                  "description": "Order results by latest, oldest, or popular",
                   "key": "order_by",
-                  "value": "latest",
-                  "description": "Order results by latest, oldest, or popular"
+                  "value": "latest"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Get a single page of the editorial photo feed. Requires public authentication (Client-ID)."
           },
           "response": [
             {
-              "id": "1307a368-64b9-4fda-8a6c-73549622eebe",
+              "id": "7be5b284-49e4-42cb-99f3-79c20076d3e1",
               "name": "A list of photos",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "photos"
-                  ],
+                  "raw": "{{baseUrl}}/photos?page=1&per_page=10&order_by=latest",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "photos"
+                  ],
                   "query": [
                     {
+                      "description": "Page number to retrieve",
                       "key": "page",
                       "value": "1"
                     },
                     {
+                      "description": "Number of items per page",
                       "key": "per_page",
                       "value": "10"
                     },
                     {
+                      "description": "Order results by latest, oldest, or popular",
                       "key": "order_by",
                       "value": "latest"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"2000-11-09T20:08:50.148Z\",\n    \"updated_at\": \"1974-12-19T13:18:07.924Z\",\n    \"promoted_at\": null,\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": null,\n    \"alt_description\": \"string\",\n    \"likes\": 4090,\n    \"downloads\": 3027,\n    \"views\": 6187,\n    \"liked_by_user\": false,\n    \"urls\": {\n      \"raw\": \"http://fjmUIHjnawbgamLcDDPsqoeD.tmaqk4.OK-6Q1GoZ7Sg7hvCkFPs6qKLkWxx8,LJZpOuymzV-AcnQe,fRzb-nGF\",\n      \"full\": \"https://FXtPnwSe.xxlv+cu,I8.uAaPIgscG9782uMyFuTLWFsZIHJHkcV8KGq\",\n      \"regular\": \"https://TQDgCEML.suntthRioxryoNDGwXYHyB.z4lxSWjymqvw6pMzCqzm\",\n      \"small\": \"https://kxalvHSCv.yxIQDxm1XdpF\",\n      \"thumb\": \"http://kNPyPFhoYJKkYapEAZDZ.raqVibmY5l9XCR,IeKkz48eCIs0wlkllBKdzfckfG-mC\",\n      \"small_s3\": \"https://AjEIDdojOeQ.blUYwUsiY.WgEJJ,IKzI2KD9CEGHINzlSL\"\n    },\n    \"links\": {\n      \"self\": \"https://GHOOLMbEHoXdKTA.pzeBWLjQE+6Jo,T-FabyFBoggtxV6EFe2YOjI7IRnLeAfE-XZ12F\",\n      \"html\": \"http://l.rvBj5Pe+xXqe\",\n      \"download\": \"https://IRBvyugmrjmtgazoGpQnFdDOWS.tlyLHrkciTIm8Ee6MWqe-dyR8aIoMBXPTq.UzUWDuxFID0z5hxeRkbTQnqtYf8jNk0Z\",\n      \"download_location\": \"http://DjsPXhpphPdQowXmNBd.dnlxz8-iXrsRFsQN9jSkHdtdstVVDRAGTsArsBDDLnA4k9cTdHU5iZCV6AaeJ\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": null,\n      \"bio\": \"string\",\n      \"location\": \"string\",\n      \"total_likes\": 9425,\n      \"total_photos\": 7824,\n      \"total_collections\": 1938,\n      \"profile_image\": {\n        \"small\": \"https://BxHrWTwicZbweljpkhgZwXxNFMjsYex.nbfhyNY3+ZfPwrwPwcG2d8eZS0EokCxD26O2S\",\n        \"medium\": \"http://xMJHQcMMEFNeVzaNZJCghEHjZbgUHYJc.rjuflxeEQkl-DCpi.LGA-6XdBYIamTQ5gkR4rueybPY5mSOh\",\n        \"large\": \"http://LQXZUoGMjxLvVltGMZqMMuTAHect.eokCFHLMVH,W6M6OZoAZNzHSx74bb,yoip\"\n      },\n      \"links\": {\n        \"self\": \"https://bvMwHmoXMVxWhKyWwVmiYLXDBjAENCrx.dcnrA5,SaVy15f9rJPY\",\n        \"html\": \"http://CIylzqoPjLcFwLnnD.jdie9K8hZYx306G7VgQL,Wpdf3xNJg4t3ntLFxABZEw7MsU\",\n        \"photos\": \"http://somsbOPXD.ujreCQZhDR+gMrKznc370uETg9UcfLay-Pw.jg8c\",\n        \"likes\": \"https://ZxQVputNTdJGG.kfajiOFxb4XJeOBfnebmCXO6KUa-0JG\"\n      }\n    },\n    \"location\": {\n      \"name\": null,\n      \"city\": \"string\",\n      \"country\": null,\n      \"position\": {\n        \"latitude\": null,\n        \"longitude\": 1859.6252350740494\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": null,\n      \"model\": null,\n      \"name\": \"string\",\n      \"exposure_time\": \"string\",\n      \"aperture\": null,\n      \"focal_length\": null,\n      \"iso\": null\n    }\n  },\n  {\n    \"id\": \"Dwu85P9SOIk\",\n    \"created_at\": \"2022-05-22T08:51:44.215Z\",\n    \"updated_at\": \"1960-09-19T19:27:59.434Z\",\n    \"promoted_at\": \"2006-07-07T19:52:53.439Z\",\n    \"width\": 5616,\n    \"height\": 3744,\n    \"color\": \"#6E633A\",\n    \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n    \"description\": \"string\",\n    \"alt_description\": null,\n    \"likes\": 2737,\n    \"downloads\": 746,\n    \"views\": 5886,\n    \"liked_by_user\": true,\n    \"urls\": {\n      \"raw\": \"http://WisXSadixfBLPHAJZCZvtVtZPHfO.oxbgtCDy0TIzTJ\",\n      \"full\": \"https://GXZg.lxeK5661mKGoVh,qQiW3Pyt5RJrZ-z.-.fZ-Xa6sfesMEfi\",\n      \"regular\": \"https://JZWwWsVkEFYw.cijpumg7JDAy0HnRVAdzaiNOAzmoID6D7MFkO+xQRMGq1b,AY50MG2Krq0NDbcXo\",\n      \"small\": \"http://PZvVbcIonkTBZoOQzNNPn.dwioL0OgTn6QOg4L4HCA2pfdllYD-6YPjoZJK6iDkqUbketB5NMhq\",\n      \"thumb\": \"http://DGqECsq.zadyCZCNn3Ne-1Tkgd7u+r\",\n      \"small_s3\": \"https://SerkNItUYsnQJigRrMEzsu.lswz8N9Bxx2dYjrWG7lr9+5QYHfXKLw,gYrxoDzN4dQGRafePIDY\"\n    },\n    \"links\": {\n      \"self\": \"http://dCAKAOahSCOosFTEUwfugV.criBO6jyl99prIgigRrbYPUpQErIFd3O5KqsDVkb\",\n      \"html\": \"http://ODyvwDD.vkVYJEIs6Mfdbw9t1li5Fo7pQDSlnfckv1eqgJ+Dzo\",\n      \"download\": \"http://X.foP5VGHSZW3hog,+6uUZjI0LcjrphRNhWDe,BrLzyROsE,gJnX\",\n      \"download_location\": \"https://IEHlmflyczZwAqAeDKfdixRvTLRnEgZS.ykyjphGFJSBbKnqbs65clr8VZWj4ClrTNBOk+pqw-Lmn3w5xJbdZMK3jlG4cQiJQfrXyNt1Gs7-Au11,\"\n    },\n    \"user\": {\n      \"id\": \"string\",\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"portfolio_url\": null,\n      \"bio\": \"string\",\n      \"location\": null,\n      \"total_likes\": 8851,\n      \"total_photos\": 3036,\n      \"total_collections\": 9751,\n      \"profile_image\": {\n        \"small\": \"https://ckC.ssCdK\",\n        \"medium\": \"http://UVm.wqyBcWI5UaQxMte1DR1ZCAeoIVIVDxbXEI8bpBeoRs0b\",\n        \"large\": \"https://sIzZmMJrmtdJSCO.nfrqVcTMlqvoJKoW0NgWWT+eGGDpukVEZ5B2M1hk8zo6QP1uust1wsmE\"\n      },\n      \"links\": {\n        \"self\": \"https://L.ukE7nk58axvteGn,kYM76HA,uMzwV8jEjtPmT20kDv6Ud6OS8EKj3HO5FbKVxbw\",\n        \"html\": \"https://vKwwhBDZTOzFvqBKeznDHHxQqy.jdnvyGbeuUM\",\n        \"photos\": \"https://NImOpOFWzgNCNX.knsaaTmEiy+VjcDYAYZ2nsXQVflc,n2DOLVOTFBLsytxSb6jchIBKY5hoPzkdRwD9OFOShCJT\",\n        \"likes\": \"http://GpcdIiLrkVGhZGziptQbpKEemM.rteeeha,q7l8tdiGeLfE\"\n      }\n    },\n    \"location\": {\n      \"name\": null,\n      \"city\": null,\n      \"country\": \"string\",\n      \"position\": {\n        \"latitude\": null,\n        \"longitude\": 6046.352312420319\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"type\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"exif\": {\n      \"make\": null,\n      \"model\": \"string\",\n      \"name\": \"string\",\n      \"exposure_time\": null,\n      \"aperture\": null,\n      \"focal_length\": null,\n      \"iso\": null\n    }\n  }\n]",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"promoted_at\": \"<string,null-date-time>\",\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\",\n    \"color\": \"<string>\",\n    \"blur_hash\": \"<string>\",\n    \"description\": \"<string,null>\",\n    \"alt_description\": \"<string,null>\",\n    \"likes\": \"<integer>\",\n    \"downloads\": \"<integer>\",\n    \"views\": \"<integer>\",\n    \"liked_by_user\": \"<boolean>\",\n    \"urls\": {\n      \"raw\": \"<uri>\",\n      \"full\": \"<uri>\",\n      \"regular\": \"<uri>\",\n      \"small\": \"<uri>\",\n      \"thumb\": \"<uri>\",\n      \"small_s3\": \"<uri>\"\n    },\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"html\": \"<uri>\",\n      \"download\": \"<uri>\",\n      \"download_location\": \"<uri>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"name\": \"<string>\",\n      \"portfolio_url\": \"<string,null-uri>\",\n      \"bio\": \"<string,null>\",\n      \"location\": \"<string,null>\",\n      \"total_likes\": \"<integer>\",\n      \"total_photos\": \"<integer>\",\n      \"total_collections\": \"<integer>\",\n      \"profile_image\": {\n        \"small\": \"<uri>\",\n        \"medium\": \"<uri>\",\n        \"large\": \"<uri>\"\n      },\n      \"links\": {\n        \"self\": \"<uri>\",\n        \"html\": \"<uri>\",\n        \"photos\": \"<uri>\",\n        \"likes\": \"<uri>\"\n      }\n    },\n    \"location\": {\n      \"name\": \"<string,null>\",\n      \"city\": \"<string,null>\",\n      \"country\": \"<string,null>\",\n      \"position\": {\n        \"latitude\": \"<number,null>\",\n        \"longitude\": \"<number,null>\"\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"<string>\",\n        \"title\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"title\": \"<string>\"\n      }\n    ],\n    \"exif\": {\n      \"make\": \"<string,null>\",\n      \"model\": \"<string,null>\",\n      \"name\": \"<string,null>\",\n      \"exposure_time\": \"<string,null>\",\n      \"aperture\": \"<string,null>\",\n      \"focal_length\": \"<string,null>\",\n      \"iso\": \"<integer,null>\"\n    }\n  },\n  {\n    \"id\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\",\n    \"promoted_at\": \"<string,null-date-time>\",\n    \"width\": \"<integer>\",\n    \"height\": \"<integer>\",\n    \"color\": \"<string>\",\n    \"blur_hash\": \"<string>\",\n    \"description\": \"<string,null>\",\n    \"alt_description\": \"<string,null>\",\n    \"likes\": \"<integer>\",\n    \"downloads\": \"<integer>\",\n    \"views\": \"<integer>\",\n    \"liked_by_user\": \"<boolean>\",\n    \"urls\": {\n      \"raw\": \"<uri>\",\n      \"full\": \"<uri>\",\n      \"regular\": \"<uri>\",\n      \"small\": \"<uri>\",\n      \"thumb\": \"<uri>\",\n      \"small_s3\": \"<uri>\"\n    },\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"html\": \"<uri>\",\n      \"download\": \"<uri>\",\n      \"download_location\": \"<uri>\"\n    },\n    \"user\": {\n      \"id\": \"<string>\",\n      \"username\": \"<string>\",\n      \"name\": \"<string>\",\n      \"portfolio_url\": \"<string,null-uri>\",\n      \"bio\": \"<string,null>\",\n      \"location\": \"<string,null>\",\n      \"total_likes\": \"<integer>\",\n      \"total_photos\": \"<integer>\",\n      \"total_collections\": \"<integer>\",\n      \"profile_image\": {\n        \"small\": \"<uri>\",\n        \"medium\": \"<uri>\",\n        \"large\": \"<uri>\"\n      },\n      \"links\": {\n        \"self\": \"<uri>\",\n        \"html\": \"<uri>\",\n        \"photos\": \"<uri>\",\n        \"likes\": \"<uri>\"\n      }\n    },\n    \"location\": {\n      \"name\": \"<string,null>\",\n      \"city\": \"<string,null>\",\n      \"country\": \"<string,null>\",\n      \"position\": {\n        \"latitude\": \"<number,null>\",\n        \"longitude\": \"<number,null>\"\n      }\n    },\n    \"tags\": [\n      {\n        \"type\": \"<string>\",\n        \"title\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"title\": \"<string>\"\n      }\n    ],\n    \"exif\": {\n      \"make\": \"<string,null>\",\n      \"model\": \"<string,null>\",\n      \"name\": \"<string,null>\",\n      \"exposure_time\": \"<string,null>\",\n      \"aperture\": \"<string,null>\",\n      \"focal_length\": \"<string,null>\",\n      \"iso\": \"<integer,null>\"\n    }\n  }\n]",
+              "createdAt": "2026-10-21T21:15:41.000Z",
+              "updatedAt": "2026-10-21T21:15:41.000Z",
+              "uid": "35240-7be5b284-49e4-42cb-99f3-79c20076d3e1"
             },
             {
-              "id": "33b1efc1-9581-4151-96eb-a4d926551566",
+              "id": "092f638c-0512-439e-87e0-14ab04a62760",
               "name": "Missing or invalid authentication",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "photos"
-                  ],
+                  "raw": "{{baseUrl}}/photos?page=1&per_page=10&order_by=latest",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "photos"
+                  ],
                   "query": [
                     {
+                      "description": "Page number to retrieve",
                       "key": "page",
                       "value": "1"
                     },
                     {
+                      "description": "Number of items per page",
                       "key": "per_page",
                       "value": "10"
                     },
                     {
+                      "description": "Order results by latest, oldest, or popular",
                       "key": "order_by",
                       "value": "latest"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "175db5a1-9cc8-4e30-b94d-b70e63a83f53",
-          "name": "Get a Photo",
-          "request": {
-            "name": "Get a Photo",
-            "description": {
-              "content": "Retrieve a single photo by ID.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "photos",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Photo ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "defe3823-44a2-4c21-8358-51e82bdfedd9",
-              "name": "A photo object",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"Dwu85P9SOIk\",\n  \"created_at\": \"2013-02-16T16:48:20.640Z\",\n  \"updated_at\": \"1989-11-26T21:10:51.442Z\",\n  \"promoted_at\": null,\n  \"width\": 5616,\n  \"height\": 3744,\n  \"color\": \"#6E633A\",\n  \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n  \"description\": null,\n  \"alt_description\": null,\n  \"likes\": 8180,\n  \"downloads\": 873,\n  \"views\": 3917,\n  \"liked_by_user\": false,\n  \"urls\": {\n    \"raw\": \"https://UYzvWWcFTiQALVZxcbZvIUBFMhhiKcUEU.bvQmr+mc4lKPhu6Re.LAxsiw5cJFH-\",\n    \"full\": \"http://znoZBSVrwf.tgaXezHXtMt4vWsTJ2Xi0NNwgdRIB0VCWz+3YKU4,a9\",\n    \"regular\": \"http://icmVHeYEhsk.dcyiCxMGnl0ZBbzMOvwJX9SAobCS5fwngtwus697BHJYuDGtLVoJ1U.9CrPnVVhPmV,OZ+7lMl\",\n    \"small\": \"https://qJT.dfL-,OzvUtEFYn-.pHzTXfeC+J3bfu5.w7U2,ZxDdn22qeDTWxyTAt9r\",\n    \"thumb\": \"https://SsodrDVvyDirfEF.hpunmEoI9HOSVQezkoHGT\",\n    \"small_s3\": \"https://SwblkcsbPsziGLJnlsIPzdkxrFXBhzeBd.xhzBBNqn355nW0CVCoXBxeyCAaKw6\"\n  },\n  \"links\": {\n    \"self\": \"https://zEGtJzZ.noaf.RLtg++bMYQLu2UkF0YI,y-s\",\n    \"html\": \"http://sDyRBFNGOjNxoypLMmpndIdiXhlIaCTB.wwuqePPc3nwX1q6qhxbXEq4XNGltY331.sFbKUaqXSbAVoFDW2W\",\n    \"download\": \"https://VAFNbqLFnIN.xygikBNbmbaY,sxNPPHEjYQBd8.-mF\",\n    \"download_location\": \"http://vgMRPbjTD.gooqZT8W1.3W9nHhz4ZeWr8N8PfLL,GIrBI1bXdVEgKXKCsJ.bM2nruRohub2\"\n  },\n  \"user\": {\n    \"id\": \"string\",\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"portfolio_url\": null,\n    \"bio\": \"string\",\n    \"location\": null,\n    \"total_likes\": 9211,\n    \"total_photos\": 8893,\n    \"total_collections\": 7229,\n    \"profile_image\": {\n      \"small\": \"http://ejtTWAg.bjlQCBZn5efM8oFzxXPYM-TBzip,+xiGKdmoVi9,tTLIgDTPe9Rgmum\",\n      \"medium\": \"https://lk.ddsxS4JtUXonXT2OxWnHG7yi.ybtqRdJiBDMvZFOWjEvsGF8R9D+qrHT70-3Hs\",\n      \"large\": \"http://IUhficLflYbM.xryzmxXtly78iazb3NZsaE.NIj3AHquEjEZq\"\n    },\n    \"links\": {\n      \"self\": \"http://qmkSNVceiBYCyBMqK.vlegxoIMqBbKIPamUK88VKgyzBykmYxtl5J8-igW4Gylmnmh\",\n      \"html\": \"https://IbrIr.ibewsoXGHGVlP2QtqHOn+ljoN.pdh3l1Mvh-,0Dwaihuzy\",\n      \"photos\": \"http://SsySzqmXmdKsnxQYBimpr.hpejkcyX+.vDyJ.JnEM8Jx96ygBlKTaiy1F6F08smKWUn+1LSUdpfSJ.dkFu6DOwHHVUmK7ujqamtgsp7l8cD\",\n      \"likes\": \"https://KkXcYXPPSdkdzAfdvQz.exvaEO5vCaQNhfrTUBAp3AV3Wwb48rp2UJUmm76KRPwDnyTiXQznm6OptZCUN-55WoWb9\"\n    }\n  },\n  \"location\": {\n    \"name\": \"string\",\n    \"city\": null,\n    \"country\": \"string\",\n    \"position\": {\n      \"latitude\": null,\n      \"longitude\": null\n    }\n  },\n  \"tags\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\"\n    }\n  ],\n  \"exif\": {\n    \"make\": \"string\",\n    \"model\": null,\n    \"name\": null,\n    \"exposure_time\": \"string\",\n    \"aperture\": \"string\",\n    \"focal_length\": \"string\",\n    \"iso\": 1008\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2641124e-ffd5-4db5-b69b-3f4619b89408",
-              "name": "Missing or invalid authentication",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6e87233c-a5e8-4049-8496-33ea21b4bd85",
-              "name": "Resource not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9d6d61e3-6438-49ee-9281-67678b326376",
-          "name": "Update a Photo",
-          "request": {
-            "name": "Update a Photo",
-            "description": {
-              "content": "Update a photo's metadata. Requires write_photos scope.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "photos",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Photo ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PUT",
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "scope",
-                  "value": "public read_user write_user read_photos write_photos write_likes write_collections read_collections"
-                },
-                {
-                  "key": "accessTokenUrl",
-                  "value": "https://unsplash.com/oauth/token"
-                },
-                {
-                  "key": "authUrl",
-                  "value": "https://unsplash.com/oauth/authorize"
-                },
-                {
-                  "key": "grant_type",
-                  "value": "authorization_code"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"description\": \"<string>\",\n  \"show_on_profile\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"location\": {\n    \"latitude\": \"<float>\",\n    \"longitude\": \"<float>\",\n    \"name\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "df34fa1b-8494-4cc3-a7e3-c3c8153b0922",
-              "name": "Updated photo object",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"description\": \"<string>\",\n  \"show_on_profile\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"location\": {\n    \"latitude\": \"<float>\",\n    \"longitude\": \"<float>\",\n    \"name\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"Dwu85P9SOIk\",\n  \"created_at\": \"2013-02-16T16:48:20.640Z\",\n  \"updated_at\": \"1989-11-26T21:10:51.442Z\",\n  \"promoted_at\": null,\n  \"width\": 5616,\n  \"height\": 3744,\n  \"color\": \"#6E633A\",\n  \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n  \"description\": null,\n  \"alt_description\": null,\n  \"likes\": 8180,\n  \"downloads\": 873,\n  \"views\": 3917,\n  \"liked_by_user\": false,\n  \"urls\": {\n    \"raw\": \"https://UYzvWWcFTiQALVZxcbZvIUBFMhhiKcUEU.bvQmr+mc4lKPhu6Re.LAxsiw5cJFH-\",\n    \"full\": \"http://znoZBSVrwf.tgaXezHXtMt4vWsTJ2Xi0NNwgdRIB0VCWz+3YKU4,a9\",\n    \"regular\": \"http://icmVHeYEhsk.dcyiCxMGnl0ZBbzMOvwJX9SAobCS5fwngtwus697BHJYuDGtLVoJ1U.9CrPnVVhPmV,OZ+7lMl\",\n    \"small\": \"https://qJT.dfL-,OzvUtEFYn-.pHzTXfeC+J3bfu5.w7U2,ZxDdn22qeDTWxyTAt9r\",\n    \"thumb\": \"https://SsodrDVvyDirfEF.hpunmEoI9HOSVQezkoHGT\",\n    \"small_s3\": \"https://SwblkcsbPsziGLJnlsIPzdkxrFXBhzeBd.xhzBBNqn355nW0CVCoXBxeyCAaKw6\"\n  },\n  \"links\": {\n    \"self\": \"https://zEGtJzZ.noaf.RLtg++bMYQLu2UkF0YI,y-s\",\n    \"html\": \"http://sDyRBFNGOjNxoypLMmpndIdiXhlIaCTB.wwuqePPc3nwX1q6qhxbXEq4XNGltY331.sFbKUaqXSbAVoFDW2W\",\n    \"download\": \"https://VAFNbqLFnIN.xygikBNbmbaY,sxNPPHEjYQBd8.-mF\",\n    \"download_location\": \"http://vgMRPbjTD.gooqZT8W1.3W9nHhz4ZeWr8N8PfLL,GIrBI1bXdVEgKXKCsJ.bM2nruRohub2\"\n  },\n  \"user\": {\n    \"id\": \"string\",\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"portfolio_url\": null,\n    \"bio\": \"string\",\n    \"location\": null,\n    \"total_likes\": 9211,\n    \"total_photos\": 8893,\n    \"total_collections\": 7229,\n    \"profile_image\": {\n      \"small\": \"http://ejtTWAg.bjlQCBZn5efM8oFzxXPYM-TBzip,+xiGKdmoVi9,tTLIgDTPe9Rgmum\",\n      \"medium\": \"https://lk.ddsxS4JtUXonXT2OxWnHG7yi.ybtqRdJiBDMvZFOWjEvsGF8R9D+qrHT70-3Hs\",\n      \"large\": \"http://IUhficLflYbM.xryzmxXtly78iazb3NZsaE.NIj3AHquEjEZq\"\n    },\n    \"links\": {\n      \"self\": \"http://qmkSNVceiBYCyBMqK.vlegxoIMqBbKIPamUK88VKgyzBykmYxtl5J8-igW4Gylmnmh\",\n      \"html\": \"https://IbrIr.ibewsoXGHGVlP2QtqHOn+ljoN.pdh3l1Mvh-,0Dwaihuzy\",\n      \"photos\": \"http://SsySzqmXmdKsnxQYBimpr.hpejkcyX+.vDyJ.JnEM8Jx96ygBlKTaiy1F6F08smKWUn+1LSUdpfSJ.dkFu6DOwHHVUmK7ujqamtgsp7l8cD\",\n      \"likes\": \"https://KkXcYXPPSdkdzAfdvQz.exvaEO5vCaQNhfrTUBAp3AV3Wwb48rp2UJUmm76KRPwDnyTiXQznm6OptZCUN-55WoWb9\"\n    }\n  },\n  \"location\": {\n    \"name\": \"string\",\n    \"city\": null,\n    \"country\": \"string\",\n    \"position\": {\n      \"latitude\": null,\n      \"longitude\": null\n    }\n  },\n  \"tags\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\"\n    }\n  ],\n  \"exif\": {\n    \"make\": \"string\",\n    \"model\": null,\n    \"name\": null,\n    \"exposure_time\": \"string\",\n    \"aperture\": \"string\",\n    \"focal_length\": \"string\",\n    \"iso\": 1008\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "aa44d692-36f8-4ccd-a4c1-d32b9f81302e",
-              "name": "Missing or invalid authentication",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"description\": \"<string>\",\n  \"show_on_profile\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"location\": {\n    \"latitude\": \"<float>\",\n    \"longitude\": \"<float>\",\n    \"name\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
                 }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "53d0e988-b76d-4005-bb87-920321c3e1aa",
-              "name": "Resource not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: oauth2",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PUT",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"description\": \"<string>\",\n  \"show_on_profile\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"location\": {\n    \"latitude\": \"<float>\",\n    \"longitude\": \"<float>\",\n    \"name\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"errors\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "createdAt": "2026-10-21T21:15:41.000Z",
+              "updatedAt": "2026-10-21T21:15:41.000Z",
+              "uid": "35240-092f638c-0512-439e-87e0-14ab04a62760"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5a99d71a-e0a0-4866-98d4-c8e9b357a0e0",
-          "name": "Get a Random Photo",
-          "request": {
-            "name": "Get a Random Photo",
-            "description": {
-              "content": "Retrieve one or more random photos. Optionally filter by orientation, color, topic, collection, featured status, username, or search query.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "photos",
-                "random"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "collections",
-                  "value": "<string>",
-                  "description": "Comma-separated collection IDs to filter by"
-                },
-                {
-                  "disabled": false,
-                  "key": "topics",
-                  "value": "<string>",
-                  "description": "Comma-separated topic IDs or slugs to filter by"
-                },
-                {
-                  "disabled": false,
-                  "key": "username",
-                  "value": "<string>",
-                  "description": "Limit to photos by a specific user"
-                },
-                {
-                  "disabled": false,
-                  "key": "query",
-                  "value": "<string>",
-                  "description": "Search query to filter random photos"
-                },
-                {
-                  "disabled": false,
-                  "key": "orientation",
-                  "value": "<string>",
-                  "description": "Filter by photo orientation"
-                },
-                {
-                  "disabled": false,
-                  "key": "content_filter",
-                  "value": "low",
-                  "description": "Content safety filter level"
-                },
-                {
-                  "disabled": false,
-                  "key": "count",
-                  "value": "1",
-                  "description": "Number of random photos (returns array if count > 1)"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5ec90ee9-1e41-4225-bfe6-1d1f88b58ea4",
-              "name": "A random photo or array of photos",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    "random"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "collections",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "topics",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "username",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "query",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "orientation",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "content_filter",
-                      "value": "low"
-                    },
-                    {
-                      "key": "count",
-                      "value": "1"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"Dwu85P9SOIk\",\n  \"created_at\": \"2013-02-16T16:48:20.640Z\",\n  \"updated_at\": \"1989-11-26T21:10:51.442Z\",\n  \"promoted_at\": null,\n  \"width\": 5616,\n  \"height\": 3744,\n  \"color\": \"#6E633A\",\n  \"blur_hash\": \"L~I64nofRjof%MQZWBS$Mxnhx]t6\",\n  \"description\": null,\n  \"alt_description\": null,\n  \"likes\": 8180,\n  \"downloads\": 873,\n  \"views\": 3917,\n  \"liked_by_user\": false,\n  \"urls\": {\n    \"raw\": \"https://UYzvWWcFTiQALVZxcbZvIUBFMhhiKcUEU.bvQmr+mc4lKPhu6Re.LAxsiw5cJFH-\",\n    \"full\": \"http://znoZBSVrwf.tgaXezHXtMt4vWsTJ2Xi0NNwgdRIB0VCWz+3YKU4,a9\",\n    \"regular\": \"http://icmVHeYEhsk.dcyiCxMGnl0ZBbzMOvwJX9SAobCS5fwngtwus697BHJYuDGtLVoJ1U.9CrPnVVhPmV,OZ+7lMl\",\n    \"small\": \"https://qJT.dfL-,OzvUtEFYn-.pHzTXfeC+J3bfu5.w7U2,ZxDdn22qeDTWxyTAt9r\",\n    \"thumb\": \"https://SsodrDVvyDirfEF.hpunmEoI9HOSVQezkoHGT\",\n    \"small_s3\": \"https://SwblkcsbPsziGLJnlsIPzdkxrFXBhzeBd.xhzBBNqn355nW0CVCoXBxeyCAaKw6\"\n  },\n  \"links\": {\n    \"self\": \"https://zEGtJzZ.noaf.RLtg++bMYQLu2UkF0YI,y-s\",\n    \"html\": \"http://sDyRBFNGOjNxoypLMmpndIdiXhlIaCTB.wwuqePPc3nwX1q6qhxbXEq4XNGltY331.sFbKUaqXSbAVoFDW2W\",\n    \"download\": \"https://VAFNbqLFnIN.xygikBNbmbaY,sxNPPHEjYQBd8.-mF\",\n    \"download_location\": \"http://vgMRPbjTD.gooqZT8W1.3W9nHhz4ZeWr8N8PfLL,GIrBI1bXdVEgKXKCsJ.bM2nruRohub2\"\n  },\n  \"user\": {\n    \"id\": \"string\",\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"portfolio_url\": null,\n    \"bio\": \"string\",\n    \"location\": null,\n    \"total_likes\": 9211,\n    \"total_photos\": 8893,\n    \"total_collections\": 7229,\n    \"profile_image\": {\n      \"small\": \"http://ejtTWAg.bjlQCBZn5efM8oFzxXPYM-TBzip,+xiGKdmoVi9,tTLIgDTPe9Rgmum\",\n      \"medium\": \"https://lk.ddsxS4JtUXonXT2OxWnHG7yi.ybtqRdJiBDMvZFOWjEvsGF8R9D+qrHT70-3Hs\",\n      \"large\": \"http://IUhficLflYbM.xryzmxXtly78iazb3NZsaE.NIj3AHquEjEZq\"\n    },\n    \"links\": {\n      \"self\": \"http://qmkSNVceiBYCyBMqK.vlegxoIMqBbKIPamUK88VKgyzBykmYxtl5J8-igW4Gylmnmh\",\n      \"html\": \"https://IbrIr.ibewsoXGHGVlP2QtqHOn+ljoN.pdh3l1Mvh-,0Dwaihuzy\",\n      \"photos\": \"http://SsySzqmXmdKsnxQYBimpr.hpejkcyX+.vDyJ.JnEM8Jx96ygBlKTaiy1F6F08smKWUn+1LSUdpfSJ.dkFu6DOwHHVUmK7ujqamtgsp7l8cD\",\n      \"likes\": \"https://KkXcYXPPSdkdzAfdvQz.exvaEO5vCaQNhfrTUBAp3AV3Wwb48rp2UJUmm76KRPwDnyTiXQznm6OptZCUN-55WoWb9\"\n    }\n  },\n  \"location\": {\n    \"name\": \"string\",\n    \"city\": null,\n    \"country\": \"string\",\n    \"position\": {\n      \"latitude\": null,\n      \"longitude\": null\n    }\n  },\n  \"tags\": [\n    {\n      \"type\": \"string\",\n      \"title\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"title\": \"string\"\n    }\n  ],\n  \"exif\": {\n    \"make\": \"string\",\n    \"model\": null,\n    \"name\": null,\n    \"exposure_time\": \"string\",\n    \"aperture\": \"string\",\n    \"focal_length\": \"string\",\n    \"iso\": 1008\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "59e2c09b-b739-4241-a3b8-071e091f01e8",
-              "name": "Missing or invalid authentication",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    "random"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "collections",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "topics",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "username",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "query",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "orientation",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "content_filter",
-                      "value": "low"
-                    },
-                    {
-                      "key": "count",
-                      "value": "1"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f1a9b87e-b558-47c9-98c8-4f0d85a69b17",
-          "name": "Get Photo Statistics",
-          "request": {
-            "name": "Get Photo Statistics",
-            "description": {
-              "content": "Retrieve statistics for a photo (downloads, views, likes) over time.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "photos",
-                ":id",
-                "statistics"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "resolution",
-                  "value": "days",
-                  "description": "Time resolution for statistics"
-                },
-                {
-                  "disabled": false,
-                  "key": "quantity",
-                  "value": "30",
-                  "description": "Number of data points to return"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Photo ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "8a87aa4d-2a03-432a-96f5-de2a848663ac",
-              "name": "Photo statistics",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id",
-                    "statistics"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "resolution",
-                      "value": "days"
-                    },
-                    {
-                      "key": "quantity",
-                      "value": "30"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"downloads\": {\n    \"total\": 4877,\n    \"historical\": {\n      \"change\": 8862,\n      \"average\": 3603,\n      \"resolution\": \"string\",\n      \"quantity\": 7580,\n      \"values\": [\n        {\n          \"date\": \"1974-03-10\",\n          \"value\": 8956\n        },\n        {\n          \"date\": \"2005-12-04\",\n          \"value\": 6723\n        }\n      ]\n    }\n  },\n  \"views\": {\n    \"total\": 6860,\n    \"historical\": {\n      \"change\": 126,\n      \"average\": 309,\n      \"resolution\": \"string\",\n      \"quantity\": 5185,\n      \"values\": [\n        {\n          \"date\": \"1986-05-29\",\n          \"value\": 9545\n        },\n        {\n          \"date\": \"1947-06-02\",\n          \"value\": 2849\n        }\n      ]\n    }\n  },\n  \"likes\": {\n    \"total\": 2951,\n    \"historical\": {\n      \"change\": 8712,\n      \"average\": 7208,\n      \"resolution\": \"string\",\n      \"quantity\": 9567,\n      \"values\": [\n        {\n          \"date\": \"1982-05-28\",\n          \"value\": 690\n        },\n        {\n          \"date\": \"2017-12-10\",\n          \"value\": 316\n        }\n      ]\n    }\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d87a1756-8cb7-4c64-9f47-50d1bffab345",
-              "name": "Missing or invalid authentication",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id",
-                    "statistics"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "resolution",
-                      "value": "days"
-                    },
-                    {
-                      "key": "quantity",
-                      "value": "30"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3869c194-c28b-4338-8757-bc31ba31267b",
-              "name": "Resource not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id",
-                    "statistics"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "resolution",
-                      "value": "days"
-                    },
-                    {
-                      "key": "quantity",
-                      "value": "30"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0c3a72bc-b778-45e9-906c-a527e26887c2",
-          "name": "Track a Photo Download",
-          "request": {
-            "name": "Track a Photo Download",
-            "description": {
-              "content": "Track a photo download event. Must be called when a user downloads a photo to comply with Unsplash API guidelines. Returns the photo's download URL.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "photos",
-                ":id",
-                "download"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) Photo ID"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d47010bd-94e8-4a67-b2a2-0ed2509de1f9",
-              "name": "Download tracking response with download URL",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id",
-                    "download"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"url\": \"http://pyXFrNpcJedIjfgtfKBzcGFWb.hyrnuJnVizb+,jAmDIDCb1NkG0y-oe.\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a0e3992a-40e7-4105-a38b-82068b0d36fa",
-              "name": "Missing or invalid authentication",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id",
-                    "download"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "179aea27-3d22-4af0-a212-61a96c7f8dd9",
-              "name": "Resource not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "photos",
-                    ":id",
-                    "download"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) Photo ID"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"errors\": [\n    \"string\",\n    \"string\"\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T21:15:41.000Z",
+          "updatedAt": "2026-10-21T21:15:41.000Z",
+          "uid": "35240-c75c03eb-f14a-488b-87bf-6a7e78f3881b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api.unsplash.com",
-      "key": "baseUrl"
+      "id": "481826ef-e194-4043-a4d7-9cec13a30563",
+      "createdAt": "2026-10-21T21:15:41.000Z",
+      "updatedAt": "2026-10-21T21:15:41.000Z",
+      "uid": "35240-481826ef-e194-4043-a4d7-9cec13a30563"
     }
   ],
   "auth": {
@@ -1321,25 +1329,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "5b68b81c-5cda-4711-9416-bb159477bc89",
-    "name": "Unsplash Collections Photos API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Unsplash API provides access to the world's largest open collection of high-quality, freely usable photos. Build photo-powered applications with search, random photos, user profiles, collections, topics, and statistics. Authentication uses Client-ID for public access or OAuth 2.0 Bearer tokens for user-authenticated operations. Rate limits: 50 req/hr (demo), 1000 req/hr (production). Downloads must be tracked via the /photos/:id/download endpoint per Unsplash API guidelines.\n\nContact Support:\n Name: Unsplash Developers",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.unsplash.com"
     }
-  }
+  ]
 }
